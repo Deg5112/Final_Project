@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Street View panorama tiles</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        *{
+            border: 1px solid black;
+        }
+
+        #street-view {
+            height: 100%;
+            width: 100%;
+        }
+        #googleContainer{
+            width: 80%;
+            height: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+        }
+        #navigation{
+            border: 1px solid black;
+            width: 20%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background-color: gray;
+        }
+
+        #zillow{
+             border: 1px solid black;
+             position: absolute;
+             left: 20%;
+             width: 40%;
+             height: 50%;
+         }
+
+        #yelp{
+            border: 1px solid black;
+            position: absolute;
+            right: 0;
+            width: 40%;
+            height: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="navigation">navigation</div>
+
+<div id="zillow">
+    zillow
+    <!-- Your Zillow Web Services Identification (ZWSID) is: X1-ZWz1f1y483y2ob_3l8b3-->
+</div>
+
+<div id="yelp">
+    yelp
+</div>
+
+<!--whatever apartment I click on from the search result I see on the dual map below with google maps?-->
+<div id="googleContainer">
+    <div id="street-view"></div>
+</div>
+
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize">
+</script>
+<script src="maps.js"></script>
+</body>
+</html>

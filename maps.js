@@ -1,71 +1,93 @@
+// get coordinates
+// api for geocoding   AIzaSyAj4QUN4KwWkF8CtACrJ5Cc_YUmjyzCksA
 
+function getCoordinates(street, city, state, zip){
+    //regex for street number, [1-9]*
+    var finalStreetNumber = null;
+    var valueName = null;
+    var cityName = null;
 
-var panorama;
+   var streetNumber = street.match(/[1-9]*/);
+   var finalStreetNumber = streetNumber[0] + '+';  //914+
+    //regex for name [a-zA-Z]*
+   var streetNameArray = street.match(/[a-zA-Z]+/g);
 
-// StreetViewPanoramaData of a panorama just outside the Google Sydney office.
-var outsideGoogle;
+    if(streetNameArray.length>0){  //if more than one in the array concatenate all to the number with a +
+        for(var i = 0; i<streetNameArray.length; i++){
 
-// StreetViewPanoramaData for a custom panorama: the Google Sydney reception.
-function getReceptionPanoramaData() {
-    return {
-        location: {
-            pano: 'reception',  // The ID for this custom panorama.
-            description: 'Google Sydney - Reception',
-            latLng: new google.maps.LatLng(-33.86684, 151.19583)
-        },
-        links: [{
-            heading: 195,
-            description: 'Exit',
-            pano: outsideGoogle.location.pano
-        }],
-        copyright: 'Imagery (c) 2010 Google',
-        tiles: {
-            tileSize: new google.maps.Size(1024, 512),
-            worldSize: new google.maps.Size(2048, 1024),
-            centerHeading: 105,
-            getTileUrl: function(pano, zoom, tileX, tileY) {
-                return 'images/' +
-                    'panoReception1024-' + zoom + '-' + tileX + '-' + tileY + '.jpg';
+            if(i === streetNameArray.length-1){
+                valueName = streetNameArray[i] + ',+';
+                finalStreetNumber = finalStreetNumber + valueName;
+            }else{
+               valueName = streetNameArray[i] + '+';
+                finalStreetNumber = finalStreetNumber + valueName;
             }
         }
-    };
-}
+    }else{
+        var newValueName = streetNameArray[0] + ',+';
+        finalStreetNumber = finalStreetNumber + newValueName;
+    }
 
-function initPanorama() {
-    panorama = new google.maps.StreetViewPanorama(
-        document.getElementById('street-view'),
-        {
-            pano: outsideGoogle.location.pano,
-            // Register a provider for our custom panorama.
-            panoProvider: function(pano) {
-                if (pano === 'reception') {
-                    return getReceptionPanoramaData();
-                }
+
+
+//
+//city concat
+    var cityArray = city.match(/[a-zA-Z]+/g);
+    if(cityArray.length>0){  //if more than one in the array concatenate all to the number with a +
+        for(var x = 0; x<cityArray.length; x++){
+            if(x === cityArray.length-1){  //is it the last?
+                cityName = cityArray[x] + ',+';
+                finalStreetNumber = finalStreetNumber + cityName;
+            }else{
+                cityName = cityArray[x] + '+';
+                finalStreetNumber = finalStreetNumber + cityName;
             }
-        });
+        }
+    }else{
+        cityName = cityArray[x] + ',+';
+        finalStreetNumber = finalStreetNumber + cityName;
+    }
+    console.log(finalStreetNumber);
 
-    // Add a link to our custom panorama from outside the Google Sydney office.
-    panorama.addListener('links_changed', function() {
-        if (panorama.getPano() === outsideGoogle.location.pano) {
-            panorama.getLinks().push({
-                description: 'Google Sydney',
-                heading: 25,
-                pano: 'reception'
-            });
+    finalStreetNumber = finalStreetNumber + state;
+
+
+
+
+
+    var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + finalStreetNumber + "&key=AIzaSyAj4QUN4KwWkF8CtACrJ5Cc_YUmjyzCksA";
+
+    $.ajax({
+        dataType: 'json',
+        method: 'POST',
+        url: url,
+        success: function(response){
+            //console.log(response);
+            var lat = response.results[0].geometry.location.lat;
+            var lng = response.results[0].geometry.location.lng;
+            console.log('type ' + ' ' + typeof lat);
+
+            var map = new google.maps.Map( $('#map')[0], {center: {lat: lat, lng: lng}, zoom: 14} );
+            var panorama = new google.maps.StreetViewPanorama($('#pano')[0], {position: {lat: lat, lng: lng}, pov: {heading: 34, pitch: 10}});
+            map.setStreetView(panorama);
+        },
+        error: function(response){
+           console.log(response);
         }
     });
 }
-function initialize() {
-    // Use the Street View service to find a pano ID on Pirrama Rd, outside the
-    // Google office.
-    var streetviewService = new google.maps.StreetViewService;
-    streetviewService.getPanorama(
-        {location: {lat: -33.867386, lng: 151.195767}},
-        function(result, status) {
-            if (status === google.maps.StreetViewStatus.OK) {
-                outsideGoogle = result;
-                initPanorama();
-            }
-        });
-}
+
+$(function(){
+    $('.btn').click(function(){
+        var street = $('input:first-child').val();
+        var city = $('input:nth-child(2)').val();
+        var state = $('input:nth-child(3)').val();
+        var zip = $('input').last().val();
+        getCoordinates(street, city, state, zip);
+    });
+});
+
+
+
+
 

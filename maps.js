@@ -165,9 +165,9 @@ function zillowGetZPID(url){  //gets property id form zillow, takes the custom u
 
 
 function zillowGetPropInfo(zpid){
-    var $div = $('<div>');
-    var $img = $('<img>');
-    var $listIndicator = $('<li>');
+    var $div = null;
+    var $img = null;
+    var $listIndicator = null;
     $.ajax({
         method: 'POST',
         crossDomain: true,
@@ -175,23 +175,30 @@ function zillowGetPropInfo(zpid){
         success: function(response){
             var newResponse = xmlToJson(response);
             var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
+
             console.log(imageArray);
             for(var i = 0; i < imageArray.length; i++){
-            $listIndicator.attr('data-target', '#myCarousel').attr('data-slide-to', i);
+                $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
                 var src = imageArray[i]['#text'];
                 console.log(src);
-                $img.attr('src', src);
-                $div.append($img);
-                if(i=0){
+                $img = $('<img>').attr('src', src).css({width: '100%', height: '100%'});
+                $div = $('<div>').css({height: '100%'}).append($img);
+                if(i===0){
                     $listIndicator.addClass('active');
                     $div.addClass('item active');
                 }else{
                     $div.addClass('item');
                 }
                 //append list item and images to dom
+                console.log($div[0]);
+                console.log($listIndicator[0]);
                 $('.carousel-indicators').append($listIndicator);
                 $('.carousel-inner').append($div);
+                //$('#myCarousel').attr('data-ride', 'carousel').carousel({interval: 1000});
+                //$('#myCarousel').carousel('cycle');
             }
+            console.log($('#myCarousel'));
+            $('#myCarousel').attr('data-ride', 'carousel');
         },
         error: function(response){
             var newResponse = xmlToJson(response);

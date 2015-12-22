@@ -79,11 +79,12 @@ function getCoordinates(street, city, state, zip){
 
 $(function(){
     $('.btn').click(function(){
-        var street = $('input:first-child').val();
-        var city = $('input:nth-child(2)').val();
-        var state = $('input:nth-child(3)').val();
-        var zip = $('input').last().val();
-        getCoordinates(street, city, state, zip);
+        var street = $('#street').val();
+        var city = $('#city').val();
+        var state = $('#state').val();
+        console.log(street, city, state);
+
+        getCoordinates(street, city, state);
     });
 });
 

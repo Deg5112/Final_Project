@@ -98,7 +98,6 @@ function zillowIDUrl(street, city, state){
 
     var streetNumber = street.match(/[0-9]*/);
     var finalStreetNumber = streetNumber[0] + '+';  //914+
-    console.log('street number ', finalStreetNumber);
     //regex for name [a-zA-Z]*
     var streetNameArray = street.match(/[a-zA-Z]+/g);
 
@@ -144,16 +143,31 @@ function zillowIDUrl(street, city, state){
 }
 
 function zillowGetZPID(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
+    var zpid = null;
     $.ajax({
        method: 'POST',
         crossDomain: true,
         url: url,
         success: function(response){
            var newResponse = xmlToJson(response);
-            console.log(newResponse);
-            var zpid = newResponse['SearchResults:searchresults']['response']['results']['result']['zpid']['#text'];
-            console.log('zillow id' + ' ' + zpid);
-            zillowGetPropInfo(zpid);
+            var result = newResponse['SearchResults:searchresults']['response']['results']['result'];
+            console.log('typeof result', typeof result);
+            if(!(Array.isArray(result)) ){
+                console.log('object!');
+                zpid = result['zpid']['#text'];
+                console.log('zillow id' + ' ' + zpid);
+                zillowGetPropInfo(zpid);
+                return;
+            }
+            if( Array.isArray(result) ) {
+                console.log('array!');
+                console.log(result);
+                zpid = result[0]['zpid']['#text'];
+                console.log('zillow id' + ' ' + zpid);
+                zillowGetPropInfo(zpid);
+                return;
+            }
+
 
         },
         error: function(response){
@@ -174,13 +188,14 @@ function zillowGetPropInfo(zpid){
         url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid,
         success: function(response){
             var newResponse = xmlToJson(response);
+            console.log(newResponse);
             var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
 
             console.log(imageArray);
             for(var i = 0; i < imageArray.length; i++){
                 $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
                 var src = imageArray[i]['#text'];
-                console.log(src);
+
                 $img = $('<img>').attr('src', src).css({width: '100%', height: '100%'});
                 $div = $('<div>').css({height: '100%'}).append($img);
                 if(i===0){
@@ -190,19 +205,16 @@ function zillowGetPropInfo(zpid){
                     $div.addClass('item');
                 }
                 //append list item and images to dom
-                console.log($div[0]);
-                console.log($listIndicator[0]);
                 $('.carousel-indicators').append($listIndicator);
                 $('.carousel-inner').append($div);
                 //$('#myCarousel').attr('data-ride', 'carousel').carousel({interval: 1000});
                 //$('#myCarousel').carousel('cycle');
             }
-            console.log($('#myCarousel'));
             $('#myCarousel').attr('data-ride', 'carousel');
         },
         error: function(response){
             var newResponse = xmlToJson(response);
-            console.log(newResponse);
+
         }
     });
 }

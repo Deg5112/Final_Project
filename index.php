@@ -16,128 +16,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+    <script src="javascript/angularApp.js"></script>
+    <script src="javascript/apiService.js"></script>
+    <script src="javascript/urlCreationService.js"></script>
+    <script src="javascript/xmlToJson.js"></script>
+    <script src="javascript/displayController.js"></script>
+    <script src="javascript/formController.js"></script>
     <title>Custom Street View panorama tiles</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-        body{
-            height: 1015px;
-        }
-
-        div#map, div#pano {
-            height: 100%;
-        }
-
-        #googleContainer {
-            height: 100%;
-        }
-
-
-        .container-fluid:nth-child(2) {
-            height: 95%;
-            margin-top: 3%;
-        }
-        nav.navbar.navbar-inverse {
-            margin-bottom: 0%;
-        }
-
-        .col-md-3{
-            border: 1px solid black !important;
-        }
-
-        /*form*/
-
-        .col-md-4:first-child {
-            height: 100%;
-            background-color: #69D2E7;
-        }
-        /*container for right section*/
-        .col-md-8 {
-            height: 100%;
-        }
-
-        .container-fluid {
-            height: 100%;
-        }
-        .col-md-4>.container-fluid>.row:first-child {
-            height: 30%;
-        }
-
-        .col-md-4>.container-fluid>.row:nth-child(2) {
-            height: 70%;
-        }
-
-        .col-md-8 .container-fluid .row:first-child{
-            height: 50%;
-        }
-
-        .col-md-8 .row:first-child>.col-md-6 {
-            height: 100%;
-        }
-
-        .col-md-8 .container-fluid .row:nth-child(2) {
-            height: 50%;
-        }
-
-        .col-md-8 .container-fluid .row:nth-child(2) .col-xs-12 {
-            height: 100%;
-        }
-
-        .col-xs-6 {
-            height: 100%;
-        }
-
-        .col-md-8 .container-fluid .row:nth-child(2) .col-xs-6 {
-            height: 100%;
-        }
-
-        div#myCarousel {
-            height: 100%;
-        }
-
-        .carousel-inner {
-            height: 100%;
-        }
-
-        .item.active{
-            height: 100%;
-        }
-
-        nav.navbar.navbar-fixed-top {
-            background-color: #F38630;
-        }
-
-        .panel-heading a {
-            font-size: 1.7em;
-        }
-
-        .panel-body {
-            font-size: 1.6em;
-        }
-
-        a.navbar-brand {
-            font-size: 1.8em;
-            font-family: cursive;
-            color: black;
-        }
-
-        .navbar-nav>li>a {
-            font-size: 1.6em;
-            color: black;
-        }
-
-        .btn-success {
-            color: #fff;
-            background-color: #5cb85c;
-            border-color: #4cae4c;
-            font-size: 1.5em;
-            padding: 1% 5%;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
-<body>
+<body ng-app="apartmentShark">
 
 
 <nav class="navbar navbar-fixed-top"> <!--top navigation-->
@@ -157,28 +50,31 @@
 
 <div class="container-fluid">
 
-    <div class="col-md-4" >
+    <div class="col-md-4">
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" ng-controller="formController as fc">
                 <div class="col-md-12">
                     <h2>search for an apartment</h2>
                     <div class="form-group">
                         <label for="street">Street:</label>
-                        <input id='street' type="text" placeholder="enter a street" class="form-control">
+                        <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
+                        <p>{{fc.currentFormInput.street}}</p>
                     </div>
 
                     <div class="form-group">
                         <label for="city">City:</label>
-                        <input id="city" type="text" placeholder = "enter a city" class="form-control">
+                        <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
+                        <p>{{fc.currentFormInput.city}}</p>
                     </div>
 
                     <div class="form-group">
                         <label for="street">Street:</label>
-                        <input id='state' type="text" placeholder="enter a state" class="form-control">
+                        <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
+                        <p>{{fc.currentFormInput.state}}</p>
                     </div>
                     <br>
-                    <button type="button" class="btn btn-success" >Search!</button>
+                    <button type="button" class="btn btn-success" ng-click="">Search!</button>
                 </div>
             </div>
 
@@ -196,9 +92,16 @@
                                     </h4>
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapse in">
-                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment"> comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                                        </div>
+
+
+                                    </div>
                                 </div>
                             </div>
 
@@ -209,9 +112,15 @@
                                     </h4>
                                 </div>
                                 <div id="collapse2" class="panel-collapse collapse">
-                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment">comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
 
@@ -222,35 +131,33 @@
                                     </h4>
                                 </div>
                                 <div id="collapse3" class="panel-collapse collapse">
-                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment">comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="panel panel-default"> <!--panel 4-->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Apex Laguna</a>
-                                    </h4>
-                                </div>
-                                <div id="collapse4" class="panel-collapse collapse">
-                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                                </div>
-                            </div>
 
                             <div class="panel panel-default"> <!--panel 5-->
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">The Residences at Bella Terra</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">The Residences at Bella Terra</a>
                                     </h4>
                                 </div>
-                                <div id="collapse5" class="panel-collapse collapse">
-                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                <div id="collapse4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment">comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -261,9 +168,14 @@
                                     </h4>
                                 </div>
                                 <div id="collapse5" class="panel-collapse collapse">
-                                    <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label for="comment">comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

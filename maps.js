@@ -165,13 +165,33 @@ function zillowGetZPID(url){  //gets property id form zillow, takes the custom u
 
 
 function zillowGetPropInfo(zpid){
+    var $div = $('<div>');
+    var $img = $('<img>');
+    var $listIndicator = $('<li>');
     $.ajax({
         method: 'POST',
         crossDomain: true,
         url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid,
         success: function(response){
             var newResponse = xmlToJson(response);
-            console.log(newResponse);
+            var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
+            console.log(imageArray);
+            for(var i = 0; i < imageArray.length; i++){
+            $listIndicator.attr('data-target', '#myCarousel').attr('data-slide-to', i);
+                var src = imageArray[i]['#text'];
+                console.log(src);
+                $img.attr('src', src);
+                $div.append($img);
+                if(i=0){
+                    $listIndicator.addClass('active');
+                    $div.addClass('item active');
+                }else{
+                    $div.addClass('item');
+                }
+                //append list item and images to dom
+                $('.carousel-indicators').append($listIndicator);
+                $('.carousel-inner').append($div);
+            }
         },
         error: function(response){
             var newResponse = xmlToJson(response);

@@ -1,6 +1,7 @@
 <?php header('Access-Control-Allow-Origin: *'); ?>
-<!--need to ask how to allow crossorigin without the plugin? -->
+<!--TODO need to ask how to allow crossorigin without the plugin? -->
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
+<!--Different views with angular routes? Totally can do that-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -119,9 +120,16 @@
         }
 
         .navbar-nav>li>a {
-            padding-top: 15px;
-            padding-bottom: 15px;
             font-size: 1.6em;
+            color: black;
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            font-size: 1.5em;
+            padding: 1% 5%;
         }
 
 
@@ -153,11 +161,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <h2>search for an apartment</h2>
-                    <input id='street' type="text" placeholder="street" class="form-control">
-                    <input id="city" type="text" placeholder = "city" class="form-control">
-                    <input id='state' type="text" placeholder="state" class="form-control">
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input id='street' type="text" placeholder="enter a street" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input id="city" type="text" placeholder = "enter a city" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="street">Street:</label>
+                        <input id='state' type="text" placeholder="enter a state" class="form-control">
+                    </div>
                     <br>
-                    <button type="button" class="btn btn-info" >Go</button>
+                    <button type="button" class="btn btn-success" >Search!</button>
                 </div>
             </div>
 

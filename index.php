@@ -1,3 +1,5 @@
+<?php header('Access-Control-Allow-Origin: *'); ?>
+<!--need to ask how to allow crossorigin without the plugin? -->
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
 <!DOCTYPE html>
 <html>

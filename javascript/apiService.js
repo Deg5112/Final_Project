@@ -1,5 +1,8 @@
 app.service('apiService', function($http, xmlToJsonService){
+    //["$http", "xmlToJsonService", "$scope",
+
         var self = this;
+        self.imgArray = [];
         self.googleMapsApiCall = function(url) {
             $http({
                 url: url,
@@ -70,27 +73,35 @@ app.service('apiService', function($http, xmlToJsonService){
             var xmlObject = $.parseXML(response.data);
             var newResponse = xmlToJsonService.xmlToJson(xmlObject);
             var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
-                console.log('images array ', imageArray);
+
 
                 for(var i = 0; i < imageArray.length; i++){
                     $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
                     var src = imageArray[i]['#text'];
+                    //$scope.srcArray.push(src);
+                    var imgObj = {};
+                    //$img = $('<img>')  .attr('src', src).css({width: '100%', height: '100%'});
+                    //$div = $('<div>')  .css({height: '100%'}).append($img);
+                    imgObj.src=src;
 
-                    $img = $('<img>').attr('src', src).css({width: '100%', height: '100%'});
-                    $div = $('<div>').css({height: '100%'}).append($img);
                     if(i===0){
-                        $listIndicator.addClass('active');
-                        $div.addClass('item active');
+                        imgObj.listIndicatorClass = 'active';
+                        imgObj.divClass='item active';
                     }else{
-                        $div.addClass('item');
+                        imgObj.divClass='item';
+                        //$div.addClass('item');
                     }
+
+                    self.imgArray.push(imgObj);
+
                     //append list item and images to dom
-                    $('.carousel-indicators').append($listIndicator);
-                    $('.carousel-inner').append($div);
+                    //$('.carousel-indicators').append($listIndicator);
+                    //$('.carousel-inner').append($div);
                     //$('#myCarousel').attr('data-ride', 'carousel').carousel({interval: 1000});
                     //$('#myCarousel').carousel('cycle');
                 }
-
+                console.log(self.imgArray);
+                //div we can worry about later
                 $('#myCarousel').attr('data-ride', 'carousel');
             });
         };

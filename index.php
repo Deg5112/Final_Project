@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Optional theme -->
@@ -19,6 +19,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+
     <script src="javascript/angularApp.js"></script>
     <script src="javascript/apiService.js"></script>
     <script src="javascript/getIdFromZillowJson.js"></script>
@@ -26,6 +27,7 @@
     <script src="javascript/xmlToJson.js"></script>
     <script src="javascript/displayController.js"></script>
     <script src="javascript/formController.js"></script>
+    <script src="javascript/gallaryController.js"></script>
     <title>Custom Street View panorama tiles</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
@@ -203,8 +205,8 @@
                     <div class="zillow">zillow</div>
                 </div>
 
-
-                <div class="col-md-6">
+<!--                ng-controller="gallaryController as gC"-->
+                <div class="col-md-6" ng-controller="galleryController as gC" >
 
                         <div id="myCarousel" class="carousel slide">
                             <!-- Indicators -->
@@ -218,21 +220,10 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
 
-                                <div class="item active">
-                                    <img src="amanda.jpg" >
+                                <div ng-repeat='i in gC.returnArray()' ng-class="{{i.divClass}}">
+                                    <img ng-src="{{i.src}}" >
                                 </div>
 <!---->
-<!--                                <div class="item">-->
-<!--                                    <img src="background_silicon.jpg" >-->
-<!--                                </div>-->
-<!---->
-<!--                                <div class="item">-->
-<!--                                    <img src="gavin.jpg" >-->
-<!--                                </div>-->
-<!---->
-<!--                                <div class="item">-->
-<!--                                    <img src="erlich.jpg" >-->
-<!--                                </div>-->
 
                             </div>
 
@@ -273,7 +264,7 @@
 
 </div><!--main row ends-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize">
 </script>

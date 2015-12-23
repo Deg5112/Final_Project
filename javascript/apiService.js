@@ -1,4 +1,4 @@
-app.service('apiService', function($http){
+app.service('apiService', function($http, xmlToJsonService){
         var self = this;
         self.googleMapsApiCall = function(url) {
             $http({
@@ -21,7 +21,7 @@ app.service('apiService', function($http){
         };
 
 
-    self.zillowGetZPID = function(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
+    self.zillowGetZPID_XML = function(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
         var zpid = null;
         return $http({
             url: url,
@@ -61,16 +61,17 @@ app.service('apiService', function($http){
         var $div = null;
         var $img = null;
         var $listIndicator = null;
-        $.ajax({
-            method: 'POST',
-            crossDomain: true,
-            url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid,
-            success: function(response){
-                var newResponse = xmlToJson(response);
-                console.log(newResponse);
-                var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
 
+        return $http({
+            url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            method: 'POST'
+        }).then(function(response) {
+            var xmlObject = $.parseXML(response.data);
+            var newResponse = xmlToJsonService.xmlToJson(xmlObject);
+            var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
                 console.log('images array ', imageArray);
+
                 for(var i = 0; i < imageArray.length; i++){
                     $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
                     var src = imageArray[i]['#text'];
@@ -91,12 +92,42 @@ app.service('apiService', function($http){
                 }
 
                 $('#myCarousel').attr('data-ride', 'carousel');
-            },
-            error: function(response){
-                var newResponse = xmlToJson(response);
-
-            }
-        });
-    };
-
+            });
+        };
 });
+
+        //$.ajax({
+        //    method: 'POST',
+        //    crossDomain: true,
+        //    url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid,
+        //    success: function(response){
+        //        var newResponse = xmlToJson(response);
+        //        console.log(newResponse);
+        //        var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
+        //
+        //        console.log('images array ', imageArray);
+        //        for(var i = 0; i < imageArray.length; i++){
+        //            $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
+        //            var src = imageArray[i]['#text'];
+        //
+        //            $img = $('<img>').attr('src', src).css({width: '100%', height: '100%'});
+        //            $div = $('<div>').css({height: '100%'}).append($img);
+        //            if(i===0){
+        //                $listIndicator.addClass('active');
+        //                $div.addClass('item active');
+        //            }else{
+        //                $div.addClass('item');
+        //            }
+        //            //append list item and images to dom
+        //            $('.carousel-indicators').append($listIndicator);
+        //            $('.carousel-inner').append($div);
+        //            //$('#myCarousel').attr('data-ride', 'carousel').carousel({interval: 1000});
+        //            //$('#myCarousel').carousel('cycle');
+        //        }
+        //
+        //        $('#myCarousel').attr('data-ride', 'carousel');
+        //    },
+            //error: function(response){
+            //    var newResponse = xmlToJson(response);
+            //
+            //}

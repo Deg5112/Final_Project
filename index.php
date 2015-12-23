@@ -21,6 +21,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
     <script src="javascript/angularApp.js"></script>
     <script src="javascript/apiService.js"></script>
+    <script src="javascript/getIdFromZillowJson.js"></script>
     <script src="javascript/urlCreationService.js"></script>
     <script src="javascript/xmlToJson.js"></script>
     <script src="javascript/displayController.js"></script>
@@ -217,9 +218,9 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
 
-<!--                                <div class="item active">-->
-<!--                                    <img src="amanda.jpg" >-->
-<!--                                </div>-->
+                                <div class="item active">
+                                    <img src="amanda.jpg" >
+                                </div>
 <!---->
 <!--                                <div class="item">-->
 <!--                                    <img src="background_silicon.jpg" >-->

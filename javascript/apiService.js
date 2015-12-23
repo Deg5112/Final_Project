@@ -37,24 +37,24 @@ app.service('apiService', function($http){
         });
 
             //var newResponse = xmlToJson(response);
-            //var result = newResponse['SearchResults:searchresults']['response']['results']['result'];
-            //console.log('typeof result', typeof result);
-            //if(!(Array.isArray(result)) ){
-            //    console.log('object!');
-            //    zpid = result['zpid']['#text'];
-            //    console.log('zillow id' + ' ' + zpid);
-            //    zillowGetPropInfo(zpid);
-            //    return;
-            //}
-            //if( Array.isArray(result) ) {
-            //    console.log('array!');
-            //    console.log(result);
-            //    for(var i = 0; i < result.length; i++){
-            //        zpid = result[i]['zpid']['#text'];
-            //        console.log('zillow id' + ' ' + zpid);
-            //        zillowGetPropInfo(zpid);
-            //    }
-            //}
+            var result = newResponse['SearchResults:searchresults']['response']['results']['result'];
+            console.log('typeof result', typeof result);
+            if(!(Array.isArray(result)) ){
+                console.log('object!');
+                zpid = result['zpid']['#text'];
+                console.log('zillow id' + ' ' + zpid);
+                zillowGetPropInfo(zpid);
+                return;
+            }
+            if( Array.isArray(result) ) {
+                console.log('array!');
+                console.log(result);
+                for(var i = 0; i < result.length; i++){
+                    zpid = result[i]['zpid']['#text'];
+                    console.log('zillow id' + ' ' + zpid);
+                    zillowGetPropInfo(zpid);
+                }
+            }
     };
 
     self.zillowGetPropInfo = function(zpid){

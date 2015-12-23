@@ -69,12 +69,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="street">Street:</label>
+                        <label for="street">State:</label>
                         <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
                         <p>{{fc.currentFormInput.state}}</p>
                     </div>
                     <br>
-                    <button type="button" class="btn btn-success" ng-click="">Search!</button>
+                    <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
                 </div>
             </div>
 

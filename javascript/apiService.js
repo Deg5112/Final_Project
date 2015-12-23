@@ -1,62 +1,60 @@
 app.service('apiService', function($http){
         var self = this;
-        self.googleMapsApiCall = function(url){
-        $.ajax({
-            dataType: 'json',
-            method: 'POST',
-            url: url,
-            success: function(response){
-
-                var lat = response.results[0].geometry.location.lat;
-                var lng = response.results[0].geometry.location.lng;
-                console.log('lat', lat);
-                console.log('lng', lng);
+        self.googleMapsApiCall = function(url) {
+            $http({
+                url: url,
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: 'POST'
+            }).then(function (response) {
+                var lat = response['data']['results'][0]['geometry']['location']['lat'];
+                var lng = response['data'].results[0].geometry.location.lng;
                 //after we get a response back, grab the coordinates, store in variables, and plug into maps and pano
-                var map = new google.maps.Map( $('#map')[0], {center: {lat: lat, lng: lng}, zoom: 14} );
-                var panorama = new google.maps.StreetViewPanorama($('#pano')[0], {position: {lat: lat, lng: lng}, pov: {heading: 34, pitch: 10}});
+                var map = new google.maps.Map($('#map')[0], {center: {lat: lat, lng: lng}, zoom: 14});
+                var panorama = new google.maps.StreetViewPanorama($('#pano')[0], {
+                    position: {lat: lat, lng: lng},
+                    pov: {heading: 34, pitch: 10}
+                });
                 map.setStreetView(panorama);
-            },
-            error: function(response){
+            }, function(response){
+                console.log('failed');
+            });
+        };
 
-            }
-        });
-    };
 
     self.zillowGetZPID = function(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
         var zpid = null;
-        $.ajax({
-            method: 'POST',
-            crossDomain: true,
+        return $http({
             url: url,
-            success: function(response){
-                var newResponse = xmlToJson(response);
-                var result = newResponse['SearchResults:searchresults']['response']['results']['result'];
-                console.log('typeof result', typeof result);
-                if(!(Array.isArray(result)) ){
-                    console.log('object!');
-                    zpid = result['zpid']['#text'];
-                    console.log('zillow id' + ' ' + zpid);
-                    zillowGetPropInfo(zpid);
-                    return;
-                }
-                if( Array.isArray(result) ) {
-                    console.log('array!');
-                    console.log(result);
-                    for(var i = 0; i < result.length; i++){
-                        zpid = result[i]['zpid']['#text'];
-                        console.log('zillow id' + ' ' + zpid);
-                        zillowGetPropInfo(zpid);
-                    }
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            method: 'POST'
+        }).then(function(response) {
+            return response;
 
-                }
-
-
-            },
-            error: function(response){
-                var newResponse = xmlToJson(response);
-                console.log(newResponse);
-            }
+        }, function(response){
+            return response;
+            //var newResponse = xmlToJson(response);
+            //console.log(newResponse);
         });
+
+            //var newResponse = xmlToJson(response);
+            //var result = newResponse['SearchResults:searchresults']['response']['results']['result'];
+            //console.log('typeof result', typeof result);
+            //if(!(Array.isArray(result)) ){
+            //    console.log('object!');
+            //    zpid = result['zpid']['#text'];
+            //    console.log('zillow id' + ' ' + zpid);
+            //    zillowGetPropInfo(zpid);
+            //    return;
+            //}
+            //if( Array.isArray(result) ) {
+            //    console.log('array!');
+            //    console.log(result);
+            //    for(var i = 0; i < result.length; i++){
+            //        zpid = result[i]['zpid']['#text'];
+            //        console.log('zillow id' + ' ' + zpid);
+            //        zillowGetPropInfo(zpid);
+            //    }
+            //}
     };
 
     self.zillowGetPropInfo = function(zpid){

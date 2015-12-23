@@ -1,7 +1,7 @@
-app.service('xmlToJsonService', function(){
+app.service('xmlToJsonService', function($q){
     var self = this;
     self.xmlToJson = function(xml) {
-
+        console.log(xml);
         // Create the return object
         var obj = {};
 

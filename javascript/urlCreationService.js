@@ -1,13 +1,14 @@
-app.service('urlCreationService', function(){
+app.service('urlCreationService', function($q){
     var self = this;
-    self.createGoogleGeoCodeUrl = function(street, city, state, zip){
+    self.createGoogleGeoCodeUrl = function(street, city, state){
+        var defer = $q.defer();
         //regex for street number, [1-9]*
         var finalStreetNumber = null;
         var valueName = null;
         var cityName = null;
 
         var streetNumber = street.match(/[0-9]*/);
-        var finalStreetNumber = streetNumber[0] + '+';  //914+
+        finalStreetNumber = streetNumber[0] + '+';  //914+
         //regex for name [a-zA-Z]*
         var streetNameArray = street.match(/[a-zA-Z]+/g);
 
@@ -48,13 +49,14 @@ app.service('urlCreationService', function(){
 
         var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + finalStreetNumber + "&key=AIzaSyAj4QUN4KwWkF8CtACrJ5Cc_YUmjyzCksA";
 
-        googleMapsApiCall(url);
+        defer.resolve(url);
+        return defer.promise;
     };
 
 
     //zillow
     self.zillowIDUrl = function(street, city, state){
-
+        var defer = $q.defer();
         var finalStreetNumber = null;
         var valueName = null;
         var cityName = '';
@@ -100,8 +102,8 @@ app.service('urlCreationService', function(){
         //"http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&" + "address=" 2114+Bigelow+Ave&citystatezip=Seattle%2C+WA"
 
         var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&" + "address="+finalStreetNumber+ "citystatezip=" +cityName+ "%2C+" + state;
-        console.log('end url ', url);
+        defer.resolve(url);
+        return defer.promise;
 
-        zillowGetZPID(url);
     };
 });

@@ -208,20 +208,18 @@
 <!--                ng-controller="gallaryController as gC"-->
                 <div class="col-md-6" ng-controller="galleryController as gC" >
 
-                        <div id="myCarousel" class="carousel slide">
+
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
-<!--                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>-->
-<!--                                <li data-target="#myCarousel" data-slide-to="1"></li>-->
-<!--                                <li data-target="#myCarousel" data-slide-to="2"></li>-->
-<!--                                <li data-target="#myCarousel" data-slide-to="3"></li>-->
+                                <li ng-repeat='i in gC.returnArray()' data-target="#myCarousel" data-slide-to="{{$index}}" class="{{i.listIndicatorClass}}"></li>
                             </ol>
 
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner" role="listbox">
 
-                                <div ng-repeat='i in gC.returnArray()' ng-class="{{i.divClass}}">
-                                    <img ng-src="{{i.src}}" >
+                                <div ng-repeat='i in gC.returnArray()' ng-class="['apartmentPicsDiv', {{i.divClass}}">
+                                    <img ng-src="{{i.src}}" ng-class="apartmentPics">
                                 </div>
 <!---->
 

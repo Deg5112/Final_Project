@@ -1,4 +1,7 @@
-<?php header('Access-Control-Allow-Origin: *'); ?>
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+?>
 <!--TODO need to ask how to allow crossorigin without the plugin? -->
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
 <!--TODO Different views with angular routes? Totally can do that-->
@@ -7,6 +10,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Apartment-Shark</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -25,6 +32,7 @@
     <script src="javascript/getIdFromZillowJson.js"></script>
     <script src="javascript/urlCreationService.js"></script>
     <script src="javascript/xmlToJson.js"></script>
+    <script src="javascript/mainController.js"></script>
     <script src="javascript/displayController.js"></script>
     <script src="javascript/formController.js"></script>
     <script src="javascript/gallaryController.js"></script>
@@ -33,7 +41,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
-<body ng-app="apartmentShark">
+<body ng-app="apartmentShark" ng-controller="mainController as mC">
 
 
 <nav class="navbar navbar-fixed-top"> <!--top navigation-->
@@ -208,33 +216,44 @@
 <!--                ng-controller="gallaryController as gC"-->
                 <div class="col-md-6" ng-controller="galleryController as gC" >
 
-
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li ng-repeat='i in gC.returnArray()' data-target="#myCarousel" data-slide-to="{{$index}}" class="{{i.listIndicatorClass}}"></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-
-                                <div ng-repeat='i in gC.returnArray()' ng-class="['apartmentPicsDiv', {{i.divClass}}">
-                                    <img ng-src="{{i.src}}" ng-class="apartmentPics">
-                                </div>
-<!---->
-
+                    <carousel interval="myInterval">
+                        <slide ng-repeat="slide in gC.slides" active="slide.active">
+                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                            <div class="carousel-caption">
+                                <h4>Slide {{$index}}</h4>
+                                <p>{{slide.text}}</p>
                             </div>
+                        </slide>
+                    </carousel>
 
-                            <!-- Left and right controls -->
-                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+<!--                        <div id="myCarousel" class="carousel slide" >-->
+<!--                            <!-- Indicators -->
+<!--                            <ol class="carousel-indicators">-->
+<!--                                <li ng-repeat='i in gC.returnArray()' data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active:!$index}"></li>-->
+<!--                            </ol>-->
+<!---->
+<!--                            <!-- Wrapper for slides -->
+<!--                            <div class="carousel-inner" role="listbox" ng-init="">-->
+<!---->
+<!--                                {{gC.returnArray()}}-->
+<!---->
+<!--<!--                                <div ng-repeat='i in gC.returnArray()'  ng-class="{active : $first}", ng-class="['apartmentPicsDiv']">-->
+<!--<!--                                    <img ng-src="{{i.src}}" ng-class="apartmentPics">-->
+<!--<!--                                </div>-->
+<!--<!--<!---->
+<!---->
+<!--                            </div>-->
+<!---->
+<!--                            <!-- Left and right controls -->
+<!--                            <span class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">-->
+<!--                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
+<!--                                <span class="sr-only">Previous</span>-->
+<!--                            </span>-->
+<!--                            <span class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
+<!--                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
+<!--                                <span class="sr-only">Next</span>-->
+<!--                            </span>-->
+<!--                        </div>-->
 
                 </div>
             </div>
@@ -263,6 +282,7 @@
 </div><!--main row ends-->
 
 
+<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize">
 </script>

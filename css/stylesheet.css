@@ -58,7 +58,7 @@ nav.navbar.navbar-inverse {
     height: 50%;
 }
 
-.col-md-8 .row:first-child>.col-md-6 {
+.col-md-8 .row:first-child>.col-md-6, .col-md-8 .row:first-child>.col-md-6>div, .col-md-8 .row:first-child>.col-md-6>div>img{
     height: 100%;
 }
 

@@ -1,1 +1,8 @@
-var app = angular.module('apartmentShark', []);
+var app = angular.module('apartmentShark', ['ui.bootstrap']);
+
+app.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}
+
+]);

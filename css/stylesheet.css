@@ -11,6 +11,10 @@ body{
     height: 100%;
 }
 
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    height: 100% !important;
+}
+
 div#map, div#pano {
     height: 100%;
 }

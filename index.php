@@ -216,45 +216,15 @@ header('Access-Control-Allow-Methods: GET, POST');
 <!--                ng-controller="gallaryController as gC"-->
                 <div class="col-md-6" ng-controller="galleryController as gC" >
 
-                    <carousel interval="myInterval">
-                        <slide ng-repeat="slide in gC.slides" active="slide.active">
-                            <img ng-src="{{slide.image}}" style="margin:auto;">
+                    <carousel interval="gC.interval">
+                        <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
+                            <img ng-src="{{slide.src}}">
                             <div class="carousel-caption">
-                                <h4>Slide {{$index}}</h4>
-                                <p>{{slide.text}}</p>
+                                <h4> </h4>
+                                <p>  </p>
                             </div>
                         </slide>
                     </carousel>
-
-<!--                        <div id="myCarousel" class="carousel slide" >-->
-<!--                            <!-- Indicators -->
-<!--                            <ol class="carousel-indicators">-->
-<!--                                <li ng-repeat='i in gC.returnArray()' data-target="#myCarousel" data-slide-to="{{$index}}" ng-class="{active:!$index}"></li>-->
-<!--                            </ol>-->
-<!---->
-<!--                            <!-- Wrapper for slides -->
-<!--                            <div class="carousel-inner" role="listbox" ng-init="">-->
-<!---->
-<!--                                {{gC.returnArray()}}-->
-<!---->
-<!--<!--                                <div ng-repeat='i in gC.returnArray()'  ng-class="{active : $first}", ng-class="['apartmentPicsDiv']">-->
-<!--<!--                                    <img ng-src="{{i.src}}" ng-class="apartmentPics">-->
-<!--<!--                                </div>-->
-<!--<!--<!---->
-<!---->
-<!--                            </div>-->
-<!---->
-<!--                            <!-- Left and right controls -->
-<!--                            <span class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">-->
-<!--                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
-<!--                                <span class="sr-only">Previous</span>-->
-<!--                            </span>-->
-<!--                            <span class="right carousel-control" href="#myCarousel" role="button" data-slide="next">-->
-<!--                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>-->
-<!--                                <span class="sr-only">Next</span>-->
-<!--                            </span>-->
-<!--                        </div>-->
-
                 </div>
             </div>
 

@@ -1,7 +1,7 @@
 //TODO need to finish this
 app.controller('galleryController', function(apiService, $scope){
    var self = this;
-    self.interval = 3000;
+    self.interval = 20000;
 
     self.slides = [
         {image:'images/amanda.jpg'},

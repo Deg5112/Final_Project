@@ -36,7 +36,8 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="javascript/displayController.js"></script>
     <script src="javascript/formController.js"></script>
     <script src="javascript/gallaryController.js"></script>
-    <title>Custom Street View panorama tiles</title>
+    <script src="javascript/statsController.js"></script>
+
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/stylesheet.css">
@@ -65,6 +66,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
         <div class="container-fluid">
             <div class="row" ng-controller="formController as fc">
+
                 <div class="col-md-12">
                     <h2>search for an apartment</h2>
                     <div class="form-group">
@@ -199,57 +201,17 @@ header('Access-Control-Allow-Methods: GET, POST');
 
         </div>
 
-    </div> <!--left section end-->
+    </div> <!--left section end--> <!--col-md-4 ends-->
 
 <!--right section-->
     <div class="col-md-8">
-
-        <div class="container-fluid">
-
-            <!-- zillow and yelp top row-->
-            <div class="row"> <!--one row for yelp and zillow-->
-
-                <div class="col-md-6">
-                    <div class="zillow">zillow</div>
-                </div>
-
-<!--                ng-controller="gallaryController as gC"-->
-                <div class="col-md-6" ng-controller="galleryController as gC" >
-
-                    <carousel interval="gC.interval">
-                        <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
-                            <img ng-src="{{slide.src}}">
-                            <div class="carousel-caption">
-                                <h4> </h4>
-                                <p>  </p>
-                            </div>
-                        </slide>
-                    </carousel>
-                </div>
-            </div>
-
-<!--google bottom row  , another row below for google-->
-            <div class="row">
-                <div class="col-xs-6">
-                    <div id="map"></div>
-                </div>
-
-                <div class="col-xs-6">
-                    <div id="pano"></div>
-                </div>
-
-                </div>
-            </div>
-
-        </div>
-
+        <div ng-view></div>
     </div>
 </div>
 
 
 
 
-</div><!--main row ends-->
 
 
 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>

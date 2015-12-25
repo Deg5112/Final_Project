@@ -2,6 +2,25 @@ body{
     height: 1015px;
 }
 
+.btn-default {
+    position: absolute;
+    z-index: 1;
+    right: 11%;
+    top: 2%;
+}
+
+.col-md-8 h2{
+    text-decoration: underline;
+}
+
+.col-md-8 ul li {
+    font-size: 1.7em;
+}
+
+.col-md-8>div {
+    height: 100%;
+}
+
 .carousel-inner>div {
     height: 100%;
 }
@@ -16,10 +35,6 @@ body{
 }
 
 div#map, div#pano {
-    height: 100%;
-}
-
-#googleContainer {
     height: 100%;
 }
 

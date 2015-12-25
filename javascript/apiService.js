@@ -1,8 +1,7 @@
 app.service('apiService', function($http, xmlToJsonService){
-    //["$http", "xmlToJsonService", "$scope",
-
         var self = this;
         self.imgArray = [];
+        self.facts = [];
         self.googleMapsApiCall = function(url) {
             $http({
                 url: url,
@@ -54,8 +53,10 @@ app.service('apiService', function($http, xmlToJsonService){
         }).then(function(response) {
             var xmlObject = $.parseXML(response.data);
             var newResponse = xmlToJsonService.xmlToJson(xmlObject);
-            var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
 
+            console.log(newResponse);
+
+            var imageArray = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['images']['image']['url'];
 
                 for(var i = 0; i < imageArray.length; i++){
                     $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
@@ -75,15 +76,13 @@ app.service('apiService', function($http, xmlToJsonService){
                     }
 
                     self.imgArray.push(imgObj);
-
                     //append list item and images to dom
-
-
                 }
-                return self.imgArray;
-                //console.log(self.imgArray);
-                //div we can worry about later
-                //$('#myCarousel').attr('data-ride', 'carousel');
+            var factsObject = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['editedFacts'];
+            delete factsObject.useCode;
+            self.facts = factsObject;
+                return;
+
             });
         };
 });

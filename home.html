@@ -1,0 +1,46 @@
+<!--right section-->
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-6" ng-controller="statsController as sC">
+                <button type="button" class="btn btn-default"><a href="#zillowStatsFull">View Full Screen</a></button>
+
+                <h2 ng-show="sC.headerBool">Zillow Stats:</h2>
+                <ul>
+                    <li ng-repeat="(key,value) in sC.stats()">{{key}}  : {{value['#text']}}</li>
+                </ul>
+
+            </div>
+
+                <!--gallery section-->
+            <div class="col-md-6" ng-controller="galleryController as gC" >
+                <button type="button" class="btn btn-default"><a href="#galleryFull">View Full Screen</a></button>
+
+                <carousel interval="gC.interval">
+                    <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
+                        <img ng-src="{{slide.src}}">
+                    </slide>
+                </carousel>
+            </div>
+        </div>
+
+        <!--google bottom row  , another row below for google-->
+        <div class="row">
+
+            <div class="col-xs-6">
+                <button type="button" class="btn btn-default"><a href="#mapsFull">View Full Screen</a></button>
+
+                <div id="map"></div>
+            </div>
+
+            <div class="col-xs-6">
+                <button type="button" class="btn btn-default"><a href="#panoFull">View Full Screen</a></button>
+                <div id="pano"></div>
+            </div>
+
+        </div>
+
+    </div>

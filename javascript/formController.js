@@ -20,9 +20,7 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
                 var id = getIdFromZillowService.zillowGetIdFromResponse(newResponse);
                 //console.log(id);
                 apiService.zillowGetPropInfo(id).then(function(response){
-                    console.log(response);
                     $scope.imgArray = response;
-                    console.log($scope.imgArray);
                 });
             });
         });

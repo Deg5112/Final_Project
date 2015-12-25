@@ -1,0 +1,9 @@
+<div class="col-md-12" ng-controller="statsController as sC">
+    <button type="button" class="btn btn-default"><a href="#">Back to main view</a></button>
+
+    <h2 ng-show="sC.headerBool">Zillow Stats:</h2>
+    <ul>
+        <li ng-repeat="(key,value) in sC.stats()">{{key}}  : {{value['#text']}}</li>
+    </ul>
+
+</div>

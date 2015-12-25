@@ -2,6 +2,25 @@ body{
     height: 1015px;
 }
 
+.col-md-8 .col-md-6, .col-md-8 .container-fluid .row:nth-child(2) .col-xs-6 {
+    padding: 0;
+    border: 1px solid black;
+}
+
+.col-md-8, .col-md-4 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.btn-default {
+    color: #333;
+    background-color: rgba(129, 234, 255, 0.97);
+    border-color: #ccc;
+    font-size: 1.3em;
+    color: black;
+    font-weight: bold;
+}
+
 div#map2 {
     height: 100%;
 }
@@ -54,8 +73,11 @@ div#map, div#pano {
 
 .container-fluid:nth-child(2) {
     height: 95%;
-    margin-top: 3%;
+    margin-top: 2.7%;
+    padding-left: 0;
+    padding-right: 0;
 }
+
 nav.navbar.navbar-inverse {
     margin-bottom: 0%;
 }
@@ -96,6 +118,7 @@ nav.navbar.navbar-inverse {
 
 .col-md-8 .container-fluid .row:nth-child(2) {
     height: 50%;
+
 }
 
 .col-md-8 .container-fluid .row:nth-child(2) .col-xs-12 {

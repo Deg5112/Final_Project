@@ -4,6 +4,8 @@ app.service('apiService', function($http, xmlToJsonService){
         self.facts = [];
         self.mapOptions = null;
         self.panoOptions = null;
+        self.map = null;
+        self.panorama = null;
 
 
         self.googleMapsApiCall = function(url) {
@@ -21,9 +23,9 @@ app.service('apiService', function($http, xmlToJsonService){
                 self.panoOptions = { position: {lat: lat, lng: lng}, pov: {heading: 34, pitch: 10} };
                 console.log(self.mapOptions);
                 //maps creation
-                var map = new google.maps.Map($('#map')[0], self.mapOptions);
+                self.map = new google.maps.Map($('#map')[0], self.mapOptions);
                 //pano creation
-                var panorama = new google.maps.StreetViewPanorama($('#pano')[0], self.panoOptions);
+                self.panorama = new google.maps.StreetViewPanorama($('#pano')[0], self.panoOptions);
 
                 //var map2 = new google.maps.Map($('#pano')[0], self.mapOptions);
                 //var panorama2 = new google.maps.StreetViewPanorama($('#pano2')[0], self.panoOptions);

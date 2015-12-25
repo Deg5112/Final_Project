@@ -33,6 +33,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="javascript/urlCreationService.js"></script>
     <script src="javascript/xmlToJson.js"></script>
     <script src="javascript/mainController.js"></script>
+    <script src="javascript/googleMapsController.js"></script>
     <script src="javascript/displayController.js"></script>
     <script src="javascript/formController.js"></script>
     <script src="javascript/gallaryController.js"></script>

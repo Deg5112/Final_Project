@@ -2,6 +2,10 @@ app.service('apiService', function($http, xmlToJsonService){
         var self = this;
         self.imgArray = [];
         self.facts = [];
+        self.mapOptions = null;
+        self.panoOptions = null;
+
+
         self.googleMapsApiCall = function(url) {
             $http({
                 url: url,
@@ -12,12 +16,19 @@ app.service('apiService', function($http, xmlToJsonService){
                 var lng = response['data'].results[0].geometry.location.lng;
 
                 //after we get a response back, grab the coordinates, store in variables, and plug into maps and pano
-                var map = new google.maps.Map($('#map')[0], {center: {lat: lat, lng: lng}, zoom: 14});
-                var panorama = new google.maps.StreetViewPanorama($('#pano')[0], {
-                    position: {lat: lat, lng: lng},
-                    pov: {heading: 34, pitch: 10}
-                });
+                //first store the options on as a property in the service
+                self.mapOptions = {center: {lat: lat, lng: lng}, zoom: 14};
+                self.panoOptions = { position: {lat: lat, lng: lng}, pov: {heading: 34, pitch: 10} };
+                console.log(self.mapOptions);
+                //maps creation
+                var map = new google.maps.Map($('#map')[0], self.mapOptions);
+                //pano creation
+                var panorama = new google.maps.StreetViewPanorama($('#pano')[0], self.panoOptions);
+
+                //var map2 = new google.maps.Map($('#pano')[0], self.mapOptions);
+                //var panorama2 = new google.maps.StreetViewPanorama($('#pano2')[0], self.panoOptions);
                 map.setStreetView(panorama);
+                //map2.setStreetView(panorama2);
             }, function(response){
                 console.log('failed');
             });

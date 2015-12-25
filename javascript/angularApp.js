@@ -5,8 +5,8 @@ app.config(function($routeProvider){
        .when('/', {templateUrl:'home.html'})
        .when('/zillowStatsFull', {templateUrl: 'zillowFull.html'})
        .when('/galleryFull', {templateUrl: 'galleryFull.html'})
-       .when('/mapsFull', {templateUrl: 'mapsFull.html'})
-       .when('/panoFull', {templateUrl: 'panoFull.html'})
+       .when('/mapsFull', {templateUrl: 'mapsFull.html', controller: 'googleMapsControllerFull'})
+       .when('/panoFull', {templateUrl: 'panoFull.html', controller: 'googleMapsControllerFull'})
        .otherwise({
            redirectTo: '/'
        });

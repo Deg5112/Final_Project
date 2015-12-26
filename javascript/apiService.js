@@ -21,7 +21,6 @@ app.service('apiService', function($http, xmlToJsonService){
                 //first store the options on as a property in the service
                 self.mapOptions = {center: {lat: lat, lng: lng}, zoom: 14};
                 self.panoOptions = { position: {lat: lat, lng: lng}, pov: {heading: 34, pitch: 10} };
-                console.log(self.mapOptions);
                 //maps creation
                 self.map = new google.maps.Map($('#map')[0], self.mapOptions);
                 //pano creation
@@ -38,17 +37,16 @@ app.service('apiService', function($http, xmlToJsonService){
 
 
     self.zillowGetZPID_XML = function(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
-       console.log('sending to php');
+        var urlToSend = $.param( {url: url} );
         var zpid = null;
-         $http({
+         return $http({
             url: 'http://localhost:8888/lfz/Final_Project/php/zillow.php',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
-            data: 'zillowUrl='+url,
+            data: urlToSend
         }).then(function(response) {
             //return the xml string /object as a string
-            console.log(response);
-            return ;
+            return response;
 
         }, function(response){
             return response;
@@ -61,13 +59,17 @@ app.service('apiService', function($http, xmlToJsonService){
         var $div = null;
         var $img = null;
         var $listIndicator = null;
-
+        var url = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid;
+        var urlToSend = $.param( {url: url} );
         return $http({
-            url: "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid,
+            url: "http://localhost:8888/lfz/Final_Project/php/zillowGetPropInfo.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            method: 'POST'
+            method: 'POST',
+            data: urlToSend
         }).then(function(response) {
-            var xmlObject = $.parseXML(response.data);
+            console.log(response);
+
+            var xmlObject = $.parseXML(response.data.data);
             var newResponse = xmlToJsonService.xmlToJson(xmlObject);
 
             console.log(newResponse);

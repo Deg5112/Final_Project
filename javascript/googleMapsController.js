@@ -6,7 +6,6 @@ app.controller('googleMapsController', function(apiService){
 
 
     self.mapInitSmall = function(){
-        console.log('map Init small running!');
         var mapOptions = apiService.mapOptions; //apiService.mapOptions;
         console.log(mapOptions);
         var map = new google.maps.Map($('#map')[0], mapOptions);
@@ -25,9 +24,9 @@ app.controller('googleMapsControllerFull', function(apiService){
     var self = this;
 
     self.mapInitFull = function(){
-        console.log('map Init Full running!');
+
         var mapOptions = apiService.mapOptions; //apiService.mapOptions;
-        console.log(mapOptions);
+
         self.fullMap = new google.maps.Map($('#map2')[0], mapOptions);
     };
 

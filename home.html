@@ -3,16 +3,20 @@
 
     <div class="container-fluid">
 
-        <div class="row">
+        <div class="row" id="zillowRow">
 
             <div class="col-md-6" ng-controller="statsController as sC">
                 <a href="#zillowStatsFull"><button type="button" class="btn btn-default">View Full Screen</button></a>
 
-                <h2 ng-show="sC.headerBool">Zillow Stats:</h2>
+                <div id="beforeStats">
+                    <a href="#"><img id='zillow-icon' src="images/zillowicon.jpg"></a>
+                </div>
+
                 <ul>
-                    <li ng-repeat="(key,value) in sC.stats()">{{key}}  : {{value['#text']}}</li>
+                    <li ng-repeat="(key,value) in sC.stats()"><span class="glyphicon glyphicon-ok"></span>{{key}}  : {{value['#text']}}</li>
                 </ul>
 
+               <hr>
             </div>
 
                 <!--gallery section-->

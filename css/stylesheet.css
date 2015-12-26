@@ -2,6 +2,25 @@ body{
     height: 1015px;
 }
 
+span.glyphicon.glyphicon-ok {
+    color: rgb(0, 151, 0);
+    margin-right: 1%;
+}
+
+#beforeStats {
+    height: 23%;
+    background-color: rgba(0, 116, 228, 0.39);
+}
+
+#zillowRow ul {
+    list-style-type: none;
+    margin: 3% auto 0 auto;
+}
+
+img#zillow-icon {
+    width: 15%;
+}
+
 .col-md-8 .col-md-6, .col-md-8 .container-fluid .row:nth-child(2) .col-xs-6 {
     padding: 0;
     border: 1px solid black;
@@ -41,8 +60,12 @@ div#pano2 {
     top: 2%;
 }
 
-.col-md-8 h2{
-    text-decoration: underline;
+#zillowHead{
+    position: absolute;
+    left: 14%;
+    top: 10.35%;
+    font-size: 1.6em;
+    color: #6081ba;
 }
 
 .col-md-8 ul li {

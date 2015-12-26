@@ -18,6 +18,10 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
                //below coverts xml to json
                 var newResponse = xmlToJsonService.xmlToJson(xmlObject);
                 var id = getIdFromZillowService.zillowGetIdFromResponse(newResponse);
+                    console.log(id);
+                    return;
+                    //get this FAR!
+
                 //console.log(id);
                 apiService.zillowGetPropInfo(id).then(function(response){
                     $scope.imgArray = response;

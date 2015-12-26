@@ -4,8 +4,6 @@ header('Access-Control-Allow-Methods: GET, POST');
 ?>
 <!--TODO need to ask how to allow crossorigin without the plugin? -->
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
-<!--TODO Different views with angular routes? Totally can do that-->
-<!--TODO view full screen buttons for each square? -->
 <!--TODO make a chrome extension that takes an address and plugs it into your database-->
 <!DOCTYPE html>
 <html>

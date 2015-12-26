@@ -38,14 +38,17 @@ app.service('apiService', function($http, xmlToJsonService){
 
 
     self.zillowGetZPID_XML = function(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
+       console.log('sending to php');
         var zpid = null;
-        return $http({
-            url: url,
+         $http({
+            url: 'http://localhost:8888/lfz/Final_Project/php/zillow.php',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            method: 'POST'
+            method: 'POST',
+            data: 'zillowUrl='+url,
         }).then(function(response) {
             //return the xml string /object as a string
-            return response;
+            console.log(response);
+            return ;
 
         }, function(response){
             return response;

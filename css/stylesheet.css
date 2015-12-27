@@ -1,5 +1,40 @@
 body{
-    height: 1015px;
+    height: 100vh;
+}
+
+h2{
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+
+nav a, p {
+    color: #FFE8E8 !important;
+}
+
+nav p {
+    margin-top: 1em;
+    font-size: 1.2em;
+}
+
+.col-md-4 .col-md-12 .btn-success {
+    margin-bottom: 4%;
+}
+
+.col-md-4{
+    background-color: #FFF7E7;
+}
+
+div#savedColumn {
+    height: 100%;
+}
+
+div#savedApartments {
+    height: 72%;
+    box-sizing: border-box;
+    padding: 3%;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 button.btn.btn-success.savedBtn.pull-right {
@@ -8,14 +43,14 @@ button.btn.btn-success.savedBtn.pull-right {
     top: 0.4em !important;
 }
 
-.col-md-4 .container-fluid {
-    overflow: scroll;
-}
+/*.col-md-4 .container-fluid {*/
+    /*overflow: scroll;*/
+/*}*/
 
-.col-md-8 .col-md-6:first-child {
-    overflow: scroll;
-}
 
+nav {
+    background-color: #2A1A1A !important
+}
 
 span.glyphicon.glyphicon-ok {
     color: rgb(0, 151, 0);
@@ -24,7 +59,7 @@ span.glyphicon.glyphicon-ok {
 
 #beforeStats {
     height: 23%;
-    background-color: rgba(0, 116, 228, 0.39);
+    /*background-color: rgba(0, 116, 228, 0.39);*/
 }
 
 #zillowRow ul {
@@ -84,7 +119,7 @@ div#pano2 {
 }
 
 .col-md-8 ul li {
-    font-size: 1.7em;
+    font-size: 1.2em;
 }
 
 .col-md-8>div {
@@ -111,7 +146,7 @@ div#map, div#pano {
 
 .container-fluid:nth-child(2) {
     height: 95%;
-    margin-top: 2.7%;
+    margin-top: 4%;
     padding-left: 0;
     padding-right: 0;
 }
@@ -128,7 +163,6 @@ nav.navbar.navbar-inverse {
 
 .col-md-4:first-child {
     height: 100%;
-    background-color: #69D2E7;
 }
 /*container for right section*/
 .col-md-8 {
@@ -188,7 +222,7 @@ nav.navbar.navbar-fixed-top {
 }
 
 .panel-heading a {
-    font-size: 1.7em;
+    font-size: 1.2em;
 }
 
 .panel-body {

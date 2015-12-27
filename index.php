@@ -104,14 +104,18 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                     <h4 ng-show='panelBool' class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index)">{{sC.returnTitle($index)}}</a>
-                                        <button  ng-click="panelBool = !panelBool" type="button" class="btn-danger">change</button>
+                                        <button  ng-click="panelBool = !panelBool" type="button" class="btn-danger pull-right">change</button>
                                     </h4>
 
-                                    <div ng-hide="panelBool">
+                                    <div ng-hide="panelBool" class="row">
+                                        <div class ='col-md-6'>
+                                            <div class="form-group">
+                                                <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">
+                                            </div>
+                                        </div>
 
-                                        <div class="form-group">
-                                            <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">
-                                            <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn-danger">change</button>
+                                        <div class="col-md-2">
+                                            <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn-danger pull-right danger2">change</button>
                                         </div>
                                     </div>
 
@@ -148,8 +152,21 @@ header('Access-Control-Allow-Methods: GET, POST');
     <div class="col-md-8">
         <div ng-view></div>
     </div>
-</div>
 
+</div>
+<!--bottom navigation-->
+<!--<nav class="navbar navbar-fixed-bottom"> <!--top navigation-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="navbar-header">-->
+<!--            <a class="navbar-brand" href="#"></a>-->
+<!--        </div>-->
+<!--        <div>-->
+<!---->
+<!--            <p class="text-center">&copy; 2005-2011 John Doe All Rights Reserved</p>-->
+<!---->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 
 

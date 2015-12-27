@@ -34,3 +34,12 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
 
 //createGoogleGeoCodeUrl(street, city, state);
 //zillowIDUrl(street, city, state);
+app.controller('savedController', function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService){
+    var self = this;
+    self.savedApartments = [
+        {title: 'seaview summit', comments: 'hello governer!', searchQuery: {street: '102 Calais St', city: 'Laguna Niguel', state: 'CA'}},
+        {title: 'seaview summit', comments: 'hello governer!', searchQuery: {street: '102 Calais St', city: 'Laguna Niguel', state: 'CA'}},
+        {title: 'seaview summit', comments: 'hello governer!', searchQuery: {street: '102 Calais St', city: 'Laguna Niguel', state: 'CA'}}
+    ];
+
+});

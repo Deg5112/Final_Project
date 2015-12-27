@@ -95,103 +95,28 @@ header('Access-Control-Allow-Methods: GET, POST');
                     <div id="savedApartments" class="container-fluid">
                         <h2>Your Saved Apartments</h2>
 
-                        <div class="panel-group" id="accordion">
+                        <div class="panel-group" id="accordion" ng-controller="savedController as sC">
 
-                            <div class="panel panel-default"> <!--panel 1-->
+                            <div class="panel panel-default" ng-repeat="i in sC.savedApartments"> <!--panel 1-->
                                 <div class="panel-heading">
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Seaview Summit</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{{i.title}}</a>
                                     </h4>
                                 </div>
                                 <div id="collapse1" class="panel-collapse collapse in">
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <label for="comment"> comment:</label>
-                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
+                                            <textarea class="form-control" rows="5" id="comment">{{i.comments}}</textarea>
                                         </div>
 
 
                                     </div>
                                 </div>
-                            </div>
+                                <button type="button" class="btn btn-success pull-right">Update</button>
+                            </div> <!--panel end-->
 
-                            <div class="panel panel-default"> <!--panel 2-->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Elan Huntington</a>
-                                    </h4>
-                                </div>
-                                <div id="collapse2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label for="comment">comment:</label>
-                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default"> <!--panel 3-->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Apex Laguna</a>
-                                    </h4>
-                                </div>
-                                <div id="collapse3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label for="comment">comment:</label>
-                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="panel panel-default"> <!--panel 5-->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">The Residences at Bella Terra</a>
-                                    </h4>
-                                </div>
-                                <div id="collapse4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label for="comment">comment:</label>
-                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default"> <!--panel 6-->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Huntington Vista</a>
-                                    </h4>
-                                </div>
-                                <div id="collapse5" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="form-group">
-                                            <label for="comment">comment:</label>
-                                            <textarea class="form-control" rows="5" id="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        </div> <!--panel group end-->
 
                     </div>
 

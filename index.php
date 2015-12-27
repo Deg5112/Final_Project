@@ -91,29 +91,46 @@ header('Access-Control-Allow-Methods: GET, POST');
             </div>
 
             <div class="row">
-                <div class="col-md-12">
-                    <div id="savedApartments" class="container-fluid">
+                <div class="col-md-12" id="savedColumn">
+                    <div id="savedApartments" >
                         <h2>Your Saved Apartments</h2>
 
                         <div class="panel-group" id="accordion" ng-controller="savedController as sC">
 
                             <div class="panel panel-default" ng-repeat="i in sC.savedApartments"> <!--panel 1-->
-                                <div class="panel-heading">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">{{i.title}}</a>
+
+                                <div class="panel-heading" ng-init="panelBool=true;">
+
+
+                                    <h4 ng-show='panelBool' class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index)">{{sC.returnTitle($index)}}</a>
+                                        <button  ng-click="panelBool = !panelBool" type="button" class="btn-danger">change</button>
                                     </h4>
+
+                                    <div ng-hide="panelBool">
+
+                                        <div class="form-group">
+                                            <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">
+                                            <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn-danger">change</button>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div id="collapse1" class="panel-collapse collapse in">
+
+
+                                <div id="{{'collapse' + (+$index +1)}}" class="panel-collapse collapse">
+
                                     <div class="panel-body">
+
                                         <div class="form-group">
                                             <label for="comment"> comment:</label>
                                             <textarea class="form-control" rows="5" id="comment">{{i.comments}}</textarea>
+                                            <button type="button" class="btn btn-success savedBtn pull-right">Update</button>
                                         </div>
-
 
                                     </div>
                                 </div>
-                                <button type="button" class="btn btn-success pull-right">Update</button>
+
                             </div> <!--panel end-->
 
                         </div> <!--panel group end-->

@@ -7,6 +7,10 @@ app.service('apiService', function($http, xmlToJsonService){
         self.map = null;
         self.panorama = null;
 
+        self.updateAptTitleInDB = function(){
+          //TODO update the title in the database
+        };
+
 
         self.googleMapsApiCall = function(url) {
             $http({
@@ -56,6 +60,7 @@ app.service('apiService', function($http, xmlToJsonService){
     };
 
     self.zillowGetPropInfo = function(zpid){
+        self.imgArray = [];
         var $div = null;
         var $img = null;
         var $listIndicator = null;

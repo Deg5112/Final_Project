@@ -119,23 +119,6 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 
 
-
-
-                            <!--                            <div class="form-group input-group">-->
-<!--                                <span class="input-group-addon glyphicon glyphicon-envelope"></span>-->
-<!--                                <input type="email" class="form-control"  placeholder="email" ng-model="lC.register.emailReg">-->
-<!--                            </div>-->
-<!---->
-<!---->
-<!--                            <div class="form-group input-group"><span class="input-group-addon glyphicon glyphicon-lock	"></span>-->
-<!--                                <input type="text" class="form-control"  placeholder="password" ng-model="lC.register.passwordReg">-->
-<!--                            </div>-->
-<!---->
-<!--                            <div class="form-group input-group"><span class="input-group-addon glyphicon glyphicon-lock	"></span>-->
-<!--                                <input type="text" class="form-control"  placeholder="confirm password" ng-model="lC.register.confirmPasswordReg">-->
-<!--                            </div>-->
-
-
                             <button class="btn btn-success" type="submit" ng-click="lC.registerUser(lC.register.userReg, lC.register.emailReg, lC.register.passwordReg, lC.register.confirmPasswordReg)">Add</button>
                             <button type="button" class="btn btn-danger">Clear</button>
 

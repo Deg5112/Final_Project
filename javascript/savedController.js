@@ -26,7 +26,6 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.returnTitle = function(i){
-        console.log('RETURNINGGGGGGGG!');
         if(self.titleChange === null){
             return apiService.savedApartments[i].title;
         }else{

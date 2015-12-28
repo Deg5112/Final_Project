@@ -1,10 +1,43 @@
 body{
-    height: 100vh;
+    height: 700px;
+}
+
+#zillowRow .col-md-6 {
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#savedApartments h2 {
+    margin-top: -4px;
+}
+
+.panel-body {
+    padding: 0 15px 0 15px;
+}
+
+.panel-default>.panel-heading {
+    background-image: -webkit-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
+    background-image: -o-linear-gradient(top,#f5f5f5 0,#e8e8e8 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#e8e8e8));
+    background-image: linear-gradient(to bottom,#6FA2A2 0,#EBFEFF 100%);
+    background-repeat: repeat-x;
+}
+
+.col-md-4 .row:first-child .form-group {
+    margin-bottom: 0;
 }
 
 h2{
     font-size: 1.4em;
-    text-decoration: underline;
+}
+
+#savedApartments h2{
+    color: white;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
 }
 
 nav a, p {
@@ -14,6 +47,15 @@ nav a, p {
 nav p {
     margin-top: 1em;
     font-size: 1.2em;
+}
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #5F3B0F;
+}
+
+.panel-heading a:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .col-md-4 .col-md-12 .btn-success {
@@ -25,20 +67,28 @@ nav p {
 }
 
 div#savedColumn {
-    height: 100%;
+    height: 71%;
+}
+
+.panel-heading .btn {
+    transform: translateY(-22%);
+    padding: 1% 3%;
+    margin: 1% 1% 0 1%;
 }
 
 div#savedApartments {
-    height: 72%;
+    height: 100%;
     box-sizing: border-box;
     padding: 3%;
     overflow: scroll;
     overflow-y: auto;
+    border-radius: 5px;
     overflow-x: hidden;
+    background-color: #2E2E2E;
 }
 
 button.btn.btn-success.savedBtn.pull-right {
-    font-size: 1em;
+    font-size:  0.8em;
     position: relative !important;
     top: 0.4em !important;
 }
@@ -64,11 +114,16 @@ span.glyphicon.glyphicon-ok {
 
 #zillowRow ul {
     list-style-type: none;
-    margin: 3% auto 0 auto;
+    margin: 0 auto;
 }
 
 img#zillow-icon {
     width: 15%;
+}
+
+button.btn.btn-info.pull-right.danger2 {
+    padding: .4em;
+    margin: 25% 0;
 }
 
 .col-md-8 .col-md-6, .col-md-8 .container-fluid .row:nth-child(2) .col-xs-6 {
@@ -85,9 +140,12 @@ img#zillow-icon {
     color: #333;
     background-color: rgba(129, 234, 255, 0.97);
     border-color: #ccc;
-    font-size: 1.3em;
     color: black;
     font-weight: bold;
+    position: absolute;
+    z-index: 1;
+    right: 11%;
+    top: 2%;
 }
 
 div#map2 {
@@ -103,12 +161,7 @@ div#pano2 {
     height: 100%;
 }
 
-.btn-default {
-    position: absolute;
-    z-index: 1;
-    right: 11%;
-    top: 2%;
-}
+
 
 #zillowHead{
     position: absolute;
@@ -151,9 +204,6 @@ div#map, div#pano {
     padding-right: 0;
 }
 
-nav.navbar.navbar-inverse {
-    margin-bottom: 0%;
-}
 
 .col-md-3{
     border: 1px solid black !important;
@@ -225,6 +275,8 @@ nav.navbar.navbar-fixed-top {
     font-size: 1.2em;
 }
 
+
+
 .panel-body {
     font-size: 1.6em;
 }
@@ -236,7 +288,7 @@ a.navbar-brand {
 }
 
 .navbar-nav>li>a {
-    font-size: 1.6em;
+    font-size: 1.2em;
     color: black;
 }
 
@@ -244,7 +296,7 @@ a.navbar-brand {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
-    font-size: 1.5em;
+    font-size: 1.2em;
     padding: 1% 5%;
 }
 

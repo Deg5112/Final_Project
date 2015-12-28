@@ -7,6 +7,20 @@ app.service('apiService', function($http, xmlToJsonService){
         self.map = null;
         self.panorama = null;
 
+
+        //sends request to server to fetch saved apartments
+        self.getApartments = function(){
+            console.log('apiService getApartmentshits');
+             return $http({
+                url: "http://localhost:8888/lfz/Final_Project/php/getSavedApartments.php",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: 'POST',
+                 data: 'force-failure=server'
+            }).then(function(response){
+                return response;
+            });
+        };
+
         self.updateAptTitleInDB = function(){
           //TODO update the title in the database
         };

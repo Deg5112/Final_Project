@@ -34,6 +34,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="javascript/googleMapsController.js"></script>
     <script src="javascript/displayController.js"></script>
     <script src="javascript/formController.js"></script>
+    <script src="javascript/savedController.js"></script>
     <script src="javascript/gallaryController.js"></script>
     <script src="javascript/statsController.js"></script>
 
@@ -95,8 +96,9 @@ header('Access-Control-Allow-Methods: GET, POST');
                     <div id="savedApartments" >
                         <h2>Your Saved Apartments</h2>
 
-                        <div class="panel-group" id="accordion" ng-controller="savedController as sC">
 
+                        <div class="panel-group" id="accordion" ng-controller="savedController as sC">
+                            <p>{{sC.serverErrorMessage}}</p>
                             <div class="panel panel-default" ng-repeat="i in sC.savedApartments"> <!--panel 1-->
 
                                 <div class="panel-heading" ng-init="panelBool=true;">
@@ -104,18 +106,23 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                     <h4 ng-show='panelBool' class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index)">{{sC.returnTitle($index)}}</a>
-                                        <button  ng-click="panelBool = !panelBool" type="button" class="btn-danger pull-right">change</button>
+                                        <button class="btn btn-warning pull-right">remove</button>
+                                        <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
                                     </h4>
 
                                     <div ng-hide="panelBool" class="row">
-                                        <div class ='col-md-6'>
-                                            <div class="form-group">
-                                                <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">
-                                            </div>
-                                        </div>
+                                        <div class="container-fluid">
+                                            <div class ='col-md-8'>
 
-                                        <div class="col-md-2">
-                                            <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn-danger pull-right danger2">change</button>
+                                                <div class="form-group">
+                                                    <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-2 col-md-offset-1">
+                                                <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn btn-info pull-right danger2">submit</button>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -127,7 +134,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                     <div class="panel-body">
 
                                         <div class="form-group">
-                                            <label for="comment"> comment:</label>
+                                            <label for="comment"> notes:</label>
                                             <textarea class="form-control" rows="5" id="comment">{{i.comments}}</textarea>
                                             <button type="button" class="btn btn-success savedBtn pull-right">Update</button>
                                         </div>
@@ -155,18 +162,21 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 </div>
 <!--bottom navigation-->
-<!--<nav class="navbar navbar-fixed-bottom"> <!--top navigation-->
-<!--    <div class="container-fluid">-->
-<!--        <div class="navbar-header">-->
-<!--            <a class="navbar-brand" href="#"></a>-->
-<!--        </div>-->
-<!--        <div>-->
-<!---->
-<!--            <p class="text-center">&copy; 2005-2011 John Doe All Rights Reserved</p>-->
-<!---->
-<!--        </div>-->
-<!--    </div>-->
-<!--</nav>-->
+<footer>
+    <nav class="navbar"> <!--top navigation-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div>
+
+                <p class="text-center">&copy; 2016 David Goodman All Rights Reserved</p>
+
+            </div>
+        </div>
+    </nav>
+</footer>
+
 
 
 

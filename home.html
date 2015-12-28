@@ -20,8 +20,18 @@
             </div>
 
                 <!--gallery section-->
+            <!--<div class="col-md-6" ng-controller="galleryController as gC" >-->
+                <!--<a href="#galleryFull"><button type="button" class="btn btn-default">Full Screen</button></a>-->
+
+                <!--<carousel interval="gC.interval">-->
+                    <!--<slide ng-repeat="slide in gC.returnArray()" active="slide.active">-->
+                        <!--<img ng-src="{{slide.src}}">-->
+                    <!--</slide>-->
+                <!--</carousel>-->
+            <!--</div>-->
+
             <div class="col-md-6" ng-controller="galleryController as gC" >
-                <a href="#galleryFull"><button type="button" class="btn btn-default">Full Screen</button></a>
+                <a href="#galleryFull"><button type="button" class="btn btn-default">View Full Screen</button></a>
 
                 <carousel interval="gC.interval">
                     <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
@@ -29,6 +39,7 @@
                     </slide>
                 </carousel>
             </div>
+
         </div>
 
         <!--google bottom row  , another row below for google-->

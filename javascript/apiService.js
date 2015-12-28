@@ -8,15 +8,40 @@ app.service('apiService', function($http, xmlToJsonService){
         self.panorama = null;
         self.savedApartments = [];
 
+        self.updateApartmentInDb = function(street, city, state){
+            console.log('UPDATING!!');
+            var data = 'street='+street+'&city='+city+'&state='+state;
+
+            $http({
+                url: "http://localhost:8888/lfz/Final_Project/php/addApartment.php",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: 'POST',
+                data: data
+            }).then(function(response) {
+                console.log('ADD RESPONSE', response);
+                if (response.data.success) {
+
+                    var apartment = {
+                        title: street,
+                        comments: null,
+                        searchQuery: {street: street, city: city, state: state}
+                    };
+
+                    self.savedApartments.unshift(apartment);
+                    console.log(self.savedApartments);
+                }
+            }, function(response){
+
+            });
+        };
 
         //sends request to server to fetch saved apartments
         self.getApartments = function(){
-            console.log('apiService getApartmentshits');
+
                 $http({
                 url: "http://localhost:8888/lfz/Final_Project/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
-                 data: 'force-failure=server'
             }).then(function(response){
                  if(response.data.success){
                      console.log(response);

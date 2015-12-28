@@ -6,19 +6,40 @@ app.service('apiService', function($http, xmlToJsonService){
         self.panoOptions = null;
         self.map = null;
         self.panorama = null;
+        self.savedApartments = [];
 
 
         //sends request to server to fetch saved apartments
         self.getApartments = function(){
             console.log('apiService getApartmentshits');
-             return $http({
+                $http({
                 url: "http://localhost:8888/lfz/Final_Project/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
                  data: 'force-failure=server'
             }).then(function(response){
-                return response;
-            });
+                 if(response.data.success){
+                     console.log(response);
+
+                     for(var i = 0; i<response.data.data.length; i++){
+                         var apartment = {
+                             title : response.data.data[i].title,
+                             comments : response.data.data[i].comments,
+                             searchQuery : {
+                                 street: response.data.data[i].street,
+                                 city: response.data.data[i].city ,
+                                 state: response.data.data[i].state
+                             }
+                         };
+                         self.savedApartments.push(apartment);
+                     }
+                 }else{
+
+                 }
+
+             }, function(response){
+                 self.serverErrorMessage = response.error[0] + ' server error please try again';
+             });
         };
 
         self.updateAptTitleInDB = function(){

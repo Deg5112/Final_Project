@@ -2,34 +2,14 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     var self = this;
     self.titleChange = null;
     self.serverErrorMessage = null;
-    self.savedApartments = [];
 
-    self.getSavedApartments = function(){
-        console.log('savedController hit')
-        apiService.getApartments().then(function(response){
+    self.returnSavedApartments = function(){
+      return apiService.savedApartments;
+    };
 
-            if(response.data.success){
-                console.log(response);
-
-                for(var i = 0; i<response.data.data.length; i++){
-                    var apartment = {
-                       title : response.data.data[i].title,
-                        comments : response.data.data[i].comments,
-                        searchQuery : {
-                            street: response.data.data[i].street,
-                            city: response.data.data[i].city ,
-                                state: response.data.data[i].state
-                        }
-                    };
-                    self.savedApartments.push(apartment);
-                }
-            }else{
-
-            }
-
-        }, function(response){
-            self.serverErrorMessage = response.error[0] + ' server error please try again';
-        });
+    self.getSavedApartments = function() {
+        console.log('savedController hit');
+        apiService.getApartments();
     };
 
     self.getSavedApartments();
@@ -46,10 +26,13 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.returnTitle = function(i){
+        console.log('RETURNINGGGGGGGG!');
         if(self.titleChange === null){
-            return self.savedApartments[i].title;
+            return apiService.savedApartments[i].title;
         }else{
-            return self.titleChange;
+            var title = apiService.savedApartments;
+            console.log(title);
+            return title;
         }
     };
 

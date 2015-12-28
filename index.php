@@ -99,7 +99,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                         <div class="panel-group" id="accordion" ng-controller="savedController as sC">
                             <p>{{sC.serverErrorMessage}}</p>
-                            <div class="panel panel-default" ng-repeat="i in sC.savedApartments"> <!--panel 1-->
+                            <div class="panel panel-default" ng-repeat="i in sC.returnSavedApartments()"> <!--panel 1-->
 
                                 <div class="panel-heading" ng-init="panelBool=true;">
 
@@ -110,21 +110,21 @@ header('Access-Control-Allow-Methods: GET, POST');
                                         <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
                                     </h4>
 
-                                    <div ng-hide="panelBool" class="row">
-                                        <div class="container-fluid">
-                                            <div class ='col-md-8'>
-
-                                                <div class="form-group">
-                                                    <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-2 col-md-offset-1">
-                                                <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn btn-info pull-right danger2">submit</button>
-                                            </div>
-                                        </div>
-                                    </div>
+<!--                                    <div ng-hide="panelBool" class="row">-->
+<!--                                        <div class="container-fluid">-->
+<!--                                            <div class ='col-md-8'>-->
+<!---->
+<!--                                                <div class="form-group">-->
+<!--                                                    <input  type="text" placeholder="Apartment Name" ng-model="sC.savedApartments[$index].title" class="form-control">-->
+<!--                                                </div>-->
+<!---->
+<!--                                            </div>-->
+<!---->
+<!--                                            <div class="col-md-2 col-md-offset-1">-->
+<!--                                                <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn btn-info pull-right danger2">submit</button>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
 
                                 </div>
 

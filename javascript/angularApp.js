@@ -1,4 +1,4 @@
-var app = angular.module('apartmentShark', ['ui.bootstrap', 'ngRoute']);
+var app = angular.module('apartmentShark', ['ui.bootstrap', 'ngRoute', 'ngAnimate']);
 
 app.config(function($routeProvider){
    $routeProvider
@@ -18,3 +18,4 @@ app.config(['$httpProvider', function($httpProvider) {
 }
 
 ]);
+

@@ -300,3 +300,12 @@ a.navbar-brand {
     padding: 1% 5%;
 }
 
+/*animate*/
+@-webkit-keyframes fadeIn {
+    0%   {position:relative; right: 300px; opacity: 0;}
+    100% {position:relative; right: 0px; opacity: 1;}
+}
+
+.animateIn{
+    -webkit-animation: fadeIn 1s 1;
+}

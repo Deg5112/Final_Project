@@ -6,7 +6,7 @@
         <div class="row" id="zillowRow">
 
             <div class="col-md-6" ng-controller="statsController as sC">
-                <a href="#zillowStatsFull"><button type="button" class="btn btn-default">View Full Screen</button></a>
+                <a href="#zillowStatsFull"><button type="button" class="btn btn-default">Full Screen</button></a>
 
                 <div id="beforeStats">
                     <a href="#"><img id='zillow-icon' src="images/zillowicon.jpg"></a>
@@ -21,7 +21,7 @@
 
                 <!--gallery section-->
             <div class="col-md-6" ng-controller="galleryController as gC" >
-                <a href="#galleryFull"><button type="button" class="btn btn-default">View Full Screen</button></a>
+                <a href="#galleryFull"><button type="button" class="btn btn-default">Full Screen</button></a>
 
                 <carousel interval="gC.interval">
                     <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
@@ -35,14 +35,14 @@
         <div class="row" ng-controller="googleMapsController as gM">
 
             <div class="col-xs-6">
-                <a  href="#mapsFull" > <button type="button" class="btn btn-default" >View Full Screen</button></a>
+                <a  href="#mapsFull" > <button type="button" class="btn btn-default" >Full Screen</button></a>
 
                 <div id="map"></div>  <!--map-->
 
             </div>
 
             <div class="col-xs-6">
-                <a  ng-click="gM.init()" href="#panoFull"><button type="button" class="btn btn-default" ng-click="gM.init()" >View Full Screen</button></a>
+                <a  ng-click="gM.init()" href="#panoFull"><button type="button" class="btn btn-default" ng-click="gM.init()" >Full Screen</button></a>
 
                 <div id="pano"></div> <!--pano-->
 

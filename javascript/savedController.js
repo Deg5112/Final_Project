@@ -37,9 +37,9 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index){
-        var street = self.savedApartments[index].searchQuery.street;
-        var city = self.savedApartments[index].searchQuery.city;
-        var state = self.savedApartments[index].searchQuery.state;
+        var street = apiService.savedApartments[index].searchQuery.street;
+        var city = apiService.savedApartments[index].searchQuery.city;
+        var state = apiService.savedApartments[index].searchQuery.state;
 
         console.log(street, city, state);
 

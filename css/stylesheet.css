@@ -2,6 +2,22 @@ body{
     height: 700px;
 }
 
+.dropdown .btn-info {
+    position: absolute;
+    right: 6%;
+    top: 5%;
+}
+
+ul.dropdown-menu {
+    width: 25vw;
+    padding: 20%;
+    background-color: #2a1a1a;
+}
+ul.dropdown-menu h4{
+    color: white;
+}
+
+
 #zillowRow .col-md-6 {
     overflow: scroll;
     overflow-x: hidden;

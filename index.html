@@ -1,10 +1,9 @@
-<?php
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-?>
+
+<!--TODO  need to do the php scripts for updating comments, updating titles, and deleting-->
 <!--TODO need to ask how to allow crossorigin without the plugin? -->
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
 <!--TODO make a chrome extension that takes an address and plugs it into your database-->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,7 +140,7 @@ header('Access-Control-Allow-Methods: GET, POST');
             <div class="row" ng-controller="formController as fc">
 
                 <div class="col-md-12">
-                    <h2>search for an apartment</h2>
+                    <h2>Search for an Apartment</h2>
                     <div class="form-group">
                         <label for="street">Street:</label>
                         <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">

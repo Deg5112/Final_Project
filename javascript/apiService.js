@@ -40,7 +40,7 @@ app.service('apiService', function($http, xmlToJsonService){
 
                 $http({
                 crossDomain:true,
-                url: "http://localhost:8888/Final_Project/php/getSavedApartments.php",
+                url: "http://localhost:80/Final_Project/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
             }).then(function(response){

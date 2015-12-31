@@ -39,7 +39,7 @@ app.service('apiService', function($http, xmlToJsonService){
         self.getApartments = function(){
 
                 $http({
-                url: "http://52.35.28.205/Final_Project/php/getSavedApartments.php",
+                url: "http://localhost:80/Final_Project/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
             }).then(function(response){

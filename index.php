@@ -1,4 +1,7 @@
-
+<?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+?>
 <!--TODO  need to do the php scripts for updating comments, updating titles, and deleting-->
 <!--TODO need to ask how to allow crossorigin without the plugin? -->
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->

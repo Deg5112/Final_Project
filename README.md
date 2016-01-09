@@ -1,4 +1,4 @@
-The final project of LearningFuze Bootcamp is supposed to a be a project that encompassess everything from front to backend skills, as well as an application that is ever-evolving and something that solved a problem. 
+The final project of LearningFuze Bootcamp is supposed to a be a project that encompassess everything from front to backend skills, as well as an application that is ever-evolving and something that solved a problem. I call this app, apartmentShark;
 
 For me, I was going through an apartment hunt at the time, and found it quite painful that I had to go to 4-5 different websites to compare apartments, locations, statistics, and could never remember where I left off on my hunt. So I created an app that stores gives you a side by side by side by side comparison of an apartments features, pictures, location, and street view, and lets you save apartments you want to remember to check back up on, or show friends or perhaps a significant other. 
 

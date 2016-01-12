@@ -64,10 +64,6 @@ nav p {
     margin-top: 1em;
     font-size: 1.2em;
 }
-.nav>li>a:hover {
-    text-decoration: none;
-    background-color: #5F3B0F;
-}
 
 .panel-heading a:hover {
     text-decoration: none;
@@ -112,10 +108,31 @@ button.btn.btn-success.savedBtn.pull-right {
 /*.col-md-4 .container-fluid {*/
     /*overflow: scroll;*/
 /*}*/
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #770707;
+    border-color: #337ab7;
+}
 
+.btn-danger{
+    font-size: 1.2em;
+    padding: 1% 5%;
+}
 
+.active{
+    background-color: #050022 !important;
+}
 nav {
-    background-color: #2A1A1A !important
+    background-color: #050022 !important
+}
+
+nav a{
+    background: #050022 !important
+}
+
+
+.nav>li>a:hover {
+    text-decoration: none;
+    background-color: #5F3B0F !important;
 }
 
 span.glyphicon.glyphicon-ok {

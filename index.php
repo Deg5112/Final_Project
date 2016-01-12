@@ -28,6 +28,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="javascript/angularApp.js"></script>
     <script src="javascript/apiService.js"></script>
     <script src="javascript/modalService.js"></script>
+    <script src="javascript/loginRegisterService.js"></script>
     <script src="javascript/getIdFromZillowJson.js"></script>
     <script src="javascript/urlCreationService.js"></script>
     <script src="javascript/xmlToJson.js"></script>
@@ -54,11 +55,24 @@ header('Access-Control-Allow-Methods: GET, POST');
             <a class="navbar-brand" href="#">Apartment-Shark</a>
         </div>
         <div>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Settings</a></li>
+                <!--show if logged in-->
 
-                <li ng-hide="lC.loggedInBool" class="dropdown" ng-controller="loginController as lC">
+                <li ng-show="lC.loggedInBool" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{lC.username}}<span class="caret"></span></a>
+                    <!-- login dropdown menu-->
+                    <ul class="dropdown-menu" ng-click="lC.stop($event)">
+                        <!-- login dropdown-->
+                        <li><a href="#">settings</a></li>
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </li>
+
+                        <!--username logged in end-->
+
+                <li ng-hide="lC.loggedInBool" class="dropdown" >
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">LogIn<span class="caret"></span></a>
                     <!-- login dropdown menu-->
                     <ul class="dropdown-menu" ng-click="lC.stop($event)">
@@ -82,7 +96,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                 <input  type="text" class="form-control" placeholder="password" ng-model="lC.login.password">
                             </div>
 
-                            <button class="btn btn-success" type="submit" ng-click="lC.loginUser(lC.login.userLog, lC.login.password)" >Add</button>
+                            <button class="btn btn-success" type="button" ng-click="lC.loginUser(lC.login.userLog, lC.login.password)">Submit</button>
                             <button type="button" class="btn btn-danger">Clear</button>
 
 
@@ -109,18 +123,18 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon  glyphicon glyphicon-lock"></i> </span>
-                                <input  type="text" class="form-control" placeholder="password" ng-model="lC.login.password">
+                                <input  type="text" class="form-control" placeholder="password" ng-model="lC.register.password">
                             </div>
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"> <i class="glyphicon  glyphicon glyphicon-lock"></i>  </span>
-                                <input  type="text" class="form-control" placeholder="confirm-password" ng-model="lC.login.password">
+                                <input  type="text" class="form-control" placeholder="confirm-password" ng-model="lC.register.passwordConfirm">
                             </div>
 
 
 
 
-                            <button class="btn btn-success" type="submit" ng-click="lC.registerUser(lC.register.userReg, lC.register.emailReg, lC.register.passwordReg, lC.register.confirmPasswordReg)">Add</button>
+                            <button class="btn btn-success" type="submit" ng-click="lC.registerUser(lC.register.userReg, lC.register.emailReg, lC.register.password, lC.register.passwordConfirm)">Add</button>
                             <button type="button" class="btn btn-danger">Clear</button>
 
 

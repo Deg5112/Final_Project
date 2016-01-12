@@ -5,7 +5,9 @@ body{
 .dropdown .btn-info {
     position: absolute;
     right: 6%;
-    top: 5%;
+    top: 6%;
+    border-radius: 5px;
+
 }
 
 ul.dropdown-menu {

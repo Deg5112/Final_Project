@@ -1,4 +1,4 @@
-app.controller('loginController', function($http, $log){
+app.controller('loginController', function($http, $log, loginRegisterService){
     var self = this;
     self.username = null;
     self.bool = true;
@@ -10,6 +10,7 @@ app.controller('loginController', function($http, $log){
     self.registeremailMessage = null;
     self.registerpasswordMessage = null;
     self.registrationSuccessMessage = null;
+    self.loggedInBool = false;
     self.changeBool = function(){
         self.bool = (self.bool) ? !(self.bool) : true;
     };
@@ -18,6 +19,33 @@ app.controller('loginController', function($http, $log){
     self.stop = function(event){
         event.stopPropagation();
     };
+
+    self.loginUser = function(username, password){
+        loginRegisterService.login(username, password).then(function(response){
+            if(response.data.success){
+                $log.info('success', response.data.token);
+                //take token and store it in the browser
+                loginRegisterService.token = response.data.token; //update the current token of the service on response.success
+                self.loggedInBool = true;
+                self.username = response.data.username;
+                //update the current token in local storage
+                localStorage.setItem("AS", response.data.token);
+            }else{
+
+            }
+        }, function(response){
+
+        });
+    };
+
+    self.registerUser = function(username, email, password, passwordConfirm){
+        $log.info(username,email, password, passwordConfirm);
+        //loginRegisterService.register(username, email, password, passwordConfirm).then(function(response){
+        //
+        //});
+    };
+
+
 
 
 

@@ -4,6 +4,25 @@ app.service('loginRegisterService', function($http, $log){
     self.username = null;
     self.loggedInBool = false;
 
+    self.logout = function(){
+        $log.info('LOG OUT SERVICE HIT!', self.token);
+
+       var token = self.token;
+            $http({
+                data: "token="+token,
+                url: ' http://localhost:8888/lfz/Final_Project/php/logOut.php',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: 'POST'
+            }).then(function(response){
+                if(response.data.success){
+                    self.loggedInBool = false;
+                }else{
+                }
+            }, function(response){
+                $log.info('server ERRROR');
+            });
+    };
+
     self.compareTokens = function (token){
         return $http({
             data: "token="+token,

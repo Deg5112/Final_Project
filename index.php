@@ -66,7 +66,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                     <ul class="dropdown-menu" ng-click="lC.stop($event)">
                         <!-- login dropdown-->
                         <li><a href="#">settings</a></li>
-                        <li><a href="#">Log Out</a></li>
+                        <li><a href="#" ng-click="lC.logout()">Log Out</a></li>
                     </ul>
                 </li>
 

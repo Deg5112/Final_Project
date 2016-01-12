@@ -13,7 +13,7 @@ app.controller('loginController', function($http, $log, loginRegisterService){
     self.loggedInBool = false;
 
     self.logout = function(){
-
+        loginRegisterService.logout();
     };
 
     self.returnLoggedInBool = function(){
@@ -39,7 +39,7 @@ app.controller('loginController', function($http, $log, loginRegisterService){
                 $log.info('success', response.data.token);
                 //take token and store it in the browser
                 loginRegisterService.token = response.data.token; //update the current token of the service on response.success
-                self.loggedInBool = true;
+                loginRegisterService.loggedInBool = true;
                 loginRegisterService.username = response.data.username;
                 //update the current token in local storage
                 localStorage.setItem("AS", response.data.token);

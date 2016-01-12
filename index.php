@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 ?>
-<!--TODO need to ask how to allow crossorigin without the plugin? -->
+
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
 <!--TODO make a chrome extension that takes an address and plugs it into your database-->
 <!DOCTYPE html>
@@ -27,6 +27,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
     <script src="javascript/angularApp.js"></script>
     <script src="javascript/apiService.js"></script>
+    <script src="javascript/modalService.js"></script>
     <script src="javascript/getIdFromZillowJson.js"></script>
     <script src="javascript/urlCreationService.js"></script>
     <script src="javascript/xmlToJson.js"></script>
@@ -165,7 +166,7 @@ header('Access-Control-Allow-Methods: GET, POST');
             </div>
 
             <div class="row" ng-controller="savedController as sC">
-                <div id="modal" ng-show="sC.modalBool">
+                <div id="modal" ng-show="sC.getModal()">
                     <div class="container-fluid">
                         <h1>Welcome to apartmentShark</h1>
                         <p>Plug in an address, click search, and have the majority of your apartment hunting, organizing, appointments, location and renters information, and notes

@@ -1,8 +1,14 @@
-app.controller('savedController', function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService){
+app.controller('savedController', function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService){
     var self = this;
     self.titleChange = null;
     self.serverErrorMessage = null;
-    self.modalBool = true;
+    self.updateModalBool = function(){
+        modalService.modalBool = false;
+    };
+
+    self.getModal = function(){
+      return modalService.returnModalBool();
+    };
 
 
     self.returnSavedApartments = function(){
@@ -38,7 +44,7 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index){
-        self.modalBool = false;
+        modalService.modalBool = false;
 
         var street = apiService.savedApartments[index].searchQuery.street;
         var city = apiService.savedApartments[index].searchQuery.city;

@@ -1,10 +1,9 @@
-app.controller('formController',  function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService){
+app.controller('formController',  function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService){
     var self = this;
-
-
     self.currentFormInput = {};
     //search method on this controller uses the url services to return a promise value that's used to call the api's service for maps and zillow
     self.search = function(street, city, state){
+        modalService.modalBool = false;
 
 
         urlCreationService.createGoogleGeoCodeUrl(street, city, state).then(function(response){

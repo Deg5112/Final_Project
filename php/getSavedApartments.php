@@ -1,12 +1,10 @@
 <?php
 require('connect.php');
 
-//$password = $_POST['password'];
-//
-//$hash =  crypt('fluffybunnies', '$2a$09$anexamplestringforsalt$');
-//we'll deal with login and password stuff later.. ?
+$userId = $_POST['userId'];
 
-$apartmentsQuery = "SELECT * FROM apartments";
+
+$apartmentsQuery = "SELECT * FROM `apartments` WHERE user_id = $userId";
 $result = mysqli_query($conn, $apartmentsQuery);
 if(mysqli_num_rows($result)>0){
     while($row = mysqli_fetch_assoc($result)){

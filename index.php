@@ -26,9 +26,9 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
 
     <script src="javascript/angularApp.js"></script>
+    <script src="javascript/loginRegisterService.js"></script>
     <script src="javascript/apiService.js"></script>
     <script src="javascript/modalService.js"></script>
-    <script src="javascript/loginRegisterService.js"></script>
     <script src="javascript/getIdFromZillowJson.js"></script>
     <script src="javascript/urlCreationService.js"></script>
     <script src="javascript/xmlToJson.js"></script>

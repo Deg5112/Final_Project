@@ -1,8 +1,9 @@
-app.service('loginRegisterService', function($http, $log){
+app.service('loginRegisterService', function($http, $log, apiService){
    var self = this;
     self.token = null;
     self.username = null;
     self.loggedInBool = false;
+    self.userId = null;
 
     self.logout = function(){
         $log.info('LOG OUT SERVICE HIT!', self.token);
@@ -16,6 +17,8 @@ app.service('loginRegisterService', function($http, $log){
             }).then(function(response){
                 if(response.data.success){
                     self.loggedInBool = false;
+                    self.userId = 0;
+                    apiService.getApartments(self.userId);
                 }else{
                 }
             }, function(response){
@@ -41,20 +44,25 @@ app.service('loginRegisterService', function($http, $log){
 
         if(token){
             self.compareTokens(token).then(function(response){
-                $log.info(response);
+
                 if(response.data.success){
+                    $log.info(response);
                     self.token = token;
                     //this means the tokens match and we are still logged in
                     self.username = response.data.username;
                     self.loggedInBool = true;
-                    //we need to grab the name of the id and stick it up there as well
+                    self.userId = response.data.userId;
+                    apiService.getApartments(self.userId); //token match get users apartments
+
                 }else{
-                    console.log('false', response);
-                    //either tokens did not match, or the token was deleted on the server but not the client
+                    $log.info(response);
+
+                    self.userId = 0;
+                    apiService.getApartments(self.userId); //tokens don't match, get default
                 }
+            }, function(response){
+                //server error
             });
-        }else{
-            //$log.info('no token!');
         }
     };
     self.checkIfLoggedIn();

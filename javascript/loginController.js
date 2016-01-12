@@ -1,4 +1,4 @@
-app.controller('loginController', function($http, $log, loginRegisterService){
+app.controller('loginController', function($http, $log, loginRegisterService, apiService){
     var self = this;
     self.username = null;
     self.bool = true;
@@ -41,8 +41,10 @@ app.controller('loginController', function($http, $log, loginRegisterService){
                 loginRegisterService.token = response.data.token; //update the current token of the service on response.success
                 loginRegisterService.loggedInBool = true;
                 loginRegisterService.username = response.data.username;
+                loginRegisterService.userId = response.data.userId;
                 //update the current token in local storage
                 localStorage.setItem("AS", response.data.token);
+                apiService.getApartments(loginRegisterService.userId);
             }else{
 
             }

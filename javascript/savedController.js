@@ -1,7 +1,8 @@
-app.controller('savedController', function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService){
+app.controller('savedController', function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService, loginRegisterService){
     var self = this;
     self.titleChange = null;
     self.serverErrorMessage = null;
+
     self.updateModalBool = function(){
         modalService.modalBool = false;
     };
@@ -15,12 +16,12 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
       return apiService.savedApartments;
     };
 
-    self.getSavedApartments = function() {
-        console.log('savedController hit');
-        apiService.getApartments();
-    };
-
-    self.getSavedApartments();
+    //self.getSavedApartments = function() {
+    //    console.log('savedController hit');
+    //    apiService.getApartments();
+    //};
+    //
+    //self.getSavedApartments();
 
     //self.savedApartments = [
     //    {title: 'seaview summit', comments: 'hello governer!', searchQuery: {street: '102 Calais St', city: 'Laguna Niguel', state: 'CA'}},

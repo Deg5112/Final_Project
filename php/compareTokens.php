@@ -24,14 +24,14 @@ if(mysqli_num_rows($tokenResult)>0){  //if a row was returned it means that we h
         }
         $responseArray = [
             'success'=>true,
-            'username'=>$username
+            'username'=>$username,
+            'userId'=>$userId
         ];
         print(json_encode($responseArray));
 
     }else{
         $responseArray = [
-            'success'=>false,
-            'error'=>'token matches but error getting userId from server'
+            'success'=>false, //then tokens don't match, userId is null
         ];
         print(json_encode($responseArray));
 

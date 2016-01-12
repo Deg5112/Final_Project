@@ -36,16 +36,19 @@ app.service('apiService', function($http, xmlToJsonService){
         };
 
         //sends request to server to fetch saved apartments
-        self.getApartments = function(){
+        self.getApartments = function(userId){
+                var data = 'userId='+ userId;
+            console.log('GETAPARTMENTS HIT', data);
 
-                $http({
+            $http({
                 url: "http://localhost:8888/lfz/Final_Project/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
+                data: data
             }).then(function(response){
                  if(response.data.success){
                      console.log(response);
-
+                     self.savedApartments = [];
                      for(var i = 0; i<response.data.data.length; i++){
                          var apartment = {
                              title : response.data.data[i].title,

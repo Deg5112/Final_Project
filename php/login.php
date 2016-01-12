@@ -25,7 +25,8 @@ if(mysqli_num_rows($result)>0){
         $responseArray = [
           'success'=> true,
             'token'=>$token,
-            'username'=> $username
+            'username'=> $username,
+            'userId'=>$userId
         ];
     }else{
         $responseArray =[

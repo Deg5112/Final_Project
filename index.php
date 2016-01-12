@@ -60,8 +60,8 @@ header('Access-Control-Allow-Methods: GET, POST');
                 <li><a href="#">Settings</a></li>
                 <!--show if logged in-->
 
-                <li ng-show="lC.loggedInBool" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{lC.username}}<span class="caret"></span></a>
+                <li ng-show="lC.returnLoggedInBool();" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{lC.returnUsername()}}<span class="caret"></span></a>
                     <!-- login dropdown menu-->
                     <ul class="dropdown-menu" ng-click="lC.stop($event)">
                         <!-- login dropdown-->
@@ -72,7 +72,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                         <!--username logged in end-->
 
-                <li ng-hide="lC.loggedInBool" class="dropdown" >
+                <li ng-hide="lC.returnLoggedInBool();" class="dropdown" >
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">LogIn<span class="caret"></span></a>
                     <!-- login dropdown menu-->
                     <ul class="dropdown-menu" ng-click="lC.stop($event)">

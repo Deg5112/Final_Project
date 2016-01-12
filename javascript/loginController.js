@@ -11,8 +11,21 @@ app.controller('loginController', function($http, $log, loginRegisterService){
     self.registerpasswordMessage = null;
     self.registrationSuccessMessage = null;
     self.loggedInBool = false;
+
+    self.logout = function(){
+
+    };
+
+    self.returnLoggedInBool = function(){
+      return loginRegisterService.loggedInBool;
+    };
+
     self.changeBool = function(){
         self.bool = (self.bool) ? !(self.bool) : true;
+    };
+
+    self.returnUsername = function(){
+     return loginRegisterService.username;
     };
 
     //stops login from closing when button toggle
@@ -27,7 +40,7 @@ app.controller('loginController', function($http, $log, loginRegisterService){
                 //take token and store it in the browser
                 loginRegisterService.token = response.data.token; //update the current token of the service on response.success
                 self.loggedInBool = true;
-                self.username = response.data.username;
+                loginRegisterService.username = response.data.username;
                 //update the current token in local storage
                 localStorage.setItem("AS", response.data.token);
             }else{

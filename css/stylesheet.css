@@ -18,6 +18,8 @@ ul.dropdown-menu h4{
 }
 
 
+
+
 #zillowRow .col-md-6 {
     overflow: scroll;
     overflow-x: hidden;
@@ -56,8 +58,22 @@ h2{
     margin-bottom: 0px !important;
 }
 
-nav a, p {
+#modal {
+    color: white;
+    padding: 10%;
+}
+#modal p {
+    font-size: 1.4em;
+    text-align: left;
+    margin: 7% 9%;
+}
+
+nav a {
     color: #FFE8E8 !important;
+}
+
+ul#first {
+    list-style: none;
 }
 
 nav p {
@@ -116,6 +132,27 @@ button.btn.btn-success.savedBtn.pull-right {
 .btn-danger{
     font-size: 1.2em;
     padding: 1% 5%;
+}
+
+#modal h1 {
+    text-align: center;
+}
+
+div#modal {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.91);
+    width: 200%;
+    height: 100%;
+    right: -200%;
+    z-index: 1000;
+    top: 0;
+    font-family: sans-serif, times;
+}
+
+
+
+#modal ul:not(#first) {
+    font-size: 1em;
 }
 
 .active{

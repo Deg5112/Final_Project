@@ -164,22 +164,34 @@ header('Access-Control-Allow-Methods: GET, POST');
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" ng-controller="savedController as sC">
+                <div id="modal" ng-show="sC.modalBool">
+                    <div class="container-fluid">
+                        <h1>Welcome to apartmentShark</h1>
+                        <p>Plug in an address, click search, and have the majority of your apartment hunting, organizing, appointments, location and renters information, and notes
+                            all in one place. No more jumping from one apartment site to another, never remembering where you left off, which apartment you're supposed
+                        to see this weekend, and so on!</p>
+                        <p>After finding an address for an apartment online, plug it into apartmentShark and let it do all
+                            the heavy lifting for you. view side by side comparisons of google maps street view, zillow data, images, and more.
+                        </p>
+                        <p>Register for login credentails and you can save apartments to your account</p>
+
+                    </div>
+                </div>
                 <div class="col-md-12" id="savedColumn">
                     <div id="savedApartments" >
                         <h2>Your Saved Apartments</h2>
 
 
-                        <div class="panel-group" id="accordion" ng-controller="savedController as sC">
+                        <div class="panel-group" id="accordion">
                             <p>{{sC.serverErrorMessage}}</p>
 
-                            <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()"> <!--panel 1-->
+                            <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()" > <!--panel 1-->
 
                                 <div class="panel-heading" ng-init="panelBool=true;">
 
-
                                     <h4 ng-show='panelBool' class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index)">{{sC.returnTitle($index)}}</a>
+                                        <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
                                         <button class="btn btn-warning pull-right">remove</button>
                                         <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
                                     </h4>

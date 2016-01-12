@@ -2,6 +2,8 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     var self = this;
     self.titleChange = null;
     self.serverErrorMessage = null;
+    self.modalBool = true;
+
 
     self.returnSavedApartments = function(){
       return apiService.savedApartments;
@@ -36,6 +38,8 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index){
+        self.modalBool = false;
+
         var street = apiService.savedApartments[index].searchQuery.street;
         var city = apiService.savedApartments[index].searchQuery.city;
         var state = apiService.savedApartments[index].searchQuery.state;

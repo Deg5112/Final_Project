@@ -3,11 +3,14 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     self.titleChange = null;
     self.serverErrorMessage = null;
     self.newTitle = null;
+    self.newComments = null;
 
     //TODO finish add and update functions and try to watch the input with below.. couldn't figure out i.title.. etc..
+    //TODO, if it's the demo account, only overwrite the model, not the database.
 
-    self.updateComments = function(){
-
+    self.updateCommentsInDB = function(comments, index){
+        //console.log(comments, index);
+        apiService.apiUpdateCommentsInDB(comments, index);
     };
 
     self.updateTitleInDB = function(title, index){
@@ -41,7 +44,7 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
 
 
     self.returnSavedApartments = function(){
-        console.log(apiService.savedApartments);
+        //console.log(apiService.savedApartments);
       return apiService.savedApartments;
 
     };

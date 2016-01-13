@@ -5,6 +5,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 <!--TODO maybe have a chrome extension that you can dump the address into your app?-->
 <!--TODO make a chrome extension that takes an address and plugs it into your database-->
+<!--TODO need user comments if DB doesn't get updated for comments or title update-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -231,8 +232,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                         <div class="form-group">
                                             <label for="comment"> notes:</label>
-                                            <textarea class="form-control" rows="5" id="comment">{{i.comments}}</textarea>
-                                            <button type="button" class="btn btn-success savedBtn pull-right">Update</button>
+                                            <textarea class="form-control" rows="5" id="comment" ng-change='sC.newComments = i.comments' ng-model="i.comments">{{i.comments}}</textarea>
+                                            <p>{{sC.commentSavedMessage}}</p>
+                                            <button ng-click='sC.updateCommentsInDB(sC.newComments, $index)' type="button" class="btn btn-success savedBtn pull-right">save</button>
                                         </div>
 
                                     </div>

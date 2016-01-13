@@ -11,8 +11,24 @@ app.service('apiService', function($http, xmlToJsonService){
         self.noResultsBool = false;
         self.searchMessage = null;
 
-    self.updateComments = function(){
-
+    self.apiUpdateCommentsInDB = function(comments, index){
+        var rowId = self.savedApartments[index].rowId;
+        console.log(comments, index, rowId);
+        var data = 'comments='+comments+'&rowId='+rowId;
+        $http({
+            url: "http://localhost:8888/lfz/Final_Project/php/updateComments.php",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            method: 'POST',
+            data: data
+        }).then(function(response){
+           if(response.data.success){
+               console.log(response);
+           }else{
+               console.log(response);
+           }
+        }, function(response){
+            console.log('COMMENTS SERVER ERROR');
+        });
     };
 
     self.removeApartment = function(userId, index){

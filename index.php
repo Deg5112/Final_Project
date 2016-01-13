@@ -97,16 +97,13 @@ header('Access-Control-Allow-Methods: GET, POST');
                             </div>
 
                             <button class="btn btn-success" type="button" ng-click="lC.loginUser(lC.login.userLog, lC.login.password)">Submit</button>
-                            <button type="button" class="btn btn-danger">Clear</button>
-
-
-
+                            <button type="button" class="btn btn-danger" ng-click="lC.clear();">Clear</button>
+                            <p id="regSuccess">{{lC.regSuccessfulMessage}}</p>
                         </li>
 
 
                         <!-- register dropdown-->
                         <li ng-hide="lC.bool">
-
 
                             <button type='button' class="pull-right btn-small btn-info btn-small" ng-click="lC.changeBool()">back to Login</button><h4>Register</h4>
 
@@ -115,6 +112,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type="text" class="form-control" placeholder="User Name" ng-model="lC.register.userReg">
                             </div>
+                            <p>{{lC.usernameRegisterMessage}}</p>
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
@@ -130,14 +128,10 @@ header('Access-Control-Allow-Methods: GET, POST');
                                 <span class="input-group-addon"> <i class="glyphicon  glyphicon glyphicon-lock"></i>  </span>
                                 <input  type="text" class="form-control" placeholder="confirm-password" ng-model="lC.register.passwordConfirm">
                             </div>
+                            <p class="passwordMessage">{{lC.registerMessage}}</p>
 
-
-
-
-                            <button class="btn btn-success" type="submit" ng-click="lC.registerUser(lC.register.userReg, lC.register.emailReg, lC.register.password, lC.register.passwordConfirm)">Add</button>
-                            <button type="button" class="btn btn-danger">Clear</button>
-
-
+                            <button class="btn btn-success" type="button" ng-click="lC.registerUser(lC.register.userReg, lC.register.emailReg, lC.register.password, lC.register.passwordConfirm)">Submit</button>
+                            <button type="button" class="btn btn-danger" ng-click="lC.clear();">Clear</button>
 
                         </li>
                     </ul>
@@ -196,9 +190,9 @@ header('Access-Control-Allow-Methods: GET, POST');
                 <div class="col-md-12" id="savedColumn">
                     <div id="savedApartments" >
                         <h2>Your Saved Apartments</h2>
+                        <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
 
-
-                        <div class="panel-group" id="accordion">
+                        <div ng-hide="sC.returnSavedBool()" class="panel-group" id="accordion">
                             <p>{{sC.serverErrorMessage}}</p>
 
                             <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()" > <!--panel 1-->

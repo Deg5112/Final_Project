@@ -7,6 +7,9 @@ app.service('apiService', function($http, xmlToJsonService){
         self.map = null;
         self.panorama = null;
         self.savedApartments = [];
+        self.savedBool = null;
+
+
 
         self.updateApartmentInDb = function(street, city, state){
             console.log('UPDATING!!');
@@ -47,7 +50,9 @@ app.service('apiService', function($http, xmlToJsonService){
                 data: data
             }).then(function(response){
                  if(response.data.success){
+
                      console.log(response);
+                     self.savedBool = false;
                      self.savedApartments = [];
                      for(var i = 0; i<response.data.data.length; i++){
                          var apartment = {
@@ -62,7 +67,8 @@ app.service('apiService', function($http, xmlToJsonService){
                          self.savedApartments.push(apartment);
                      }
                  }else{
-
+                     self.savedApartments = [];
+                     self.savedBool = true;
                  }
 
              }, function(response){

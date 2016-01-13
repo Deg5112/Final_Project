@@ -11,6 +11,14 @@ app.controller('loginController', function($http, $log, loginRegisterService, ap
     self.registerpasswordMessage = null;
     self.registrationSuccessMessage = null;
     self.loggedInBool = false;
+    self.registerMessage = null;
+    self.usernameRegisterMessage = null;
+    self.regSuccessfulMessage = null;
+
+    self.clear = function(){
+        self.login = {};
+        self.register = {};
+    };
 
     self.logout = function(){
         loginRegisterService.logout();
@@ -34,12 +42,14 @@ app.controller('loginController', function($http, $log, loginRegisterService, ap
     };
 
     self.loginUser = function(username, password){
+        self.regSuccessfulMessage = null;
         loginRegisterService.login(username, password).then(function(response){
             if(response.data.success){
                 $log.info('success', response.data.token);
                 //take token and store it in the browser
                 loginRegisterService.token = response.data.token; //update the current token of the service on response.success
                 loginRegisterService.loggedInBool = true;
+                self.clear();
                 loginRegisterService.username = response.data.username;
                 loginRegisterService.userId = response.data.userId;
                 //update the current token in local storage
@@ -54,10 +64,22 @@ app.controller('loginController', function($http, $log, loginRegisterService, ap
     };
 
     self.registerUser = function(username, email, password, passwordConfirm){
+        self.regSuccessfulMessage = null;
         $log.info(username,email, password, passwordConfirm);
-        //loginRegisterService.register(username, email, password, passwordConfirm).then(function(response){
-        //
-        //});
+        if(password === passwordConfirm){
+            self.registerMessage = null;
+            loginRegisterService.register(username, email, password).then(function(response){
+                $log.info(response);
+                if(response.data.success){
+                    self.clear();
+                    self.changeBool();
+                    self.regSuccessfulMessage = 'Registration Successful, LogIn!';
+                }
+            });
+        }else{
+            console.log('doesnt match');
+            self.registerMessage = 'Passwords do not match';
+        }
     };
 
 

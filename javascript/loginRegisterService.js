@@ -83,7 +83,13 @@ app.service('loginRegisterService', function($http, $log, apiService){
 
 
     //register method
-    self.register = function(){
-
+    self.register = function(username, email, password){
+        var data = 'username='+username+'&email='+email+'&password='+password;
+        return $http({
+            url: "http://localhost:8888/lfz/Final_Project/php/register.php",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            method: 'POST',
+            data: data
+        });
     };
 });

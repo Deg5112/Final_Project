@@ -11,6 +11,10 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
       return modalService.returnModalBool();
     };
 
+    self.returnSavedBool = function(){
+      return apiService.savedBool;
+    };
+
 
     self.returnSavedApartments = function(){
       return apiService.savedApartments;

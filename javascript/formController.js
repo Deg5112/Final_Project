@@ -1,5 +1,6 @@
 app.controller('formController',  function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService){
     var self = this;
+    self.noResultsBool = false;
     self.currentFormInput = {};
     //search method on this controller uses the url services to return a promise value that's used to call the api's service for maps and zillow
     self.search = function(street, city, state){
@@ -21,8 +22,12 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
                 var newResponse = xmlToJsonService.xmlToJson(xmlObject);
 
                 var id = getIdFromZillowService.zillowGetIdFromResponse(newResponse);
-                    console.log(id);
+                    console.log('ZPID' , id);
                     //get this FAR!
+                if(id === 'undefined'){
+                    self.noResultsBool = true;
+                    return;
+                }
 
                 //console.log(id);
                 apiService.zillowGetPropInfo(id).then(function(response){

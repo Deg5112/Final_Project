@@ -150,7 +150,7 @@ header('Access-Control-Allow-Methods: GET, POST');
             <div class="row" ng-controller="formController as fc">
 
                 <div class="col-md-12">
-                    <h2>search for an apartment</h2>
+                    <h2>Search for a listing</h2>
                     <div class="form-group">
                         <label for="street">Street:</label>
                         <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
@@ -189,7 +189,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                 </div>
                 <div class="col-md-12" id="savedColumn">
                     <div id="savedApartments" >
-                        <h2>Your Saved Apartments</h2>
+                        <h2>Saved Locations</h2>
                         <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
 
                         <div ng-hide="sC.returnSavedBool()" class="panel-group" id="accordion">

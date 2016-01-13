@@ -3,9 +3,14 @@
 
     <div class="container-fluid">
 
-        <div class="row" id="zillowRow">
+        <div class="row" id="zillowRow" ng-controller="statsController as sC">
+            <div ng-show='sC.returnNoResultsBool()' id="noResults">
+                <p>We've checked with our friends at Zillow, and they have no records of this listing</p>
+                <p>The address has still been saved.</p>
 
-            <div class="col-md-6" ng-controller="statsController as sC">
+            </div>
+
+            <div class="col-md-6" >
                 <a href="#zillowStatsFull"><button type="button" class="btn btn-default">Full Screen</button></a>
 
                 <div id="beforeStats">
@@ -19,16 +24,7 @@
                <hr>
             </div>
 
-                <!--gallery section-->
-            <!--<div class="col-md-6" ng-controller="galleryController as gC" >-->
-                <!--<a href="#galleryFull"><button type="button" class="btn btn-default">Full Screen</button></a>-->
 
-                <!--<carousel interval="gC.interval">-->
-                    <!--<slide ng-repeat="slide in gC.returnArray()" active="slide.active">-->
-                        <!--<img ng-src="{{slide.src}}">-->
-                    <!--</slide>-->
-                <!--</carousel>-->
-            <!--</div>-->
 
             <div class="col-md-6" ng-controller="galleryController as gC" >
                 <a href="#galleryFull"><button type="button" class="btn btn-default">View Full Screen</button></a>

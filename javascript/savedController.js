@@ -72,11 +72,20 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
                 var newResponse = xmlToJsonService.xmlToJson(xmlObject);
 
                 var id = getIdFromZillowService.zillowGetIdFromResponse(newResponse);
-                console.log(id);
+                console.log('ZPID' , id);
                 //get this FAR!
+                if(typeof id === 'undefined'){
+                    console.log('UNDEFINNNNEED ID!');
+                    //self.noResultsBool = true;
+                    apiService.imgArray = [];
+                    apiService.facts = null;
+                    apiService.noResultsBool = true;
+                    return;
+                }
 
                 //console.log(id);
                 apiService.zillowGetPropInfo(id).then(function(response){
+                    apiService.noResultsBool = false;
                     $scope.imgArray = response;
                 });
             });

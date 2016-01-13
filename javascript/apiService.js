@@ -1,17 +1,18 @@
 app.service('apiService', function($http, xmlToJsonService){
         var self = this;
         self.imgArray = [];
-        self.facts = [];
+        self.facts = null;
         self.mapOptions = null;
         self.panoOptions = null;
         self.map = null;
         self.panorama = null;
         self.savedApartments = [];
         self.savedBool = null;
+        self.noResultsBool = false;
 
 
 
-        self.updateApartmentInDb = function(street, city, state){
+    self.updateApartmentInDb = function(street, city, state){
             console.log('UPDATING!!');
             var data = 'street='+street+'&city='+city+'&state='+state;
 

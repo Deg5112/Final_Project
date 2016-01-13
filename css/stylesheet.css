@@ -6,6 +6,24 @@ div#savedApartments::-webkit-scrollbar {
     width: 12px;
 }
 
+div#noResults {
+    position: absolute;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.84);
+    left: 0;
+    z-index: 500;
+    right: 0;
+    top: 0;
+    bottom: 50%;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+div#noResults p {
+    position: relative;
+    top: 7.2em;
+}
+
 /* Track */
 div#savedApartments::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);

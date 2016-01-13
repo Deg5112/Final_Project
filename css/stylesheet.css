@@ -2,6 +2,11 @@ body{
     height: 700px;
 }
 
+p#formMessage {
+    color: red;
+    font-size: 1.2em;
+}
+
 div#savedApartments::-webkit-scrollbar {
     width: 12px;
 }

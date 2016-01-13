@@ -7,7 +7,6 @@ app.controller('googleMapsController', function(apiService){
 
     self.mapInitSmall = function(){
         var mapOptions = apiService.mapOptions; //apiService.mapOptions;
-        console.log(mapOptions);
         var map = new google.maps.Map($('#map')[0], mapOptions);
 
         var panoOptions = apiService.panoOptions;

@@ -7,7 +7,6 @@ app.controller('statsController', function(apiService){
     };
 
     self.stats = function(){
-        console.log('FACTS', apiService.facts);
         for(var i in apiService.facts){
             if(i){
                 self.headerBool = true;

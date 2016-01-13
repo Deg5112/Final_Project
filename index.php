@@ -154,22 +154,23 @@ header('Access-Control-Allow-Methods: GET, POST');
                     <div class="form-group">
                         <label for="street">Street:</label>
                         <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
-                        <p>{{fc.currentFormInput.street}}</p>
+<!--                        <p>{{fc.currentFormInput.street}}</p>-->
                     </div>
 
                     <div class="form-group">
                         <label for="city">City:</label>
                         <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
-                        <p>{{fc.currentFormInput.city}}</p>
+<!--                        <p>{{fc.currentFormInput.city}}</p>-->
                     </div>
 
                     <div class="form-group">
                         <label for="street">State:</label>
                         <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
-                        <p>{{fc.currentFormInput.state}}</p>
+<!--                        <p>{{fc.currentFormInput.state}}</p>-->
                     </div>
                     <br>
                     <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
+                    <p id="formMessage">{{fc.returnSearchMessage()}}</p>
                 </div>
             </div>
 

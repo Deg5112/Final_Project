@@ -49,6 +49,7 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index){
+        apiService.searchMessage = null;
         modalService.modalBool = false;
 
         var street = apiService.savedApartments[index].searchQuery.street;

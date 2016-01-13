@@ -9,11 +9,11 @@ app.service('apiService', function($http, xmlToJsonService){
         self.savedApartments = [];
         self.savedBool = null;
         self.noResultsBool = false;
+        self.searchMessage = null;
 
 
 
     self.updateApartmentInDb = function(street, city, state){
-            console.log('UPDATING!!');
             var data = 'street='+street+'&city='+city+'&state='+state;
 
             $http({
@@ -22,7 +22,6 @@ app.service('apiService', function($http, xmlToJsonService){
                 method: 'POST',
                 data: data
             }).then(function(response) {
-                console.log('ADD RESPONSE', response);
                 if (response.data.success) {
 
                     var apartment = {
@@ -42,7 +41,6 @@ app.service('apiService', function($http, xmlToJsonService){
         //sends request to server to fetch saved apartments
         self.getApartments = function(userId){
                 var data = 'userId='+ userId;
-            console.log('GETAPARTMENTS HIT', data);
 
             $http({
                 url: "http://localhost:8888/lfz/Final_Project/php/getSavedApartments.php",
@@ -52,7 +50,6 @@ app.service('apiService', function($http, xmlToJsonService){
             }).then(function(response){
                  if(response.data.success){
 
-                     console.log(response);
                      self.savedBool = false;
                      self.savedApartments = [];
                      for(var i = 0; i<response.data.data.length; i++){

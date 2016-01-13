@@ -150,7 +150,7 @@ header('Access-Control-Allow-Methods: GET, POST');
             <div class="row" ng-controller="formController as fc">
 
                 <div class="col-md-12">
-                    <h2>Search for a listing</h2>
+                    <h2>Find a listing</h2>
                     <div class="form-group">
                         <label for="street">Street:</label>
                         <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
@@ -202,7 +202,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                     <h4 ng-show='panelBool' class="panel-title">
                                         <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
-                                        <button class="btn btn-warning pull-right">remove</button>
+                                        <button class="btn btn-warning pull-right" ng-click="sC.remove($index)">remove</button>
                                         <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
                                     </h4>
 
@@ -211,13 +211,13 @@ header('Access-Control-Allow-Methods: GET, POST');
                                             <div class ='col-md-8'>
 
                                                 <div class="form-group">
-                                                    <input  type="text" placeholder="Apartment Name" ng-model="i.title" class="form-control">
+                                                    <input  type="text" placeholder="Apartment Name" ng-model="i.title" ng-change="sC.newTitle = i.title" class="form-control">
                                                 </div>
 
                                             </div>
 
                                             <div class="col-md-2 col-md-offset-1">
-                                                <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.savedApartments[$index].title, $index)" type="button" class="btn btn-info pull-right danger2">submit</button>
+                                                <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.newTitle, $index)" type="button" class="btn btn-info pull-right danger2" ng-click="sC.updateTitleInDB(i.title, $index)">submit</button>
                                             </div>
                                         </div>
                                     </div>

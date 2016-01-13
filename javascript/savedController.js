@@ -2,6 +2,30 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     var self = this;
     self.titleChange = null;
     self.serverErrorMessage = null;
+    self.newTitle = null;
+
+    //TODO finish add and update functions and try to watch the input with below.. couldn't figure out i.title.. etc..
+
+    self.updateComments = function(){
+
+    };
+
+    self.updateTitleInDB = function(title, index){
+        console.log(title, index);
+        apiService.updateAptTitleInDB(title, index).then(function(response) {
+            if(response.data.success){
+
+            }else{
+                console.log(response);
+            }
+        }, function(response){
+            console.log('SERVER ERROR');
+        });
+    };
+
+    self.remove = function(index){
+      apiService.removeApartment(loginRegisterService.userId, index);
+    };
 
     self.updateModalBool = function(){
         modalService.modalBool = false;
@@ -17,7 +41,9 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
 
 
     self.returnSavedApartments = function(){
+        console.log(apiService.savedApartments);
       return apiService.savedApartments;
+
     };
 
     //self.getSavedApartments = function() {
@@ -34,9 +60,7 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     //    {title: 'Monarch Coast', comments: 'hello governer!', searchQuery: {street: '32400 Crown Valley Pkwy', city: 'Dana point', state: 'CA'}}
     //];
 
-    self.updateTitleInDB = function(title, index){
-        apiService.updateAptTitleInDB();
-    };
+
 
     self.returnTitle = function(i){
         if(self.titleChange === null){

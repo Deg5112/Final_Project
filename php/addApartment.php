@@ -12,8 +12,10 @@ $insertQuery = "INSERT INTO `apartments`( `title`, `street`, `city`, `state`, `u
 $insertResult = mysqli_query($conn, $insertQuery);
 
 if(mysqli_affected_rows($conn)>0){
+    $lastId = mysqli_insert_id($conn);
     $responseArray = [
-        'success'=>true
+        'success'=>true,
+        'rowId'=>$lastId
     ];
     print(json_encode($responseArray));
 }else{

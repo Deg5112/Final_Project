@@ -11,6 +11,45 @@ app.service('apiService', function($http, xmlToJsonService){
         self.noResultsBool = false;
         self.searchMessage = null;
 
+    self.updateComments = function(){
+
+    };
+
+    self.removeApartment = function(userId, index){
+        var rowId = self.savedApartments[index].rowId;
+
+        var data = 'userId='+userId+'&rowId='+rowId;
+        $http({
+            url: "http://localhost:8888/lfz/Final_Project/php/removeApartment.php",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            method: 'POST',
+            data: data
+        }).then(function(response){
+            if(response.data.success){
+                self.savedApartments.splice(index, 1);
+                console.log(response);
+            }else{
+                console.log('remove operation failed');
+            }
+        }, function(response){
+            console.log('server error');
+        });
+    };
+
+    self.updateAptTitleInDB = function(title, index){
+      var rowId = self.savedApartments[index].rowId;
+        console.log('TITLE', title);
+        console.log('ROWID', rowId);
+        var data = 'title='+title+'&rowId='+rowId;
+        return $http({
+            url: "http://localhost:8888/lfz/Final_Project/php/update.php",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            method: 'POST',
+            data: data
+        });
+    };
+
+
 
     self.updateApartmentInDb = function(street, city, state, userId){
             var data = 'street='+street+'&city='+city+'&state='+state+'&userId='+userId;
@@ -26,11 +65,12 @@ app.service('apiService', function($http, xmlToJsonService){
                     var apartment = {
                         title: street,
                         comments: null,
-                        searchQuery: {street: street, city: city, state: state}
+                        searchQuery: {street: street, city: city, state: state},
+                        rowId: response.data.rowId
                     };
 
                     self.savedApartments.unshift(apartment);
-                    console.log(self.savedApartments);
+                    //console.log(self.savedApartments);
                 }
             }, function(response){
 
@@ -59,10 +99,12 @@ app.service('apiService', function($http, xmlToJsonService){
                                  street: response.data.data[i].street,
                                  city: response.data.data[i].city ,
                                  state: response.data.data[i].state
-                             }
+                             },
+                             rowId: response.data.data[i].id
                          };
                          self.savedApartments.push(apartment);
                      }
+
                  }else{
                      self.savedApartments = [];
                      self.savedBool = true;
@@ -73,9 +115,7 @@ app.service('apiService', function($http, xmlToJsonService){
              });
         };
 
-        self.updateAptTitleInDB = function(){
-          //TODO update the title in the database
-        };
+
 
 
         self.googleMapsApiCall = function(url) {

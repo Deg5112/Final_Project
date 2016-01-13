@@ -3,9 +3,11 @@ require('connect.php');
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+
 $usernameQuery = "SELECT `username` FROM `users` WHERE `username` = '$username'";
 $result = mysqli_query($conn, $usernameQuery);
 if(mysqli_num_rows($result)>0){
+
     $passwordQuery = "SELECT * FROM users WHERE username = '$username' AND `password` = '$password'";
     $passwordResult = mysqli_query($conn, $passwordQuery);
     if(mysqli_num_rows($passwordResult)>0){

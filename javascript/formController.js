@@ -1,4 +1,4 @@
-app.controller('formController',  function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService){
+app.controller('formController',  function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService, loginRegisterService){
     var self = this;
     $scope.searchMessage = null;
 
@@ -33,7 +33,7 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
             apiService.googleMapsApiCall(response);
 
 
-            apiService.updateApartmentInDb(street, city, state);
+            apiService.updateApartmentInDb(street, city, state, loginRegisterService.userId);
         });
 
         //get url, then convert xml response to json, then get the property id, then

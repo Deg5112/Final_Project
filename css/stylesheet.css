@@ -7,7 +7,7 @@ p#formMessage {
     font-size: 1.2em;
 }
 
-div#savedApartments::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 12px;
 }
 
@@ -30,21 +30,21 @@ div#noResults p {
 }
 
 /* Track */
-div#savedApartments::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
 /* Handle */
-div#savedApartments::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: black;
+    background: rgba(56, 139, 175, 0.4);
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
-div#savedApartments::-webkit-scrollbar-thumb:window-inactive {
-    background: black;
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(56, 139, 175, 0.4);
 }
 
 div#savedNothing {

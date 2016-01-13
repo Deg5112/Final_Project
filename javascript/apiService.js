@@ -12,9 +12,8 @@ app.service('apiService', function($http, xmlToJsonService){
         self.searchMessage = null;
 
 
-
-    self.updateApartmentInDb = function(street, city, state){
-            var data = 'street='+street+'&city='+city+'&state='+state;
+    self.updateApartmentInDb = function(street, city, state, userId){
+            var data = 'street='+street+'&city='+city+'&state='+state+'&userId='+userId;
 
             $http({
                 url: "http://localhost:8888/lfz/Final_Project/php/addApartment.php",

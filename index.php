@@ -19,6 +19,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
@@ -155,20 +156,20 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                 <div class="col-md-12">
                     <h2>Find a listing</h2>
-                    <div class="form-group">
-                        <label for="street">Street:</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
                         <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
 <!--                        <p>{{fc.currentFormInput.street}}</p>-->
                     </div>
 
-                    <div class="form-group">
-                        <label for="city">City:</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
                         <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
 <!--                        <p>{{fc.currentFormInput.city}}</p>-->
                     </div>
 
-                    <div class="form-group">
-                        <label for="street">State:</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-globe"></i></span>
                         <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
 <!--                        <p>{{fc.currentFormInput.state}}</p>-->
                     </div>

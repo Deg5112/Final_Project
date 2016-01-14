@@ -53,10 +53,13 @@ header('Access-Control-Allow-Methods: GET, POST');
 <nav class="navbar navbar-fixed-top"> <!--top navigation-->
     <div class="container-fluid">
         <div class="navbar-header">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
             <a class="navbar-brand" href="#">Apartment-Shark</a>
         </div>
         <div>
-            <ul class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
+            <ul id="navdrop" class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Settings</a></li>
                 <!--show if logged in-->

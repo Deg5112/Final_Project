@@ -289,7 +289,7 @@ div#modal {
 }
 
 .active{
-    background-color: #050022 !important;
+    background-color: #765FFF !important;
 }
 nav {
     background-color: #050022 !important
@@ -516,6 +516,20 @@ nav.navbar.navbar-fixed-top {
     background: linear-gradient(to bottom,#FFA5A5 0, #455AC3  100%);
 }
 
+#galFull {
+    position: absolute;
+    top: 50%;
+    width: 89%;
+    overflow: hidden;
+    max-height: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#zillowFull ul {
+    list-style: none;
+}
+
 a.navbar-brand {
     font-size: 1.8em;
     font-family: cursive;
@@ -533,6 +547,14 @@ a.navbar-brand {
     border-color: #4cae4c;
     font-size: 1.2em;
     padding: 1% 5%;
+}
+
+.carousel-indicators .active,  .carousel-indicators li {
+    width: 10px !important;
+    height: 10px !important;
+    padding: 3%;
+    border: 3px solid black;
+    background-color: #FFB2B2;
 }
 
 ul.dropdown-menu.logoutMenu {
@@ -567,7 +589,7 @@ nav .logoutMenu a:hover {
 }
 
 .animateIn.ng-enter-active{
-    -webkit-transform: translateX(-200%);
+    -webkit-transform: translateX(0);
 
 }
 
@@ -575,6 +597,22 @@ nav .logoutMenu a:hover {
     -webkit-transition-delay: 0.2s;
     -webkit-transition-duration: 0s;
 }
+
+.animateIn.ng-leave{
+    -webkit-transform: translateX(0);
+}
+
+.animateIn.ng-leave-active{
+    -webkit-transform: translateX(-200%);
+
+}
+
+.animateIn.ng-leave-stagger{
+    -webkit-transition-delay: 0.2s;
+    -webkit-transition-duration: 0s;
+}
+
+
 
 footer{
     margin-top: -.4%;

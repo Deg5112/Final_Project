@@ -29,7 +29,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.compareTokens = function (token){
         return $http({
             data: "token="+token,
-            url: 'http://localhost:8888/lfz/Final_Project/php/compareTokens.php',
+            url: 'http://davidgoodman.club/apartmentShark/php/compareTokens.php',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST'
         }).success(function (response) {

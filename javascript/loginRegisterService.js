@@ -11,7 +11,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
        var token = self.token;
             $http({
                 data: "token="+token,
-                url: ' http://localhost:8888/lfz/Final_Project/php/logOut.php',
+                url: ' http://davidgoodman.club/apartmentShark/php/logOut.php',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST'
             }).then(function(response){
@@ -71,7 +71,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.login = function(username, password){
         var data = 'username='+username+'&password='+password;
         return $http({
-            url: "http://localhost:8888/lfz/Final_Project/php/login.php",
+            url: "http://davidgoodman.club/apartmentShark/php/login.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: data
@@ -86,7 +86,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.register = function(username, email, password){
         var data = 'username='+username+'&email='+email+'&password='+password;
         return $http({
-            url: "http://localhost:8888/lfz/Final_Project/php/register.php",
+            url: "http://davidgoodman.club/apartmentShark/php/register.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: data

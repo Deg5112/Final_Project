@@ -113,6 +113,9 @@ app.service('apiService', function($http, xmlToJsonService){
 
         //sends request to server to fetch saved apartments
         self.getApartments = function(userId){
+                console.log('apiServiceHit!');
+            console.log('USERID', userId);
+
                 var data = 'userId='+ userId;
 
             $http({
@@ -121,6 +124,7 @@ app.service('apiService', function($http, xmlToJsonService){
                 method: 'POST',
                 data: data
             }).then(function(response){
+                console.log(response);
                  if(response.data.success){
 
                      self.savedBool = false;

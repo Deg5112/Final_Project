@@ -1,5 +1,6 @@
 <?php
 require('connect.php');
+//ob_start();
 
 $userId = $_POST['userId'];
 
@@ -16,14 +17,17 @@ if(mysqli_num_rows($result)>0){
         ];
     }
 
-    print(json_encode($responseArray));
+
 
 }else{
     $responseArray = [
         'success'=> false,
         'data'=> 'no apartments found'
     ];
+
 }
+//ob_end_clean();
+print(json_encode($responseArray));
 
 
 

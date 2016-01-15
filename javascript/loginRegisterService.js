@@ -41,6 +41,8 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.checkIfLoggedIn = function(){
         //update current token on page load
         var token = localStorage.getItem("AS");
+        console.log(token, 'TOKEN');
+        console.log(typeof token, 'typeOF');
 
         if(token){  //no tokens for web server, it's undefined!!!
             self.compareTokens(token).then(function(response){
@@ -64,7 +66,8 @@ app.service('loginRegisterService', function($http, $log, apiService){
                 //server error
             });
         }
-        if(typeof token == 'undefined'){
+        if(token == 'undefined'){
+            console.log('UNDEFINED!!');
             self.userId = 0;
             apiService.getApartments(self.userId); //tokens don't match, get default
         }

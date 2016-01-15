@@ -5,7 +5,7 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     self.newTitle = null;
     self.newComments = null;
 
-    //TODO finish add and update functions and try to watch the input with below.. couldn't figure out i.title.. etc..
+
     //TODO, if it's the demo account, only overwrite the model, not the database.
 
     self.updateCommentsInDB = function(comments, index){

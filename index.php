@@ -42,6 +42,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="javascript/gallaryController.js"></script>
     <script src="javascript/statsController.js"></script>
     <script src="javascript/loginController.js"></script>
+    <script src="javascript/directive.js"></script>
 
 
     <meta name="viewport" content="initial-scale=1.0">
@@ -61,16 +62,16 @@ header('Access-Control-Allow-Methods: GET, POST');
         </div>
         <div>
             <ul id="navdrop" class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Settings</a></li>
+<!--                <li class="active"><a href="#">Home</a></li>-->
+<!--                <li><a href="#">Settings</a></li>-->
                 <!--show if logged in-->
 
                 <li ng-show="lC.returnLoggedInBool();" class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{lC.returnUsername()}}<span class="caret"></span></a>
                     <!-- login dropdown menu-->
-                    <ul class="dropdown-menu" ng-click="lC.stop($event)">
+                    <ul class="dropdown-menu logoutMenu" ng-click="lC.stop($event)">
                         <!-- login dropdown-->
-                        <li><a href="#">settings</a></li>
+<!--                        <li><a href="#">settings</a></li>-->
                         <li><a href="#" ng-click="lC.logout()">Log Out</a></li>
                     </ul>
                 </li>
@@ -153,6 +154,8 @@ header('Access-Control-Allow-Methods: GET, POST');
 
         <div class="container-fluid">
             <div class="row" ng-controller="formController as fc">
+                <div resize-Attr></div>
+                <div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
 
                 <div class="col-md-12">
                     <h2>Find a listing</h2>

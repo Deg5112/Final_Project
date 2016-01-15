@@ -4,26 +4,33 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     self.serverErrorMessage = null;
     self.newTitle = null;
     self.newComments = null;
+    self.savedBool = false;
 
 
     //TODO, if it's the demo account, only overwrite the model, not the database.
 
     self.updateCommentsInDB = function(comments, index){
+        self.savedBool = true;
         //console.log(comments, index);
-        apiService.apiUpdateCommentsInDB(comments, index);
+        if(loginRegisterService.userId!==0){
+            apiService.apiUpdateCommentsInDB(comments, index);
+        }
     };
 
     self.updateTitleInDB = function(title, index){
         console.log(title, index);
-        apiService.updateAptTitleInDB(title, index).then(function(response) {
-            if(response.data.success){
+        if(loginRegisterService.userId!==0){
+            apiService.updateAptTitleInDB(title, index).then(function(response) {
+                if(response.data.success){
 
-            }else{
-                console.log(response);
-            }
-        }, function(response){
-            console.log('SERVER ERROR');
-        });
+                }else{
+                    console.log(response);
+                }
+            }, function(response){
+                console.log('SERVER ERROR');
+            });
+        }
+
     };
 
     self.remove = function(index){

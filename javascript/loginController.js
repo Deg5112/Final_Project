@@ -12,7 +12,7 @@ app.controller('loginController', function($http, $log, loginRegisterService, ap
     self.registrationSuccessMessage = null;
     self.loggedInBool = false;
     self.registerMessage = null;
-    self.usernameRegisterMessage = null;
+    self.usernameRegisterMessage = false;
     self.regSuccessfulMessage = null;
 
     self.clear = function(){

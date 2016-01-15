@@ -12,7 +12,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Apartment-Shark</title>
+    <title>apartmentShark</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -43,6 +43,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="javascript/statsController.js"></script>
     <script src="javascript/loginController.js"></script>
     <script src="javascript/directive.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
 
 
     <meta name="viewport" content="initial-scale=1.0">
@@ -58,7 +59,7 @@ header('Access-Control-Allow-Methods: GET, POST');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <a class="navbar-brand" href="#">Apartment-Shark</a>
+            <a class="navbar-brand" href="#">apartmentShark</a>
         </div>
         <div>
             <ul id="navdrop" class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
@@ -118,7 +119,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type="text" class="form-control" placeholder="User Name" ng-model="lC.register.userReg">
                             </div>
-                            <p>{{lC.usernameRegisterMessage}}</p>
+<!--                            <p ng-show="">Username already exist!</p>-->
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
@@ -244,8 +245,8 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                         <div class="form-group">
                                             <label for="comment"> notes:</label>
-                                            <textarea class="form-control" rows="5" id="comment" ng-change='sC.newComments = i.comments' ng-model="i.comments">{{i.comments}}</textarea>
-                                            <p>{{sC.commentSavedMessage}}</p>
+                                            <textarea ng-change="sC.savedBool = false;" class="form-control" rows="5" id="comment" ng-change='sC.newComments = i.comments' ng-model="i.comments">{{i.comments}}</textarea>
+                                            <p ng-show="sC.savedBool">Changes Saved!</p>
                                             <button ng-click='sC.updateCommentsInDB(sC.newComments, $index)' type="button" class="btn btn-success savedBtn pull-right">save</button>
                                         </div>
 

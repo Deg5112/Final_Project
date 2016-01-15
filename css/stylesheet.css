@@ -5,6 +5,13 @@ p#formMessage {
     font-size: 1.2em;
 }
 
+.panel-body p {
+    margin-bottom: -7%;
+    font-size: .9em;
+    color: #AAFFAA;
+    margin-top: 1%;
+}
+
 .mobileModal p {
     color: white;
     position: absolute;
@@ -545,13 +552,28 @@ nav .logoutMenu a:hover {
 }
 
 /*animate*/
-@-webkit-keyframes fadeIn {
-    0%   {position:relative; right: 300px; opacity: 0;}
-    100% {position:relative; right: 0px; opacity: 1;}
-}
+/*@-webkit-keyframes fadeIn {*/
+    /*0%   {position:relative; right: 50px; opacity: 0;}*/
+    /*100% {position:relative; right: 0px; opacity: 1;}*/
+/*}*/
 
 .animateIn{
-    -webkit-animation: fadeIn 1s 1;
+    transition: .8s;
+    min-width: 365.189px;
+}
+
+.animateIn.ng-enter{
+    -webkit-transform: translateX(-200%);
+}
+
+.animateIn.ng-enter-active{
+    -webkit-transform: translateX(-200%);
+
+}
+
+.animateIn.ng-enter-stagger{
+    -webkit-transition-delay: 0.2s;
+    -webkit-transition-duration: 0s;
 }
 
 footer{

@@ -32,24 +32,29 @@ app.service('apiService', function($http, xmlToJsonService){
     };
 
     self.removeApartment = function(userId, index){
-        var rowId = self.savedApartments[index].rowId;
+        if(userId!==0){
+            var rowId = self.savedApartments[index].rowId;
 
-        var data = 'userId='+userId+'&rowId='+rowId;
-        $http({
-            url: "http://localhost:8888/lfz/Final_Project/php/removeApartment.php",
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            method: 'POST',
-            data: data
-        }).then(function(response){
-            if(response.data.success){
-                self.savedApartments.splice(index, 1);
-                console.log(response);
-            }else{
-                console.log('remove operation failed');
-            }
-        }, function(response){
-            console.log('server error');
-        });
+            var data = 'userId='+userId+'&rowId='+rowId;
+            $http({
+                url: "http://localhost:8888/lfz/Final_Project/php/removeApartment.php",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                method: 'POST',
+                data: data
+            }).then(function(response){
+                if(response.data.success){
+                    self.savedApartments.splice(index, 1);
+                    console.log(response);
+                }else{
+                    console.log('remove operation failed');
+                }
+            }, function(response){
+                console.log('server error');
+            });
+        }else{
+            self.savedApartments.splice(index, 1);
+        }
+
     };
 
     self.updateAptTitleInDB = function(title, index){
@@ -68,29 +73,42 @@ app.service('apiService', function($http, xmlToJsonService){
 
 
     self.updateApartmentInDb = function(street, city, state, userId){
-            var data = 'street='+street+'&city='+city+'&state='+state+'&userId='+userId;
+            console.log('USER ID' , userId);
 
-            $http({
-                url: "http://localhost:8888/lfz/Final_Project/php/addApartment.php",
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                method: 'POST',
-                data: data
-            }).then(function(response) {
-                if (response.data.success) {
+            if(userId !== 0){
+                console.log('zero hit!');
+                var data = 'street='+street+'&city='+city+'&state='+state+'&userId='+userId;
+                $http({
+                    url: "http://localhost:8888/lfz/Final_Project/php/addApartment.php",
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    method: 'POST',
+                    data: data
+                }).then(function(response) {
+                    if (response.data.success) {
 
-                    var apartment = {
-                        title: street,
-                        comments: null,
-                        searchQuery: {street: street, city: city, state: state},
-                        rowId: response.data.rowId
-                    };
+                        var apartment = {
+                            title: street,
+                            comments: null,
+                            searchQuery: {street: street, city: city, state: state},
+                            rowId: response.data.rowId
+                        };
 
-                    self.savedApartments.unshift(apartment);
-                    //console.log(self.savedApartments);
-                }
-            }, function(response){
+                        self.savedApartments.unshift(apartment);
+                        //console.log(self.savedApartments);
+                    }
+                }, function(response){
 
-            });
+                });
+            }else{
+                var apartment = {
+                    title: street,
+                    comments: null,
+                    searchQuery: {street: street, city: city, state: state},
+                };
+                self.savedApartments.unshift(apartment);
+            }
+
+
         };
 
         //sends request to server to fetch saved apartments

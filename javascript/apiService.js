@@ -119,7 +119,7 @@ app.service('apiService', function($http, xmlToJsonService){
                 var data = 'userId='+ userId;
 
             $http({
-                url: "http://localhost:8888/lfz/Final_Project/php/getSavedApartments.php",
+                url: "http://davidgoodman.club/apartmentShark/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
                 data: data

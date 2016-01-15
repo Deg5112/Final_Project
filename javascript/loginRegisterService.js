@@ -66,8 +66,8 @@ app.service('loginRegisterService', function($http, $log, apiService){
                 //server error
             });
         }
-        if(token == 'undefined'){
-            console.log('UNDEFINED!!');
+        if(token === null){
+            console.log('null');
             self.userId = 0;
             apiService.getApartments(self.userId); //tokens don't match, get default
         }

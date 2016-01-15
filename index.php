@@ -208,29 +208,34 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                 <div class="panel-heading" ng-init="panelBool=true;">
 
-                                    <h4 ng-show='panelBool' class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
-                                        <button class="btn btn-warning pull-right" ng-click="sC.remove($index)">remove</button>
-                                        <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
-                                    </h4>
+                                    <div class="row" ng-show="panelBool"> <!--init row with title and change/remove button-->
 
-                                    <div ng-hide="panelBool" class="row">
-                                        <div class="container-fluid">
-                                            <div class ='col-md-8'>
+                                        <div class="col-xs-6">
+                                            <h4 ng-show='panelBool' class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
+                                            </h4>
+                                        </div>
 
-                                                <div class="form-group">
+                                        <div class="col-xs-6">
+                                            <button class="btn btn-warning pull-right" ng-click="sC.remove($index)">remove</button>
+                                            <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
+                                        </div>
+
+                                    </div>
+
+<!--                                    change title -->
+                                    <div  ng-hide="panelBool"  class="container-fluid">
+                                        <div class="row">
+                                                <div class="col-xs-8">
                                                     <input  type="text" placeholder="Apartment Name" ng-model="i.title" ng-change="sC.newTitle = i.title" class="form-control">
+                                               </div>
+                                                <div class="col-xs-4">
+                                                    <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.newTitle, $index)" type="button" class="btn btn-info danger2" ng-click="sC.updateTitleInDB(i.title, $index)">submit</button>
                                                 </div>
-
-                                            </div>
-
-                                            <div class="col-md-2 col-md-offset-1">
-                                                <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.newTitle, $index)" type="button" class="btn btn-info pull-right danger2" ng-click="sC.updateTitleInDB(i.title, $index)">submit</button>
-                                            </div>
                                         </div>
                                     </div>
 
-                                </div>
+                                </div> <!--panel heading end-->
 
 
                                 <div id="{{'collapse' + (+$index +1)}}" class="panel-collapse collapse">

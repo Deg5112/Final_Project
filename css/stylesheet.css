@@ -456,6 +456,10 @@ div#secondCol6 {
     min-height: 628px;
 }
 
+.col-md-4 h2 {
+    color: white;
+}
+
 .container-fluid {
     height: 100%;
 }

@@ -461,7 +461,6 @@ div#secondCol6 {
 }
 .col-md-4>.container-fluid>.row:first-child {
     position: relative;
-    top: 2.1em !important;
 }
 .col-md-4>.container-fluid>.row:nth-child(2) {
     height: 70%;

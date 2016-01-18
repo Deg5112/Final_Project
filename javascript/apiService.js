@@ -211,7 +211,7 @@ app.service('apiService', function($http, xmlToJsonService){
         var url = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&zpid=" + zpid;
         var urlToSend = $.param( {url: url} );
         return $http({
-            url: "http://localhost:8888/lfz/Final_Project/php/zillowGetPropInfo.php",
+            url: "http://davidgoodman.club/apartmentShark/php/zillowGetPropInfo.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: urlToSend

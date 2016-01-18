@@ -1,5 +1,7 @@
 
-
+body{
+    overflow: hidden;
+}
 p#formMessage {
     color: red;
     font-size: 1.2em;
@@ -106,7 +108,7 @@ p#regSuccess {
 }
 
 footer p{
-    color: white;
+    color: #E4F8FF!important;
 }
 
 ul.dropdown-menu {
@@ -142,8 +144,8 @@ ul.dropdown-menu h4{
 }
 
 .panel-default>.panel-heading {
-    background-image: -webkit-linear-gradient(top,#455AC3 0,#FFA5A5 100%);
-    background-image: linear-gradient(to bottom,#455AC3 0,#FFA5A5 100%);
+    background-image: linear-gradient(to bottom,#03CFFF 0, #55DFFF 100%);
+    background-image: linear-gradient(to bottom,#03CFFF 0, #55DFFF 100%);
     background-repeat: repeat-x;
     border-bottom: 2px solid #FFA5A5;
 }
@@ -175,7 +177,7 @@ h2{
 }
 
 nav a {
-    color: #FFE8E8 !important;
+    color: #E4F8FF!important;
 }
 
 ul#first {
@@ -192,14 +194,16 @@ nav p {
     cursor: pointer;
 }
 
+.col-md-4 .col-md-12:first-child{
 
+}
 
 .col-md-4 .col-md-12 .btn-success {
     margin-bottom: 4%;
 }
 
 .col-md-4 {
-    background-color: rgba(0, 194, 255, 0.21);
+    background-color: #6FCDEC;
     min-width: 422.38px !important;
 }
 
@@ -245,7 +249,7 @@ div#savedApartments {
     overflow-y: auto;
     border-radius: 5px;
     overflow-x: hidden;
-    background-color: rgb(5, 0, 34);
+    background-color: #041419;
     max-height: 375px;
 }
 
@@ -292,11 +296,13 @@ div#modal {
     background-color: #765FFF !important;
 }
 nav {
-    background-color: #050022 !important
+    background-color: #037398 !important;
+  
+
 }
 
 nav a{
-    background: #050022 !important
+    background: #037398 !important
 }
 
 
@@ -455,9 +461,9 @@ div#secondCol6 {
     height: 100%;
 }
 .col-md-4>.container-fluid>.row:first-child {
-    height: 30%;
+    position: relative;
+    top: 2.1em !important;
 }
-
 .col-md-4>.container-fluid>.row:nth-child(2) {
     height: 70%;
 }
@@ -513,7 +519,7 @@ nav.navbar.navbar-fixed-top {
 
 .panel-body {
     font-size: 1.6em;
-    background: linear-gradient(to bottom,#FFA5A5 0, #455AC3  100%);
+    background: linear-gradient(to bottom,#03CFFF 0, #55DFFF 100%);
 }
 
 #galFull {

@@ -2,19 +2,17 @@
 
 
 $zillowUrl = $_POST['url'];
-$response = [
-    'response'=>$zillowUrl
-];
 
-print(json_encode($response));
-//$curl = curl_init();
+
+$curl = curl_init();
 //
-//curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-//curl_setopt($curl,  CURLOPT_URL, $zillowUrl);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl,  CURLOPT_URL, $zillowUrl);
 //
-//$result = curl_exec($curl);  //get an xml string as a response
+$result = curl_exec($curl);  //get an xml string as a response
 //
 //
+print(json_encode($result));
 //$responseArray = [
 //    'success'=>true,
 //    'data'=>$result

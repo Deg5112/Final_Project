@@ -185,7 +185,7 @@ app.service('apiService', function($http, xmlToJsonService){
 
 
     self.zillowGetZPID_XML = function(url){  //gets property id form zillow, takes the custom url as a paremter, returns the zpid of the property
-        var urlToSend = $.param( {url: url} );
+        var urlToSend = 'url='+url;
         var zpid = null;
          return $http({
             url: 'http://davidgoodman.club/apartmentShark/php/zillow.php',

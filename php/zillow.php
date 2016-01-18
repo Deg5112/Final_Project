@@ -10,6 +10,7 @@ $curl = curl_init();
 //
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl,  CURLOPT_URL, $zillowUrl);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER => 0);
 //
 echo '<pre>';
 print_r($curl);
@@ -21,11 +22,11 @@ echo '<pre>';
 print_r($result);
 echo '</pre>';
 
-//$responseArray = [
-//    'success'=>true,
-//    'data'=>$result
-//];
-//print(json_encode($responseArray));
+$responseArray = [
+    'success'=>true,
+    'data'=>$result
+];
+print(json_encode($responseArray));
 
 
 

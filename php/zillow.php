@@ -1,8 +1,12 @@
 <?php
 
-print('hello!');
-//$zillowUrl = $_POST['url'];
-//
+
+$zillowUrl = $_POST['url'];
+$response = [
+    'response'=>$zillowUrl
+];
+
+print(json_encode($response));
 //$curl = curl_init();
 //
 //curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);

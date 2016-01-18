@@ -3,8 +3,8 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 //var_dump(extension_loaded('curl'));
 
-//$zillowUrl = $_POST['url'];
-$zillowUrl = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&address=21551+Brookhurst+St&citystatezip=Huntington+Beach%2C+CA";
+$zillowUrl = $_POST['url'];
+//$zillowUrl = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&address=21551+Brookhurst+St&citystatezip=Huntington+Beach%2C+CA";
 
 $curl = curl_init();
 

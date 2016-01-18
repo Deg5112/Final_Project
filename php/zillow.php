@@ -1,11 +1,7 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
-function _isCurl(){
-    return function_exists('curl_version');
-}
-
-_isCurl();
+var_dump(extension_loaded('curl'));
 
 //$zillowUrl = $_POST['url'];
 //

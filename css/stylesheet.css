@@ -334,6 +334,7 @@ div#pano2, div#map2 {
 
 div#savedColumn button{
     padding: .5vw .2vw;
+    margin-right: 1%;
 }
 
 div#zillowRow {

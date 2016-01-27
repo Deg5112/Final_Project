@@ -218,8 +218,8 @@ header('Access-Control-Allow-Methods: GET, POST');
                                     </div>
 
 
-                                            <button class="btn btn-warning pull-right" ng-click="sC.remove($index)">remove</button>
-                                            <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
+                                            <button class="btn btn-warning " ng-click="sC.remove($index)">remove</button>
+                                            <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info">change title</button>
                                         </div>
 
 

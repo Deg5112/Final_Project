@@ -158,9 +158,6 @@ nav p {
     display: inline-block;
 }
 
-.panel-heading .col-xs-6 {
-    padding: 0;
-}
 
 .panel-heading a:hover {
     text-decoration: none;

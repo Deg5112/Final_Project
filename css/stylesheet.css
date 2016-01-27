@@ -330,14 +330,14 @@ div#zillowRow {
 }
 
 
-.leftSide::-webkit-scrollbar-track {
+.leftSide ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
 /* Handle */
-.leftSide::-webkit-scrollbar-thumb {
+.leftSide ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     background: black;

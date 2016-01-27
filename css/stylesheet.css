@@ -353,3 +353,7 @@ div#zillowFull li {
 div#zillowFull {
     background-color: white;
 }
+
+div#savedColumn .btn-success {
+    padding: .5vw;
+}

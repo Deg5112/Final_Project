@@ -29,7 +29,7 @@
             <div class="col-xs-6" id="secondCol6" ng-controller="galleryController as gC" >
                 <a href="#galleryFull"><button type="button" class="btn btn-default">View Full Screen</button></a>
 
-                <carousel interval="gC.interval">
+                <carousel interval="gC.interval" disable-animation="true">
                     <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
                         <img ng-src="{{slide.src}}">
                     </slide>

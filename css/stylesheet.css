@@ -353,6 +353,7 @@ div#zillowFull li {
 
 div#zillowFull {
     background-color: white;
+    height: 100%;
 }
 
 div#savedColumn .btn-success {
@@ -368,5 +369,6 @@ div#savedColumn .btn-success {
 }
 
 .carousel img {
-    width:100%;
-}
+    max-width: 120%;
+    width: 115%;
+};

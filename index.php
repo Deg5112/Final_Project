@@ -184,7 +184,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                 </div>
             </div>
             <h2 class="text-center">Saved Locations</h2>
-            <div class="row" ng-controller="savedController as sC">
+            <div class="row sC" ng-controller="savedController as sC">
                 <div id="modal" ng-show="sC.getModal()">
                     <div class="container-fluid">
                         <h1>Welcome to apartmentShark</h1>

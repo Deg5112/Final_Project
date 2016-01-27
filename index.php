@@ -159,7 +159,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                 <div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
 
                 <div class="col-xs-12">
-                    <h2>Find a listing</h2>
+                    <h2 class="text-center">Find a listing</h2>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
                         <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
@@ -199,7 +199,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                 </div>
                 <div class="col-xs-12" id="savedColumn">
                     <div id="savedApartments" >
-                        <h2>Saved Locations</h2>
+                        <h2 class="text-center">Saved Locations</h2>
                         <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
 
                         <div ng-hide="sC.returnSavedBool()" class="panel-group" id="accordion">
@@ -244,7 +244,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                     <div class="panel-body">
 
                                         <div class="form-group">
-                                            <label for="comment"> notes:</label>
+                                            <label for="comment" class="text-center"> notes:</label>
                                             <textarea ng-change="sC.savedBool = false;" class="form-control" rows="5" id="comment" ng-change='sC.newComments = i.comments' ng-model="i.comments">{{i.comments}}</textarea>
                                             <p ng-show="sC.savedBool">Changes Saved!</p>
                                             <button ng-click='sC.updateCommentsInDB(sC.newComments, $index)' type="button" class="btn btn-success savedBtn pull-right">save</button>

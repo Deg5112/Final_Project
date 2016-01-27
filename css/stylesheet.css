@@ -297,3 +297,19 @@ a.navbar-brand {
 div#zillowRow ul, div#zillowFull ul{
     list-style: none;
 }
+
+span.glyphicon.glyphicon-ok {
+    color: green;
+}
+
+.leftSide {
+    background-color: #3da3bb;
+}
+
+h2 {
+    color: white;
+}
+
+div#pano2 {
+    height: 100%;
+}

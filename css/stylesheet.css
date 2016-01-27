@@ -312,3 +312,7 @@ h2 {
 div#pano2 {
     height: 100%;
 }
+
+div#savedColumn button{
+    padding: .5vw .5vw;
+}

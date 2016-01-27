@@ -211,18 +211,17 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                                     <div class="row" ng-show="panelBool"> <!--init row with title and change/remove button-->
 
-
+                                        <div class="col-xs-6">
                                             <h4 ng-show='panelBool' class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
                                             </h4>
-
+                                    </div>
 
 
                                             <button class="btn btn-warning pull-right" ng-click="sC.remove($index)">remove</button>
                                             <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
+                                        </div>
 
-
-                                    </div>
 
 <!--                                    change title -->
                                     <div  ng-hide="panelBool"  class="container-fluid">

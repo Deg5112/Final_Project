@@ -1,7 +1,7 @@
 <div id='zillowFull' class="col-md-12" ng-controller="statsController as sC">
     <a href="#"><button type="button" class="btn btn-default">Back to main view</button></a>
 
-    <h2 ng-show="sC.headerBool">Zillow Stats:</h2>
+    <a href="#"><img id='zillow-icon' src="images/zillowicon.jpg"></a>
     <ul>
         <li ng-repeat="(key,value) in sC.stats()"><span class="glyphicon glyphicon-ok"></span>{{key}}  : {{value['#text']}}</li>
     </ul>

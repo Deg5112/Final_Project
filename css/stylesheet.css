@@ -357,3 +357,11 @@ div#zillowFull {
 div#savedColumn .btn-success {
     padding: .5vw;
 }
+
+.carousel{
+    height: 100%;
+}
+.carousel-inner {
+
+    height: 100%;
+}

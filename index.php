@@ -183,7 +183,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                     </form>
                 </div>
             </div>
-
+            <h2 class="text-center">Saved Locations</h2>
             <div class="row" ng-controller="savedController as sC">
                 <div id="modal" ng-show="sC.getModal()">
                     <div class="container-fluid">
@@ -199,8 +199,8 @@ header('Access-Control-Allow-Methods: GET, POST');
                     </div>
                 </div>
                 <div class="col-xs-12" id="savedColumn">
+
                     <div id="savedApartments" >
-                        <h2 class="text-center">Saved Locations</h2>
                         <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
 
                         <div ng-hide="sC.returnSavedBool()" class="panel-group" id="accordion">

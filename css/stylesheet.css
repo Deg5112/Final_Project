@@ -309,7 +309,7 @@ h2 {
     color: white;
 }
 
-div#pano2 {
+div#pano2, div#map2 {
     height: 100%;
 }
 

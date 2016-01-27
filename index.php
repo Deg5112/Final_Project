@@ -160,26 +160,27 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                 <div class="col-xs-12">
                     <h2 class="text-center">Find a listing</h2>
-                    <div class="form-group input-group">
-                        <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
-                        <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
-<!--                        <p>{{fc.currentFormInput.street}}</p>-->
-                    </div>
+                    <form>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
+                            <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
+    <!--                        <p>{{fc.currentFormInput.street}}</p>-->
+                        </div>
 
-                    <div class="form-group input-group">
-                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                        <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
-<!--                        <p>{{fc.currentFormInput.city}}</p>-->
-                    </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                            <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
+    <!--                        <p>{{fc.currentFormInput.city}}</p>-->
+                        </div>
 
-                    <div class="form-group input-group">
-                        <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                        <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
-<!--                        <p>{{fc.currentFormInput.state}}</p>-->
-                    </div>
-                    <br>
-                    <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
-                    <p id="formMessage">{{fc.returnSearchMessage()}}</p>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                            <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
+    <!--                        <p>{{fc.currentFormInput.state}}</p>-->
+                        </div>
+                        <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
+                        <p id="formMessage">{{fc.returnSearchMessage()}}</p>
+                    </form>
                 </div>
             </div>
 

@@ -316,3 +316,11 @@ div#pano2, div#map2 {
 div#savedColumn button{
     padding: .5vw .5vw;
 }
+
+div#zillowRow {
+    background-color: white !important;
+}
+
+.rightSide{
+    background-color: black;
+}

@@ -302,11 +302,15 @@ span.glyphicon.glyphicon-ok {
 }
 
 .leftSide {
-    background-color: #3da3bb;
+    background-color: black;
 }
 
 h2 {
     color: white;
+}
+
+.form-group{
+    margin-bottom: 0;
 }
 
 div#pano2, div#map2 {
@@ -322,5 +326,5 @@ div#zillowRow {
 }
 
 .rightSide{
-    background-color: black;
+    background-color: #D1DEE1;
 }

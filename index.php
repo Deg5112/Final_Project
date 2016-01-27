@@ -53,7 +53,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 <body ng-app="apartmentShark" ng-controller="mainController as mC">
 
 
-<nav class="navbar navbar-fixed-top"> <!--top navigation-->
+<nav class="navbar"> <!--top navigation-->
     <div class="container-fluid">
         <div class="navbar-header">
             <span class="icon-bar"></span>
@@ -149,16 +149,16 @@ header('Access-Control-Allow-Methods: GET, POST');
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid mainContainer">
 
-    <div class="col-md-4">
+    <div class="col-xs-4 leftSide">
 
         <div class="container-fluid">
             <div class="row" ng-controller="formController as fc">
                 <div resize-Attr></div>
                 <div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
 
-                <div class="col-md-12">
+                <div class="col-xs-12">
                     <h2>Find a listing</h2>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
@@ -197,7 +197,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                     </div>
                 </div>
-                <div class="col-md-12" id="savedColumn">
+                <div class="col-xs-12" id="savedColumn">
                     <div id="savedApartments" >
                         <h2>Saved Locations</h2>
                         <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
@@ -267,8 +267,8 @@ header('Access-Control-Allow-Methods: GET, POST');
     </div> <!--left section end--> <!--col-md-4 ends-->
 
 <!--right section-->
-    <div class="col-md-8">
-        <div ng-view></div>
+    <div class="col-xs-8 rightSide">
+        <div ng-view id="ngView"></div>
     </div>
 
 </div>

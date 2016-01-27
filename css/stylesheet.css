@@ -132,6 +132,10 @@ ul.dropdown-menu {
     margin: 7% 9%;
 }
 
+.leftSide .row:nth-child(2) {
+    overflow-y: scroll;
+}
+
 nav a {
     color: #E4F8FF!important;
 }
@@ -182,6 +186,8 @@ nav {
 .rightSide button {
     position: absolute;
     z-index: 300;
+    top: 1%;
+    right: 1%;
 }
 
 

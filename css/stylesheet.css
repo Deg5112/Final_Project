@@ -136,6 +136,10 @@ ul.dropdown-menu {
     overflow-y: scroll;
 }
 
+.leftSide .row:nth-child(2) {
+    height: 57%;
+}
+
 nav a {
     color: #E4F8FF!important;
 }
@@ -147,6 +151,10 @@ ul#first {
 nav p {
     margin-top: 1em;
     font-size: 1.2em;
+}
+
+.panel-heading .col-xs-6 {
+    padding: 0;
 }
 
 .panel-heading a:hover {

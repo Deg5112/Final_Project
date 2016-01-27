@@ -1,6 +1,7 @@
 
 body{
     height: 100vh;
+    overflow: hidden;
 }
 
 .mobileModal p {
@@ -285,7 +286,7 @@ nav {
     color: white;
 }
 
-.panel-body button {
+.leftSide .btn-success {
     margin-top: 3%;
 }
 
@@ -364,4 +365,9 @@ div#savedColumn .btn-success {
 .carousel-inner {
 
     height: 100%;
+}
+
+.carousel-inner img {
+
+    width:100%;
 }

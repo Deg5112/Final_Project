@@ -153,6 +153,11 @@ nav p {
     font-size: 1.2em;
 }
 
+.panel-title {
+    color: white;
+    display: inline-block;
+}
+
 .panel-heading .col-xs-6 {
     padding: 0;
 }
@@ -218,6 +223,7 @@ nav {
 
 .mainContainer {
     height: 90%;
+    padding: 0;
 }
 
 .leftSide, .rightSide {

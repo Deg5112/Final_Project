@@ -49,10 +49,11 @@ img#zillow-icon {
 .mobileModal {
     background-color: rgb(0, 0, 0);
     position: absolute;
-    width: 100vw;
-    height: 101vh;
+    width: 103vw;
+    height: 90vh;
     z-index: 9000;
-    top: 1vh;
+    top: 0%;
+    left: -5%;
 }
 
 
@@ -332,7 +333,7 @@ div#pano2, div#map2 {
 }
 
 div#savedColumn button{
-    padding: .5vw .5vw;
+    padding: .5vw .2vw;
 }
 
 div#zillowRow {

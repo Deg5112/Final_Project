@@ -124,6 +124,7 @@ ul.dropdown-menu {
 #modal {
     color: white;
     padding: 10%;
+    display: none;
 }
 #modal p {
     font-size: 1.4em;

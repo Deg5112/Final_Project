@@ -269,3 +269,10 @@ nav {
 footer {
     height: 5%;
 }
+
+
+a.navbar-brand {
+    font-size: 1.8em;
+    font-family: cursive;
+    color: white;
+}

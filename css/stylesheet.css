@@ -234,7 +234,6 @@ nav {
 
 .animateIn{
     transition: .8s;
-    min-width: 365.189px;
 }
 
 .animateIn.ng-enter{

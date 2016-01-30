@@ -134,17 +134,8 @@ ul.dropdown-menu {
     margin: 7% 9%;
 }
 
-.sC {
-    overflow-y: scroll;
-}
 
-
-
-}
-
-
-
-.leftSide .row:nth-child(2) {
+.leftSide .container-fluid .row:nth-child(2) {
     height: 57%;
 }
 
@@ -166,6 +157,10 @@ nav p {
     display: inline-block;
 }
 
+.sC {
+    height: 64%;
+    overflow: auto;
+}
 
 .panel-heading a:hover {
     text-decoration: none;
@@ -182,7 +177,7 @@ div#modal {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.91);
     width: 200%;
-    height: 101%;
+    height: 100%;
     right: -200%;
     z-index: 1000;
     top: 0;

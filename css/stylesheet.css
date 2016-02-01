@@ -190,6 +190,10 @@ div#modal {
     font-size: 1em;
 }
 
+p#formMessage {
+    color: red;
+}
+
 .active{
     background-color: #765FFF !important;
 }

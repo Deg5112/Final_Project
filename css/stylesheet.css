@@ -185,6 +185,12 @@ div#modal {
     text-align: center;
 }
 
+h4 {
+    color: white;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #323957;
+}
 
 #modal ul:not(#first) {
     font-size: 1em;

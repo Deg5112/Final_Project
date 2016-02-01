@@ -182,6 +182,7 @@ div#modal {
     z-index: 1000;
     top: 0;
     font-family: sans-serif, times;
+    text-align: center;
 }
 
 

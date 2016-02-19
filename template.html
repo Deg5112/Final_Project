@@ -1,0 +1,119 @@
+<div class="col-xs-4 leftSide">
+
+    <div class="container-fluid">
+        <div class="row" ng-controller="formController as fc">
+            <div resize-Attr></div>
+            <div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
+
+            <div class="col-xs-12">
+                <h2 class="text-center">Find a listing</h2>
+                <form>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
+                        <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
+                        <!--                        <p>{{fc.currentFormInput.street}}</p>-->
+                    </div>
+
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                        <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
+                        <!--                        <p>{{fc.currentFormInput.city}}</p>-->
+                    </div>
+
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                        <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
+                        <!--                        <p>{{fc.currentFormInput.state}}</p>-->
+                    </div>
+                    <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
+                    <p id="formMessage">{{fc.returnSearchMessage()}}</p>
+                </form>
+            </div>
+        </div>
+        <h2 class="text-center">Saved Locations</h2>
+        <div class="row sC" ng-controller="savedController as sC">
+            <div id="modal" ng-show="sC.getModal()">
+                <div class="container-fluid">
+                    <h1>Welcome to apartmentShark</h1>
+                    <p>Plug in an address, click search, and have the majority of your apartment hunting, organizing, appointments, location and renters information, and notes
+                        all in one place. No more jumping from one apartment site to another, never remembering where you left off, which apartment you're supposed
+                        to see this weekend, and so on!</p>
+                    <p>After finding an address for an apartment online, plug it into apartmentShark and let it do all
+                        the heavy lifting for you. view side by side comparisons of google maps street view, zillow data, images, and more.
+                    </p>
+                    <p>Register for login credentails and you can save apartments to your account</p>
+
+                </div>
+            </div>
+            <div class="col-xs-12" id="savedColumn">
+
+                <div id="savedApartments" >
+                    <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
+
+                    <div ng-hide="sC.returnSavedBool()" class="panel-group" id="accordion">
+                        <p>{{sC.serverErrorMessage}}</p>
+
+                        <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()" > <!--panel 1-->
+
+                            <div class="panel-heading" ng-init="panelBool=true;">
+
+                                <div class="row" ng-show="panelBool"> <!--init row with title and change/remove button-->
+
+                                    <div class="col-xs-6">
+                                        <h4 ng-show='panelBool' class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
+                                        </h4>
+                                    </div>
+
+
+                                    <button class="btn btn-warning pull-right " ng-click="sC.remove($index)">remove</button>
+                                    <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
+                                </div>
+
+
+                                <!--                                    change title -->
+                                <div  ng-hide="panelBool"  class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-8">
+                                            <input  type="text" placeholder="Apartment Name" ng-model="i.title" ng-change="sC.newTitle = i.title" class="form-control">
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <button  ng-click="panelBool = !panelBool; sC.updateTitleInDB(sC.newTitle, $index)" type="button" class="btn btn-info danger2" ng-click="sC.updateTitleInDB(i.title, $index)">submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div> <!--panel heading end-->
+
+
+                            <div id="{{'collapse' + (+$index +1)}}" class="panel-collapse collapse">
+
+                                <div class="panel-body">
+
+                                    <div class="form-group">
+                                        <label for="comment" class="text-center"> notes:</label>
+                                        <textarea ng-change="sC.savedBool = false;" class="form-control" rows="5" id="comment" ng-change='sC.newComments = i.comments' ng-model="i.comments">{{i.comments}}</textarea>
+                                        <p ng-show="sC.savedBool">Changes Saved!</p>
+                                        <button ng-click='sC.updateCommentsInDB(sC.newComments, $index)' type="button" class="btn btn-success savedBtn pull-right">save</button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div> <!--panel end-->
+
+                    </div> <!--panel group end-->
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div> <!--left section end--> <!--col-md-4 ends-->
+
+<!--right section-->
+<div class="col-xs-8 rightSide">
+    <div ng-view id="ngView"></div>
+</div>

@@ -22,7 +22,7 @@ overflow: hidden;
 }
 
 div#map, div#pano {
-
+    height: 100%;
 }
 
 #ngView .container-fluid {
@@ -350,7 +350,7 @@ h2 {
 }
 
 div#pano2, div#map2 {
-
+    height: 100%;
 }
 
 div#savedColumn button{

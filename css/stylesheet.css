@@ -180,6 +180,13 @@ nav p {
     height: 100% !important;
 }
 
+.btn-default {
+    color: #BDBDBD;
+    border-color: #7EA5E0;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-shadow: none;
+}
+
 div#modal {
 
     position: absolute;

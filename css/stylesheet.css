@@ -130,6 +130,7 @@ ul.dropdown-menu {
 #modal {
     color: white;
     padding: 10%;
+
 }
 #modal p {
     font-size: 1.4em;
@@ -180,7 +181,7 @@ nav p {
 }
 
 div#modal {
-    display: none;
+
     position: absolute;
     background-color: rgba(0, 0, 0, 0.91);
     width: 200%;
@@ -243,8 +244,9 @@ nav {
 }
 
 .mainContainer {
-    height: 90vh;
+    height: 95%;
     padding: 0;
+    position: absolute;
 }
 
 .leftSide, .rightSide {

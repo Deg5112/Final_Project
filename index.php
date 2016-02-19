@@ -274,7 +274,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 </div>
 <!--bottom navigation-->
 <footer>
-    <nav class="navbar"> <!--top navigation-->
+    <!--top navigation-->
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#"></a>
@@ -285,7 +285,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
             </div>
         </div>
-    </nav>
+
 </footer>
 
 

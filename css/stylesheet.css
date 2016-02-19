@@ -183,7 +183,7 @@ nav p {
 .btn-default {
     color: #BDBDBD;
     border-color: #7EA5E0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.64);
     text-shadow: none;
 }
 
@@ -391,10 +391,10 @@ div#savedColumn .btn-success {
 }
 
 .carousel{
-
+    height: 100%;
 }
 .carousel-inner {
-
+    height: 100%;
 
 }
 

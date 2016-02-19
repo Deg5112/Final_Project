@@ -397,6 +397,14 @@ div#savedColumn .btn-success {
 .carousel{
     height: 100%;
 }
+
+ul.dropdown-menu .btn-success {
+    top: .1em !important;
+}
+ul.dropdown-menu .btn-danger{
+    top: .1em !important;
+}
+
 .carousel-inner {
     height: 90%;
     position: absolute;

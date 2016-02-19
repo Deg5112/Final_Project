@@ -305,6 +305,7 @@ nav {
 
 .leftSide .btn-success {
     margin-top: 3%;
+    overflow: scroll;
 }
 
 .panel-body {

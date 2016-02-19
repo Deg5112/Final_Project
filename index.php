@@ -273,20 +273,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 </div>
 <!--bottom navigation-->
-<footer>
-    <!--top navigation-->
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"></a>
-            </div>
-            <div>
 
-                <p class="text-center">&copy; 2016 David Goodman All Rights Reserved</p>
-
-            </div>
-        </div>
-
-</footer>
 
 
 

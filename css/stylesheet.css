@@ -398,8 +398,10 @@ div#savedColumn .btn-success {
     height: 100%;
 }
 .carousel-inner {
-    height: 100%;
-
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .carousel img {

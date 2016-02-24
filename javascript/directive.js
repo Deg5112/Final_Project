@@ -1,5 +1,5 @@
 app.directive('resizeAttr', function ($window) {
-    return function (scope, element) {
+    return function (scope, element) { //some functions actually take scope as a parameter so no need to include dependecy injection scopes..
         var w = angular.element($window);
         scope.getWindowDimensions = function () {
             return {

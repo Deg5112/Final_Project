@@ -1,6 +1,4 @@
-
 body{
-
     overflow: hidden;
     min-width: 1167px;
 }
@@ -16,49 +14,29 @@ body{
     text-align: center;
 }
 
-#ngView {
-    
-
-}
-
 div#map, div#pano {
     height: 100%;
 }
 
-#ngView .container-fluid {
-    
-
-}
-
-#ngView .container-fluid .row {
-
-}
-
 #ngView .container-fluid .row .col-xs-6 {
-    
-
     position: relative;
     padding: 0;
     height: 100%;
 }
 
-
 img#zillow-icon {
     width: 20%;
 }
 
-
-
 .mobileModal {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0) !important;
     position: absolute;
     width: 103vw;
-
     z-index: 9000;
     top: 0%;
     left: -5%;
+    height: 100vh;
 }
-
 
 div#noResults {
     position: absolute;
@@ -95,9 +73,6 @@ div#noResults p {
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(56, 139, 175, 0.4);
 }
-
-
-
 .passwordMessage{
     color: #FF3900;
 }
@@ -113,13 +88,11 @@ ul.dropdown-menu {
     background-color: #2a1a1a;
 }
 
-
 .panel-default>.panel-heading {
     background-image: linear-gradient(to bottom,#00080A 0, rgb(85, 223, 255) 100%);
     background-image: linear-gradient(to bottom,#00080A 0, rgb(85, 223, 255) 100%);
     background-repeat: repeat-x;
 }
-
 
 .navbar {
     margin-bottom: 0px !important;
@@ -137,7 +110,6 @@ ul.dropdown-menu {
     text-align: left;
     margin: 7% 9%;
 }
-
 
 .leftSide .container-fluid .row:nth-child(2) {
 
@@ -188,7 +160,6 @@ nav p {
 }
 
 div#modal {
-
     position: absolute;
     background-color: rgba(0, 0, 0, 0.91);
     width: 200%;
@@ -229,17 +200,6 @@ nav {
     right: 1%;
 }
 
-
-
-
-
-
-
-
-/*form*/
-
-
-
 .navbar-nav>li>a {
     font-size: 1.2em;
     color: black;
@@ -258,11 +218,6 @@ nav {
 
 .leftSide, .rightSide {
     height: 100%;
-}
-
-.leftSide >.container-fluid {
-
-
 }
 
 .animateIn{
@@ -317,7 +272,6 @@ footer {
     width: 100%;
     bottom: 0;
 }
-
 
 a.navbar-brand {
     font-size: 1.8em;
@@ -396,13 +350,6 @@ div#savedColumn .btn-success {
 
 .carousel{
     height: 100%;
-}
-
-ul.dropdown-menu .btn-success {
-    top: .1em !important;
-}
-ul.dropdown-menu .btn-danger{
-    top: .1em !important;
 }
 
 .carousel-inner {

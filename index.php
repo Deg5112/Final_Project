@@ -51,7 +51,8 @@ header('Access-Control-Allow-Methods: GET, POST');
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body ng-app="apartmentShark" ng-controller="mainController as mC">
-
+<div resize-Attr></div>
+<div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
 
 <nav class="navbar"> <!--top navigation-->
     <div class="container-fluid">
@@ -150,14 +151,10 @@ header('Access-Control-Allow-Methods: GET, POST');
 </nav>
 
 <div class="container-fluid mainContainer">
-
     <div class="col-xs-4 leftSide">
 
         <div class="container-fluid">
             <div class="row" ng-controller="formController as fc">
-                <div resize-Attr></div>
-                <div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
-
                 <div class="col-xs-12">
                     <h2 class="text-center">Find a listing</h2>
                     <form>

@@ -214,6 +214,8 @@ nav {
     height: 95%;
     padding: 0;
     position: absolute;
+    width: 100%;
+
 }
 
 .leftSide, .rightSide {

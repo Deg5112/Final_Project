@@ -24,9 +24,10 @@ app.directive('resizeAttr', function ($window) {
 
         }, true);
 
-        w.bind('resize', function () {
+        w.bind('resize DOMContentLoaded', function () {
             scope.$apply();
         });
+
     };
 });
 

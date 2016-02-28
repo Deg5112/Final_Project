@@ -265,7 +265,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     </div> <!--left section end--> <!--col-md-4 ends-->
 
 <!--right section  ngview for big screen-->
-    <div class="col-xs-8 rightSide" ng-show="mC.homeBool">
+    <div class="col-xs-8 rightSide" ng-show="mC.homeBool" ng-hide="windowWidth<992">
         <div ng-view id="ngView"></div>
     </div>
 

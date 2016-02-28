@@ -1,5 +1,5 @@
 body{
-    overflow: hidden;
+    /*overflow: hidden;*/
     min-width: 1167px;
 }
 
@@ -370,3 +370,38 @@ div#savedColumn .btn-success {
     display: block;
     width: 100%;
 }
+
+@media screen and (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        padding: 0;
+        width: 50%;
+    }
+}
+
+.bNav {
+    color: white;
+    font-size: 2.5em;
+    border-bottom: 1px solid white;
+    margin: 1%;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media screen and (max-width : 1091px) {
+    /* Styles */
+    .leftSide{
+        width: 100%;
+    }
+}
+
+/*/!* Smartphones (landscape) ----------- *!/*/
+/*@media only screen and (min-width : 321px) {*/
+    /*/!* Styles *!/*/
+/*}*/

@@ -9,24 +9,18 @@ header('Access-Control-Allow-Methods: GET, POST');
 <!DOCTYPE html>
 <html>
 <head>
-
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-
     <title>apartmentShark</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
-
     <script src="javascript/angularApp.js"></script>
     <script src="javascript/loginRegisterService.js"></script>
     <script src="javascript/apiService.js"></script>
@@ -51,8 +45,8 @@ header('Access-Control-Allow-Methods: GET, POST');
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body ng-app="apartmentShark" ng-controller="mainController as mC">
-<div resize-Attr></div>
-<div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark Mobile is under construction, and will be available soon</p></div>
+<!--<div resize-Attr></div>-->
+<!--<div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark mobile is not ready just yet, it will be available soon</p></div>-->
 
 <nav class="navbar"> <!--top navigation-->
     <div class="container-fluid">
@@ -151,38 +145,46 @@ header('Access-Control-Allow-Methods: GET, POST');
 </nav>
 
 <div class="container-fluid mainContainer">
-    <div class="col-xs-4 leftSide">
 
+    <div class="col-xs-4 leftSide">
         <div class="container-fluid">
             <div class="row" ng-controller="formController as fc">
-                <div class="col-xs-12">
-                    <h2 class="text-center">Find a listing</h2>
-                    <form>
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
-                            <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
-    <!--                        <p>{{fc.currentFormInput.street}}</p>-->
+
+<!--                <div ng-view id="ngView" class="hidden-md hidden-lg"></div>-->
+
+                        <div class="col-xs-12">
+                            <h2 class="text-center">Find a listing</h2>
+                            <form>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-street-view"></i></span>
+                                    <input id='street' type="text" placeholder="enter a street" class="form-control" ng-model="fc.currentFormInput.street">
+            <!--                        <p>{{fc.currentFormInput.street}}</p>-->
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-building"></i></span>
+                                    <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
+            <!--                        <p>{{fc.currentFormInput.city}}</p>-->
+                                </div>
+
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+                                    <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
+            <!--                        <p>{{fc.currentFormInput.state}}</p>-->
+                                </div>
+                                <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
+                                <p id="formMessage">{{fc.returnSearchMessage()}}</p>
+                            </form>
                         </div>
 
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-building"></i></span>
-                            <input id="city" type="text" placeholder = "enter a city" class="form-control" ng-model="fc.currentFormInput.city">
-    <!--                        <p>{{fc.currentFormInput.city}}</p>-->
-                        </div>
-
-                        <div class="form-group input-group">
-                            <span class="input-group-addon"><i class="fa fa-globe"></i></span>
-                            <input id='state' type="text" placeholder="enter a state" class="form-control" ng-model="fc.currentFormInput.state">
-    <!--                        <p>{{fc.currentFormInput.state}}</p>-->
-                        </div>
-                        <button type="button" class="btn btn-success" ng-click="fc.search(fc.currentFormInput.street,fc.currentFormInput.city, fc.currentFormInput.state)">Search!</button>
-                        <p id="formMessage">{{fc.returnSearchMessage()}}</p>
-                    </form>
-                </div>
             </div>
+
             <h2 class="text-center">Saved Locations</h2>
+
             <div class="row sC" ng-controller="savedController as sC">
+
                 <div id="modal" ng-show="sC.getModal()">
+
                     <div class="container-fluid">
                         <h1>Welcome to apartmentShark</h1>
                         <p>Plug in an address, click search, and have the majority of your apartment hunting, organizing, appointments, location and renters information, and notes
@@ -195,6 +197,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                     </div>
                 </div>
+
                 <div class="col-xs-12" id="savedColumn">
 
                     <div id="savedApartments" >
@@ -213,12 +216,12 @@ header('Access-Control-Allow-Methods: GET, POST');
                                             <h4 ng-show='panelBool' class="panel-title">
                                                 <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
                                             </h4>
-                                    </div>
+                                        </div>
 
 
                                             <button class="btn btn-warning pull-right " ng-click="sC.remove($index)">remove</button>
                                             <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
-                                        </div>
+                                    </div>
 
 
 <!--                                    change title -->
@@ -246,7 +249,6 @@ header('Access-Control-Allow-Methods: GET, POST');
                                             <p ng-show="sC.savedBool">Changes Saved!</p>
                                             <button ng-click='sC.updateCommentsInDB(sC.newComments, $index)' type="button" class="btn btn-success savedBtn pull-right">save</button>
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -258,12 +260,11 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                 </div>
             </div>
-
         </div>
 
     </div> <!--left section end--> <!--col-md-4 ends-->
 
-<!--right section-->
+<!--right section  ngview for big screen-->
     <div class="col-xs-8 rightSide">
         <div ng-view id="ngView"></div>
     </div>
@@ -271,17 +272,21 @@ header('Access-Control-Allow-Methods: GET, POST');
 </div>
 <!--bottom navigation-->
 
+<nav class="navbar-fixed-bottom">
 
-
-
-
-
+    <div class="container text-center">
+        <a href="#"><i class="bNav fa fa-home"></i></a>
+        <a href="#zillowStatsFull"><i class="bNav fa fa-info-circle"></i></a>
+        <a href="#galleryFull"><i class="bNav fa fa-picture-o"></i></a>
+        <a href="#mapsFull"><i class="bNav fa fa-map"></i></a>
+        <a href="#panoFull"><i class="bNav fa fa-street-view"></i></a>
+    </div>
+</nav>
 
 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
 
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize">
 </script>
 <script src="maps.js"></script>
 

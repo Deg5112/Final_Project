@@ -265,21 +265,21 @@ header('Access-Control-Allow-Methods: GET, POST');
     </div> <!--left section end--> <!--col-md-4 ends-->
 
 <!--right section  ngview for big screen-->
-    <div class="col-xs-8 rightSide">
+    <div class="col-xs-8 rightSide" ng-show="mC.homeBool">
         <div ng-view id="ngView"></div>
     </div>
 
 </div>
 <!--bottom navigation-->
 
-<nav class="navbar-fixed-bottom">
+<nav class="navbar-fixed-bottom hidden-md hidden-lg" >
 
     <div class="container text-center">
-        <a href="#"><i class="bNav fa fa-home"></i></a>
-        <a href="#zillowStatsFull"><i class="bNav fa fa-info-circle"></i></a>
-        <a href="#galleryFull"><i class="bNav fa fa-picture-o"></i></a>
-        <a href="#mapsFull"><i class="bNav fa fa-map"></i></a>
-        <a href="#panoFull"><i class="bNav fa fa-street-view"></i></a>
+        <a href="#" ng-click="mC.homeBool=false"><i class="bNav fa fa-home"></i></a>
+        <a href="#zillowStatsFull" ng-click="mC.homeBool=true"><i class="bNav fa fa-info-circle"></i></a>
+        <a href="#galleryFull" ng-click="mC.homeBool=true"><i class="bNav fa fa-picture-o"></i></a>
+        <a href="#mapsFull" ng-click="mC.homeBool=true"><i class="bNav fa fa-map"></i></a>
+        <a href="#panoFull" ng-click="mC.homeBool=true"><i class="bNav fa fa-street-view"></i></a>
     </div>
 </nav>
 

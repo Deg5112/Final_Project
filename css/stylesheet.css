@@ -1,5 +1,5 @@
 body{
-    /*overflow: hidden;*/
+    overflow: hidden;
     min-width: 1167px;
 }
 
@@ -399,7 +399,14 @@ div#savedColumn .btn-success {
     .leftSide{
         width: 100%;
     }
+
+    .col-xs-8.rightSide {
+        position: absolute;
+        width: 100%;
+        z-index: 300;
+    }
 }
+
 
 /*/!* Smartphones (landscape) ----------- *!/*/
 /*@media only screen and (min-width : 321px) {*/

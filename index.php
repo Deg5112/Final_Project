@@ -45,7 +45,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body ng-app="apartmentShark" ng-controller="mainController as mC">
-<!--<div resize-Attr></div>-->
+<div resize-Attr></div>
 <!--<div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark mobile is not ready just yet, it will be available soon</p></div>-->
 
 <nav class="navbar"> <!--top navigation-->

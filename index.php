@@ -265,7 +265,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 </div>
 <!--bottom navigation-->
 
-<nav class="navbar-fixed-bottom hidden-md hidden-lg" >
+<nav class="navbar-fixed-bottom hidden-lg" >
     <div class="container">
         <div class="row">
             <div class="col-xs-2 col-xs-offset-1"><a href="#" ng-click="mC.homeBool = true"><i class="bNav fa fa-home"></i></a></div>

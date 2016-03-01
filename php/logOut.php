@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
 $token = $_POST['token'];
 $logOutQuery = "DELETE FROM `auth_token` WHERE token = '$token'";

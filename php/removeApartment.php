@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
 $userId = $_POST['userId'];
 $rowId = $_POST['rowId'];

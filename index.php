@@ -50,7 +50,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 
 
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
 
         <div class="navbar-header">

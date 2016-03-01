@@ -81,15 +81,23 @@ div#noResults p {
     color: #FF3900;
 }
 
+ul.dropdown-menu .btn {
+    margin: 1% 0;
+}
 
 footer p{
     color: #E4F8FF!important;
 }
 
+ul.dropdown-menu .btn-info {
+    position: relative;
+    top: -.5em;
+}
+
 ul.dropdown-menu {
     width: 25vw;
     padding: 20%;
-    background-color: #2a1a1a;
+    background-color: #02809D !important
 }
 
 .panel-default>.panel-heading {

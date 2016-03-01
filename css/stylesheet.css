@@ -400,8 +400,12 @@ div#savedColumn .btn-success {
     cursor: pointer;
 }
 
-a:hover{
+a:hover {
     cursor: pointer;
+}
+
+span.icon-bar {
+    border: 1px solid #DBDBDB;
 }
 
 @media screen and (max-width: 767px) {

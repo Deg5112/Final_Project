@@ -266,13 +266,14 @@ header('Access-Control-Allow-Methods: GET, POST');
 <!--bottom navigation-->
 
 <nav class="navbar-fixed-bottom hidden-md hidden-lg" >
-
-    <div class="container text-center">
-        <a href="#" ng-click="mC.homeBool = true"><i class="bNav fa fa-home"></i></a>
-        <a href="#zillowStatsFull" ng-click="mC.homeBool = false"><i class="bNav fa fa-info-circle"></i></a>
-        <a href="#galleryFull" ng-click="mC.homeBool = false"><i class="bNav fa fa-picture-o"></i></a>
-        <a href="#mapsFull" ng-click="mC.homeBool = false" ><i class="bNav fa fa-map"></i></a>
-        <a href="#panoFull" ng-click="mC.homeBool = false"><i class="bNav fa fa-street-view"></i></a>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2 col-xs-offset-1"><a href="#" ng-click="mC.homeBool = true"><i class="bNav fa fa-home"></i></a></div>
+            <div class="col-xs-2"><a href="#zillowStatsFull" ng-click="mC.homeBool = false"><i class="bNav fa fa-info-circle"></i></a></div>
+            <div class="col-xs-2"><a href="#galleryFull" ng-click="mC.homeBool = false"><i class="bNav fa fa-picture-o"></i></a></div>
+            <div class="col-xs-2"><a href="#mapsFull" ng-click="mC.homeBool = false" ><i class="bNav fa fa-map"></i></a></div>
+            <div class="col-xs-2"><a href="#panoFull" ng-click="mC.homeBool = false"><i class="bNav fa fa-street-view"></i></a></div>
+        </div>
     </div>
 </nav>
 

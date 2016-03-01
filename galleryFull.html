@@ -1,5 +1,5 @@
 <div id='galFull' class="col-md-12" ng-controller="galleryController as gC" >
-    <a href="#"> <button type="button" class="btn btn-default">Back to Main View</button></a>
+    <a href="#"> <button type="button" class="btn btn-default hidden-xs hidden-sm">Back to Main View</button></a>
 
     <carousel interval="gC.interval">
         <slide ng-repeat="slide in gC.returnArray()" active="slide.active">

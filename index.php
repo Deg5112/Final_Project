@@ -40,7 +40,7 @@ header('Access-Control-Allow-Methods: GET, POST');
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
 
 
-    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/stylesheet.css">
 </head>
@@ -48,41 +48,32 @@ header('Access-Control-Allow-Methods: GET, POST');
 <div resize-Attr></div>
 <!--<div class="mobileModal" ng-show="(windowWidth<992)"><p>apartmentShark mobile is not ready just yet, it will be available soon</p></div>-->
 
-<nav class="navbar"> <!--top navigation-->
-    <div class="container-fluid">
+
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
         <div class="navbar-header">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#">apartmentShark</a>
         </div>
-        <div>
-            <ul id="navdrop" class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
-<!--                <li class="active"><a href="#">Home</a></li>-->
-<!--                <li><a href="#">Settings</a></li>-->
-                <!--show if logged in-->
 
-                <li ng-show="lC.returnLoggedInBool();" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{lC.returnUsername()}}<span class="caret"></span></a>
-                    <!-- login dropdown menu-->
-                    <ul class="dropdown-menu logoutMenu" ng-click="lC.stop($event)">
-                        <!-- login dropdown-->
-<!--                        <li><a href="#">settings</a></li>-->
-                        <li><a href="#" ng-click="lC.logout()">Log Out</a></li>
-                    </ul>
-                </li>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
 
-                        <!--username logged in end-->
+                <li ng-show="lC.returnLoggedInBool()"><a href="#" ng-click="lC.logout()">Log Out</a></li> <!--logout no dropdown-->
 
-                <li ng-hide="lC.returnLoggedInBool();" class="dropdown" >
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">LogIn<span class="caret"></span></a>
-                    <!-- login dropdown menu-->
+                <li class="dropdown" ng-hide="lC.returnLoggedInBool()">  <!--logIn with dropdown-->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>LogIn</a>
                     <ul class="dropdown-menu" ng-click="lC.stop($event)">
-                        <!-- login dropdown-->
+<!--                        dropdown for the above list item-->
 
-                        <li ng-show="lC.bool">
-
-
+                        <li ng-show="lC.bool">  <!--login form-->
                             <button type='button' class="pull-right btn-small btn-info btn-small" ng-click="lC.changeBool()">Or Register</button><h4>Login</h4>
 
                             <span id="usernameLog" ng-show="lC.badusername">{{ lC.datamessage }}</span>
@@ -103,7 +94,6 @@ header('Access-Control-Allow-Methods: GET, POST');
                             <p id="regSuccess">{{lC.regSuccessfulMessage}}</p>
                         </li>
 
-
                         <!-- register dropdown-->
                         <li ng-hide="lC.bool">
 
@@ -114,7 +104,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type="text" class="form-control" placeholder="User Name" ng-model="lC.register.userReg">
                             </div>
-<!--                            <p ng-show="">Username already exist!</p>-->
+                            <!--                            <p ng-show="">Username already exist!</p>-->
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
@@ -136,13 +126,16 @@ header('Access-Control-Allow-Methods: GET, POST');
                             <button type="button" class="btn btn-danger" ng-click="lC.clear();">Clear</button>
 
                         </li>
+
                     </ul>
                 </li>
 
             </ul>
-        </div>
+
+
+        </div><!--/.nav-collapse -->
     </div>
-</nav>
+</div>
 
 <div class="container-fluid mainContainer">
 

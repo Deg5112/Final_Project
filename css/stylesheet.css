@@ -1,6 +1,7 @@
 body{
     overflow: hidden;
     min-width: 1167px;
+    padding-top: 50px;
 }
 
 .mobileModal p {
@@ -397,6 +398,10 @@ div#savedColumn .btn-success {
     margin: 1%;
 }
 
+
+
+
+
 /* Smartphones (portrait and landscape) ----------- */
 @media screen and (max-width : 1091px) {
     /* Styles */
@@ -409,6 +414,24 @@ div#savedColumn .btn-success {
         width: 100%;
         z-index: 300;
     }
+}
+
+
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    .leftSide{
+        width: 100%;
+    }
+
+    .col-xs-8.rightSide {
+        position: absolute;
+        width: 100%;
+        z-index: 300;
+    }
+
 }
 
 

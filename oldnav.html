@@ -1,0 +1,94 @@
+<nav class="navbar"> <!--top navigation-->
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <a class="navbar-brand" href="#">apartmentShark</a>
+        </div>
+
+
+        <div id="navbarHeaderAfter">
+            <ul id="navdrop" class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
+                <!--                <li class="active"><a href="#">Home</a></li>-->
+                <!--                <li><a href="#">Settings</a></li>-->
+                <!--show if logged in-->
+
+                <li ng-show="lC.returnLoggedInBool();" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{lC.returnUsername()}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu logoutMenu" ng-click="lC.stop($event)">
+                        <li><a href="#" ng-click="lC.logout()">Log Out</a></li>
+                    </ul>
+                </li>
+
+                <!--username logged in end-->
+
+                <li ng-hide="lC.returnLoggedInBool();" class="dropdown" >
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">LogIn<span class="caret"></span></a>
+                    <!-- login dropdown menu-->
+                    <ul class="dropdown-menu" ng-click="lC.stop($event)">
+                        <!-- login dropdown-->
+
+                        <li ng-show="lC.bool">
+
+
+                            <button type='button' class="pull-right btn-small btn-info btn-small" ng-click="lC.changeBool()">Or Register</button><h4>Login</h4>
+
+                            <span id="usernameLog" ng-show="lC.badusername">{{ lC.datamessage }}</span>
+
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i> </span>
+                                <input  type="text" class="form-control" placeholder="User Name" ng-model="lC.login.userLog">
+                            </div>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> </span>
+                                <input  type="text" class="form-control" placeholder="password" ng-model="lC.login.password">
+                            </div>
+
+                            <button class="btn btn-success" type="button" ng-click="lC.loginUser(lC.login.userLog, lC.login.password)">Submit</button>
+                            <button type="button" class="btn btn-danger" ng-click="lC.clear();">Clear</button>
+                            <p id="regSuccess">{{lC.regSuccessfulMessage}}</p>
+                        </li>
+
+
+                        <!-- register dropdown-->
+                        <li ng-hide="lC.bool">
+
+                            <button type='button' class="pull-right btn-small btn-info btn-small" ng-click="lC.changeBool()">back to Login</button><h4>Register</h4>
+
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input type="text" class="form-control" placeholder="User Name" ng-model="lC.register.userReg">
+                            </div>
+                            <!--                            <p ng-show="">Username already exist!</p>-->
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i> </span>
+                                <input type="text" class="form-control" placeholder="e-mail" ng-model="lC.register.emailReg">
+                            </div>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon  glyphicon glyphicon-lock"></i> </span>
+                                <input  type="text" class="form-control" placeholder="password" ng-model="lC.register.password">
+                            </div>
+
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"> <i class="glyphicon  glyphicon glyphicon-lock"></i>  </span>
+                                <input  type="text" class="form-control" placeholder="confirm-password" ng-model="lC.register.passwordConfirm">
+                            </div>
+                            <p class="passwordMessage">{{lC.registerMessage}}</p>
+
+                            <button class="btn btn-success" type="button" ng-click="lC.registerUser(lC.register.userReg, lC.register.emailReg, lC.register.password, lC.register.passwordConfirm)">Submit</button>
+                            <button type="button" class="btn btn-danger" ng-click="lC.clear();">Clear</button>
+
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

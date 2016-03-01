@@ -85,6 +85,10 @@ ul.dropdown-menu .btn {
     margin: 1% 0;
 }
 
+a.dropdown-toggle {
+    color: white !important;
+}
+
 footer p{
     color: #E4F8FF!important;
 }

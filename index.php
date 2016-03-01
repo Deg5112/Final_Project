@@ -135,7 +135,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
         </div><!--/.nav-collapse -->
     </div>
-</div>
+</nav>
 
 <div class="container-fluid mainContainer">
 

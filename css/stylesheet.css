@@ -401,8 +401,8 @@ div#savedColumn .btn-success {
 }
 
 
-ul.dropdown-menu {
-    width: 75%;
+.navbar-nav .open .dropdown-menu {
+    width: 75% !important;
     margin: 0 auto;
 }
 

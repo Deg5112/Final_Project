@@ -51,8 +51,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 
 <nav class="navbar navbar-fixed-top" role="navigation">
-    <div class="container">
-
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -268,11 +267,11 @@ header('Access-Control-Allow-Methods: GET, POST');
 <nav class="navbar-fixed-bottom hidden-lg" >
     <div class="container">
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-1"><a href="#" ng-click="mC.homeBool = true; mC.active()"><i class="bNav fa fa-home"></i></a></div>
-            <div class="col-xs-2"><a href="#zillowStatsFull" ng-click="mC.homeBool = false; mC.active()" ><i class="bNav fa fa-info-circle"></i></a></div>
-            <div class="col-xs-2"><a href="#galleryFull" ng-click="mC.homeBool = false; mC.active()"><i class="bNav fa fa-picture-o"></i></a></div>
-            <div class="col-xs-2"><a href="#mapsFull" ng-click="mC.homeBool = false; mC.active()" ><i class="bNav fa fa-map"></i></a></div>
-            <div class="col-xs-2"><a href="#panoFull" ng-click="mC.homeBool = false; mC.active()"><i class="bNav fa fa-street-view"></i></a></div>
+            <div class="col-xs-2 col-xs-offset-1"><a href="#" ng-click="mC.homeBool = true; mC.active($event)" ><i style="color: #0036DA" class="bNav fa fa-home"></i></a></div>
+            <div class="col-xs-2"><a href="#zillowStatsFull" ng-click="mC.homeBool = false; mC.active($event)" ><i class="bNav fa fa-info-circle"></i></a></div>
+            <div class="col-xs-2"><a href="#galleryFull" ng-click="mC.homeBool = false; mC.active($event)"><i class="bNav fa fa-picture-o"></i></a></div>
+            <div class="col-xs-2"><a href="#mapsFull" ng-click="mC.homeBool = false; mC.active($event)" ><i class="bNav fa fa-map"></i></a></div>
+            <div class="col-xs-2"><a href="#panoFull" ng-click="mC.homeBool = false; mC.active($event)"><i class="bNav fa fa-street-view"></i></a></div>
         </div>
     </div>
 </nav>

@@ -401,7 +401,10 @@ div#savedColumn .btn-success {
 }
 
 
-
+ul.dropdown-menu {
+    width: 75%;
+    margin: 0 auto;
+}
 
 
 /* Smartphones (portrait and landscape) ----------- */

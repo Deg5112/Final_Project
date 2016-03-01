@@ -115,6 +115,10 @@ ul.dropdown-menu {
     margin: 7% 9%;
 }
 
+a{
+    text-decoration: none;
+}
+
 .leftSide .container-fluid .row:nth-child(2) {
 
 }

@@ -11,7 +11,7 @@
             </div>
 
             <div class="col-xs-6" >
-                <a href="#zillowStatsFull"><button type="button" class="btn btn-default">Full Screen</button></a>
+                <a href="#zillowStatsFull"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button></a>
 
                 <div id="beforeStats">
                     <a href="#"><img id='zillow-icon' src="images/zillowicon.jpg"></a>
@@ -25,9 +25,9 @@
             </div>
 
             <div class="col-xs-6" id="secondCol6" ng-controller="galleryController as gC" >
-                <a href="#galleryFull"><button type="button" class="btn btn-default">View Full Screen</button></a>
+                <a href="#galleryFull"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button></a>
 
-                <carousel interval="gC.interval" disable-animation="true">
+                <carousel interval="gC.interval" disable-animation="true" >
                     <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
                         <img ng-src="{{slide.src}}">
                     </slide>
@@ -40,14 +40,14 @@
         <div class="row" ng-controller="googleMapsController as gM">
 
             <div class="col-xs-6">
-                <a  href="#mapsFull" > <button type="button" class="btn btn-default" >Full Screen</button></a>
+                <a  href="#mapsFull" > <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button></a>
 
                 <div id="map"></div>  <!--map-->
 
             </div>
 
             <div class="col-xs-6">
-                <a  ng-click="gM.init()" href="#panoFull"><button type="button" class="btn btn-default" ng-click="gM.init()" >Full Screen</button></a>
+                <a  ng-click="gM.init()" href="#panoFull"><button type="button" class="btn btn-default" ng-click="gM.init()"><span class="glyphicon glyphicon-resize-full"></span></button></a>
 
                 <div id="pano"></div> <!--pano-->
 

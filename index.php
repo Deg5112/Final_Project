@@ -200,14 +200,12 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                             <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()" > <!--panel 1-->
 
-                                <div class="panel-heading" ng-init="panelBool=true;">
+                                <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);"><div class="panel-heading" ng-init="panelBool=true;">
 
                                     <div class="row" ng-show="panelBool"> <!--init row with title and change/remove button-->
 
                                         <div class="col-xs-6">
-                                            <h4 ng-show='panelBool' class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index);">{{sC.returnTitle($index)}}</a>
-                                            </h4>
+                                            <h4 ng-show='panelBool' class="panel-title">{{sC.returnTitle($index)}}</h4>
                                         </div>
 
 
@@ -228,7 +226,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                         </div>
                                     </div>
 
-                                </div> <!--panel heading end-->
+                                </div> <!--panel heading end--></a>
 
 
                                 <div id="{{'collapse' + (+$index +1)}}" class="panel-collapse collapse">
@@ -264,7 +262,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 </div>
 <!--bottom navigation-->
 
-<nav class="navbar-fixed-bottom hidden-lg" >
+<nav class="navbar-fixed-bottom hidden-md hidden-lg" >
     <div class="container">
         <div class="row">
             <div class="col-xs-2 col-xs-offset-1"><a href="#" ng-click="mC.homeBool = true; mC.active($event)" ><i style="color: #0036DA" class="bNav fa fa-home"></i></a></div>

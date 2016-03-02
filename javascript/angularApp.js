@@ -1,3 +1,6 @@
+$(document).ready(function() {
+    $('.carousel').carousel('pause');
+});
 var app = angular.module('apartmentShark', ['ui.bootstrap', 'ngRoute', 'ngAnimate']);
 
 app.config(function($routeProvider){

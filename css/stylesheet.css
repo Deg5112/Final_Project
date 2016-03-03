@@ -561,6 +561,7 @@ span.icon-bar {
    .navbar-fixed-bottom{
        display: none;
    }
+
 }
 
 
@@ -577,9 +578,11 @@ span.icon-bar {
         width: 100%;
         z-index: 300;
     }
-    .navbar-fixed-bottom{
-        display: block;
+
+    div#ngView button {
+        display: none !important;
     }
+
 }
 
 

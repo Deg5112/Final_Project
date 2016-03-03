@@ -85,7 +85,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i> </span>
-                                <input  type="text" class="form-control" placeholder="password" ng-model="lC.login.password">
+                                <input  type="password" class="form-control" placeholder="password" ng-model="lC.login.password">
                             </div>
 
                             <button class="btn btn-success" type="button" ng-click="lC.loginUser(lC.login.userLog, lC.login.password)">Submit</button>
@@ -112,12 +112,12 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon  glyphicon glyphicon-lock"></i> </span>
-                                <input  type="text" class="form-control" placeholder="password" ng-model="lC.register.password">
+                                <input  type="password" class="form-control" placeholder="password" ng-model="lC.register.password">
                             </div>
 
                             <div class="form-group input-group">
                                 <span class="input-group-addon"> <i class="glyphicon  glyphicon glyphicon-lock"></i>  </span>
-                                <input  type="text" class="form-control" placeholder="confirm-password" ng-model="lC.register.passwordConfirm">
+                                <input  type="password" class="form-control" placeholder="confirm-password" ng-model="lC.register.passwordConfirm">
                             </div>
                             <p class="passwordMessage">{{lC.registerMessage}}</p>
 
@@ -144,7 +144,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 <!--                <div ng-view id="ngView" class="hidden-md hidden-lg"></div>-->
 
-                        <div class="col-xs-12">
+                        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-12 col-md-pull-2 ">
                             <h2 class="text-center">Find a listing</h2>
                             <form>
                                 <div class="form-group input-group">
@@ -190,7 +190,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                     </div>
                 </div>
 
-                <div class="col-xs-12" id="savedColumn">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-12 col-md-pull-2" id="savedColumn">
 
                     <div id="savedApartments" >
                         <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>

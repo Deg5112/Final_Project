@@ -557,6 +557,13 @@ span.icon-bar {
     }
 }
 
+@media screen and (max-width: 1201px) {
+   .navbar-fixed-bottom{
+       display: none;
+   }
+}
+
+
 
 /* Smartphones (portrait and landscape) ----------- */
 @media screen and (max-width : 1091px) {
@@ -569,6 +576,9 @@ span.icon-bar {
         position: absolute;
         width: 100%;
         z-index: 300;
+    }
+    .navbar-fixed-bottom{
+        display: block;
     }
 }
 

@@ -62,13 +62,15 @@ header('Access-Control-Allow-Methods: GET, POST');
             <a class="navbar-brand" href="#">apartmentShark</a>
         </div>
 
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse" >
             <ul class="nav navbar-nav navbar-right" ng-controller="loginController as lC">
 
                 <li ng-show="lC.returnLoggedInBool()"><a href="#" ng-click="lC.logout()">Log Out</a></li> <!--logout no dropdown-->
 
+                <li ng-click="mC.showModal()"><a>About</a></li>
+
                 <li class="dropdown" ng-hide="lC.returnLoggedInBool()">  <!--logIn with dropdown-->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>LogIn</a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Login</a>
                     <ul class="dropdown-menu" ng-click="lC.stop($event)">
 <!--                        dropdown for the above list item-->
 
@@ -137,6 +139,21 @@ header('Access-Control-Allow-Methods: GET, POST');
 </nav>
 
 <div class="container-fluid mainContainer">
+    <div id="modal" ng-hide="aboutBool">
+        <div class="container-fluid">
+           <div class="row">
+               <div class="col-xs-12 col-sm-8 col-sm-offset-2 modalCol">
+                   <span class="glyphicon glyphicon-remove pull-right" ng-click="aboutBool = true"></span>
+                   <h1>Welcome to apartmentShark</h1>
+                   <p>Once you've found the apartment you want to keep track of, just plug in the address of the community/property, and let apartmentShark store apartment data, images, and navigation view for you</p>
+                   <p>To demo, click the panels below the search form to view the respective apartment on the dashboard.
+                       Register for login credentials and you can save apartments to your account!
+                   </p>
+               </div>
+           </div>
+        </div>
+        <button type="button" class="btn btn-success" ng-click="aboutBool = true">Got it!</button>
+    </div>
 
     <div class="col-xs-4 leftSide">
         <div class="container-fluid">
@@ -168,27 +185,11 @@ header('Access-Control-Allow-Methods: GET, POST');
                                 <p id="formMessage">{{fc.returnSearchMessage()}}</p>
                             </form>
                         </div>
-
             </div>
 
             <h2 class="text-center">Saved Locations</h2>
 
             <div class="row sC" ng-controller="savedController as sC">
-
-                <div id="modal" ng-show="sC.getModal()">
-
-                    <div class="container-fluid">
-                        <h1>Welcome to apartmentShark</h1>
-                        <p>Plug in an address, click search, and have the majority of your apartment hunting, organizing, appointments, location and renters information, and notes
-                            all in one place. No more jumping from one apartment site to another, never remembering where you left off, which apartment you're supposed
-                        to see this weekend, and so on!</p>
-                        <p>After finding an address for an apartment online, plug it into apartmentShark and let it do all
-                            the heavy lifting for you. view side by side comparisons of google maps street view, zillow data, images, and more.
-                        </p>
-                        <p>Register for login credentails and you can save apartments to your account</p>
-
-                    </div>
-                </div>
 
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-12 col-md-pull-2" id="savedColumn">
 

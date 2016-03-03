@@ -1,20 +1,18 @@
 app.controller('formController',  function($scope, apiService, urlCreationService, xmlToJsonService, getIdFromZillowService, modalService, loginRegisterService){
     var self = this;
     $scope.searchMessage = null;
-
     $scope.noResultsBool = true;
-
     self.currentFormInput = {};
 
     self.returnSearchMessage = function (){
       return apiService.searchMessage ;
     };
+
     //search method on this controller uses the url services to return a promise value that's used to call the api's service for maps and zillow
     self.search = function(street, city, state){
         console.log('STREET' , street);
 
         for(var x = 0; x<apiService.savedApartments.length; x++){
-
             var curStreet = street.toLowerCase();
             var curQueryStreet = apiService.savedApartments[x].searchQuery.street.toLowerCase();
             if(curQueryStreet == curStreet){
@@ -31,8 +29,6 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
         urlCreationService.createGoogleGeoCodeUrl(street, city, state).then(function(response){
 
             apiService.googleMapsApiCall(response);
-
-
             apiService.updateApartmentInDb(street, city, state, loginRegisterService.userId);
         });
 

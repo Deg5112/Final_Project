@@ -51,9 +51,10 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
 
 
     self.returnSavedApartments = function(){
+        if($scope.aboutBool){
+            return apiService.savedApartments;
+        }
         //console.log(apiService.savedApartments);
-      return apiService.savedApartments;
-
     };
 
     //self.getSavedApartments = function() {
@@ -83,6 +84,8 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index){
+
+
         apiService.searchMessage = null;
         modalService.modalBool = false;
 

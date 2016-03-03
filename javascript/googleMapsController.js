@@ -1,4 +1,4 @@
-app.controller('googleMapsController', function(apiService){
+app.controller('googleMapsController', function(apiService){  //handles small maps
     var self = this;
     self.fullMap = null;
     self.panorama = null;
@@ -14,12 +14,11 @@ app.controller('googleMapsController', function(apiService){
         self.map.setStreetView(self.panorama);
     };
 
-
     self.mapInitSmall();
 
 });
 
-app.controller('googleMapsControllerFull', function(apiService){
+app.controller('googleMapsControllerFull', function(apiService, $scope){  //separate controller for each full
     var self = this;
 
     self.mapInitFull = function(){
@@ -32,11 +31,14 @@ app.controller('googleMapsControllerFull', function(apiService){
     self.mapInitFull();
 });
 
-app.controller('googlePanoControllerFull', function(apiService){
+app.controller('googlePanoControllerFull', function(apiService, $scope){
     var self = this;
+    self.message= 'whatup';
+
     self.panoInitFull = function(){
         var panoOptions =  apiService.panoOptions;
         var panorama = new google.maps.StreetViewPanorama($('#pano2')[0], panoOptions);
+        console.log('panoooo!!!', self.panorama, 'typeofff', typeof self.panorama);
         self.fullMap.setStreetView(panorama);
     };
 

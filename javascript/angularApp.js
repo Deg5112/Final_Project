@@ -9,7 +9,7 @@ app.config(function($routeProvider){
        .when('/zillowStatsFull', {templateUrl: 'zillowFull.html'})
        .when('/galleryFull', {templateUrl: 'galleryFull.html'})
        .when('/mapsFull', {templateUrl: 'mapsFull.html', controller: 'googleMapsControllerFull'})
-       .when('/panoFull', {templateUrl: 'panoFull.html', controller: 'googlePanoControllerFull'})
+       .when('/panoFull', {templateUrl: 'panoFull.html', controller: 'googlePanoControllerFull', controllerAs: 'gC'})
        .otherwise({
            redirectTo: '/'
        });

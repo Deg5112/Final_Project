@@ -311,6 +311,12 @@ nav {
 
 }
 
+.leftSide {
+    padding-bottom: 30px;
+}
+
+
+
 .leftSide, .rightSide {
     height: 98%;
 }

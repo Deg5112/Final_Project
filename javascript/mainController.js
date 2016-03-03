@@ -21,9 +21,7 @@ app.controller('mainController', function($scope){
     }
 
     self.switchApartmentSelectedBool = function(){
-        if($scope.apartmentSelectedBool){
-            $scope.apartmentSelectedBool = false;
-        }else{
+        if(!($scope.apartmentSelectedBool)) {
             $scope.apartmentSelectedBool = true;
         }
     }

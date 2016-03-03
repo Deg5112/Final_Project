@@ -560,6 +560,7 @@ span.icon-bar {
 @media screen and (max-width: 1201px) {
    .navbar-fixed-bottom{
        display: none !important;
+       visibility: hidden !important;
    }
 
 }

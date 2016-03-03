@@ -13,11 +13,18 @@ app.controller('mainController', function($scope){
         $target.css('color', '#0036DA');
     }
     self.showModal = function(){
-
         if($scope.aboutBool){
             $scope.aboutBool = false;
         }else{
             $scope.aboutBool = true;
+        }
+    }
+
+    self.switchApartmentSelectedBool = function(){
+        if($scope.apartmentSelectedBool){
+            $scope.apartmentSelectedBool = false;
+        }else{
+            $scope.apartmentSelectedBool = true;
         }
     }
 

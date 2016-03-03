@@ -30,7 +30,6 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
                 console.log('SERVER ERROR');
             });
         }
-
     };
 
     self.remove = function(index){
@@ -84,7 +83,6 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index){
-
 
         apiService.searchMessage = null;
         modalService.modalBool = false;

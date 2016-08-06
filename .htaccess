@@ -1,1 +1,2 @@
-
+RewriteEngine On
+RewriteRule ^.*\.php$ - [F,L,NC]

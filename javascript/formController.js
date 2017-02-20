@@ -34,6 +34,7 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
 
         //get url, then convert xml response to json, then get the property id, then
         urlCreationService.zillowIDUrl(street, city, state).then(function(response){//get url
+            console.log('response', response);
             apiService.zillowGetZPID_XML(response).then(function(response){
                 //below converts xml string to object, we have the xml string
 

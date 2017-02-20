@@ -101,7 +101,7 @@ app.service('urlCreationService', function($q){
 
         //"http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&" + "address=" 2114+Bigelow+Ave&citystatezip=Seattle%2C+WA"
 
-        var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3&" + "address="+finalStreetNumber+ "citystatezip=" +cityName+ "%2C+" + state;
+        var url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=X1-ZWz1fntlg6afwr_4u6i7&" + "address="+finalStreetNumber+ "citystatezip=" +cityName+ "%2C+" + state;
         defer.resolve(url);
         return defer.promise;
 

@@ -281,9 +281,10 @@ header('Access-Control-Allow-Methods: GET, POST');
 <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
 
-<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize">-->
-<!--<script src="maps.js"></script>-->
+<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize"></script>-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns"></script>
 
+<!--                         https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"-->
 </body>
 </html>
 

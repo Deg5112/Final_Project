@@ -11,7 +11,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
        var token = self.token;
             $http({
                 data: "token="+token,
-                url: ' http://davidgoodman.club/apartmentShark/php/logOut.php',
+                url: '/php/logOut.php',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST'
             }).then(function(response){
@@ -29,7 +29,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.compareTokens = function (token){
         return $http({
             data: "token="+token,
-            url: 'http://davidgoodman.club/apartmentShark/php/compareTokens.php',
+            url: '/php/compareTokens.php',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST'
         }).success(function (response) {
@@ -78,7 +78,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.login = function(username, password){
         var data = 'username='+username+'&password='+password;
         return $http({
-            url: "http://davidgoodman.club/apartmentShark/php/login.php",
+            url: "/php/login.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: data
@@ -93,7 +93,7 @@ app.service('loginRegisterService', function($http, $log, apiService){
     self.register = function(username, email, password){
         var data = 'username='+username+'&email='+email+'&password='+password;
         return $http({
-            url: "http://davidgoodman.club/apartmentShark/php/register.php",
+            url: "/php/register.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: data

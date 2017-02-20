@@ -177,7 +177,7 @@ app.service('apiService', function($http, xmlToJsonService){
 
                 //var map2 = new google.maps.Map($('#pano')[0], self.mapOptions);
                 //var panorama2 = new google.maps.StreetViewPanorama($('#pano2')[0], self.panoOptions);
-                map.setStreetView(panorama);
+                // map.setStreetView(panorama);
                 //map2.setStreetView(panorama2);
             }, function(response){
                 console.log('failed');

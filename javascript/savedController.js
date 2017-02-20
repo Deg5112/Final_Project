@@ -32,7 +32,8 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
         }
     };
 
-    self.remove = function(index){
+    self.remove = function(index, event){
+        console.log('remove event', event);
       apiService.removeApartment(loginRegisterService.userId, index);
     };
 
@@ -82,7 +83,12 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
         }
     };
 
-    self.switchView = function(index){
+    self.switchView = function(index, event){
+        console.log('has calss', $(event.target).hasClass('btn-danger'));
+        console.log('switch view event target',event.target);
+        if($(event.target).hasClass('btn-danger')) {
+            return;
+        }
 
         apiService.searchMessage = null;
         modalService.modalBool = false;

@@ -15,6 +15,7 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
         for(var x = 0; x<apiService.savedApartments.length; x++){
             var curStreet = street.toLowerCase();
             var curQueryStreet = apiService.savedApartments[x].searchQuery.street.toLowerCase();
+            console.log('query strete',apiService.savedApartments);
             if(curQueryStreet == curStreet){
                 console.log(apiService.savedApartments[x].searchQuery.street);
                 console.log('MATCH!');

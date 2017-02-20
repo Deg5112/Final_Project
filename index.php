@@ -201,7 +201,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
                             <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()" > <!--panel 1-->
 
-                                <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index); mC.switchApartmentSelectedBool();"><div class="panel-heading" ng-init="panelBool=true;">
+                                <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index, $event); mC.switchApartmentSelectedBool();"><div class="panel-heading" ng-init="panelBool=true;">
 
                                     <div class="row" ng-show="panelBool"> <!--init row with title and change/remove button-->
 
@@ -210,7 +210,7 @@ header('Access-Control-Allow-Methods: GET, POST');
                                         </div>
 
 
-                                            <button class="btn btn-danger pull-right " ng-click="sC.remove($index)">Delete</button>
+                                            <button class="btn btn-danger pull-right " ng-click="sC.remove($index, $event)">Delete</button>
                                             <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
                                     </div>
 

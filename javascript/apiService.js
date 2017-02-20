@@ -16,7 +16,7 @@ app.service('apiService', function($http, xmlToJsonService){
         console.log(comments, index, rowId);
         var data = 'comments='+comments+'&rowId='+rowId;
         $http({
-            url: "http://davidgoodman.club/apartmentShark/php/updateComments.php",
+            url: "/php/updateComments.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: data
@@ -32,12 +32,13 @@ app.service('apiService', function($http, xmlToJsonService){
     };
 
     self.removeApartment = function(userId, index){
+        console.log('user id',userId);
         if(userId!==0){
             var rowId = self.savedApartments[index].rowId;
 
             var data = 'userId='+userId+'&rowId='+rowId;
             $http({
-                url: "http://davidgoodman.club/apartmentShark/php/removeApartment.php",
+                url: "/php/removeApartment.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
                 data: data
@@ -63,7 +64,7 @@ app.service('apiService', function($http, xmlToJsonService){
         console.log('ROWID', rowId);
         var data = 'title='+title+'&rowId='+rowId;
         return $http({
-            url: "http://davidgoodman.club/apartmentShark/php/update.php",
+            url: "/php/update.php",
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: data
@@ -79,7 +80,7 @@ app.service('apiService', function($http, xmlToJsonService){
                 console.log('zero hit!');
                 var data = 'street='+street+'&city='+city+'&state='+state+'&userId='+userId;
                 $http({
-                    url: "http://davidgoodman.club/apartmentShark/php/addApartment.php",
+                    url: "/php/addApartment.php",
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     method: 'POST',
                     data: data
@@ -119,7 +120,7 @@ app.service('apiService', function($http, xmlToJsonService){
                 var data = 'userId='+ userId;
 
             $http({
-                url: "http://davidgoodman.club/apartmentShark/php/getSavedApartments.php",
+                url: "/php/getSavedApartments.php",
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 method: 'POST',
                 data: data
@@ -188,7 +189,7 @@ app.service('apiService', function($http, xmlToJsonService){
         var urlToSend = $.param( {url: url} );
         var zpid = null;
          return $http({
-            url: 'http://davidgoodman.club/apartmentShark/php/zillow.php',
+            url: '/php/zillow.php',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             method: 'POST',
             data: urlToSend

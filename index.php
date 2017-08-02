@@ -282,7 +282,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-animate.min.js"></script>
 
 <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns&signed_in=true&callback=initialize"></script>-->
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQiyuVDFYzhXtLnYDABXLAz0elReamKns"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC2Ja3mHIQR8bURXOHCXLpAg58PN39LhpI"></script>
 
 <!--                         https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"-->
 </body>

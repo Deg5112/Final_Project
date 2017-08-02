@@ -55,8 +55,6 @@ app.controller('loginController', function($http, $log, loginRegisterService, ap
                 //update the current token in local storage
                 localStorage.setItem("AS", response.data.token);
                 apiService.getApartments(loginRegisterService.userId);
-            }else{
-
             }
         }, function(response){
 

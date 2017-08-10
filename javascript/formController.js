@@ -38,12 +38,9 @@ app.controller('formController',  function($scope, apiService, urlCreationServic
             console.log('response', response);
             apiService.zillowGetZPID_XML(response).then(function(response){
                 //below converts xml string to object, we have the xml string
-
                 var xmlObject = $.parseXML(response.data.data);
-
                //below coverts xml to json
                 var newResponse = xmlToJsonService.xmlToJson(xmlObject);
-
                 var id = getIdFromZillowService.zillowGetIdFromResponse(newResponse);
                     console.log('ZPID' , id);
                     //get this FAR!

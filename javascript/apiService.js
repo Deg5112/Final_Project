@@ -1,15 +1,28 @@
 app.service('apiService', function($http, xmlToJsonService){
-        var self = this;
-        self.imgArray = [];
-        self.facts = null;
-        self.mapOptions = null;
-        self.panoOptions = null;
-        self.map = null;
-        self.panorama = null;
-        self.savedApartments = [];
-        self.savedBool = null;
-        self.noResultsBool = false;
-        self.searchMessage = null;
+    var self = this;
+    self.imgArray = [];
+    self.facts = null;
+    self.mapOptions = null;
+    self.panoOptions = null;
+    self.map = null;
+    self.panorama = null;
+    self.savedApartments = [];
+    self.savedBool = null;
+    self.noResultsBool = false;
+    self.searchMessage = null;
+    self.loadingStatus = true;
+
+    self.getLoadingStatus = function() {
+        return self.loadingStatus;
+    };
+
+    self.getFacts = function () {
+        return self.facts;
+    };
+
+    self.getNoResultsBool = function () {
+        return self.noResultsBool;
+    };
 
     self.apiUpdateCommentsInDB = function(comments, index){
         var rowId = self.savedApartments[index].rowId;

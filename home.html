@@ -2,61 +2,45 @@
     <p>Please Select an apartment to view info</p>
 </div>
 <!--right section    when /-->
-
 <!--bigger screens  dashboard on right  hide dashboard on small screen-->
     <div class="container-fluid hidden-sm hidden-xs" >
-
         <div class="row" id="zillowRow" ng-controller="statsController as sC">
-            <div ng-show='sC.returnNoResultsBool()' id="noResults">
-                <p>We've checked with our friends at Zillow, and they have no records of this listing</p>
-                <p>The address has still been saved.</p>
-
+            <div id="zillow-loading-gif-wrap">
+                <span id="no-results">
+                    <p>We've checked with our friends at Zillow, and they have no records of this listing</p>
+                </span>
+                <!--<img id="zillow-loading-gif" src="images/giphy.png">-->
             </div>
-
             <div class="col-xs-6 smallStats" >
                 <a href="#zillowStatsFull"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button></a>
-
                 <div id="beforeStats">
                     <a href="#"><img id='zillow-icon' src="images/zillowicon.jpg"></a>
                 </div>
-
                 <ul>
                     <li ng-repeat="(key,value) in sC.stats()"><span class="glyphicon glyphicon-ok"></span>{{key}}  : {{value['#text']}}</li>
                 </ul>
-
                <hr>
             </div>
-
             <div class="col-xs-6" id="secondCol6" ng-controller="galleryController as gC" >
                 <a href="#galleryFull"><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button></a>
-
                 <carousel interval="gC.interval" disable-animation="true" >
                     <slide ng-repeat="slide in gC.returnArray()" active="slide.active">
                         <img ng-src="{{slide.src}}">
                     </slide>
                 </carousel>
             </div>
-
         </div>
-
         <!--google bottom row  , another row below for google-->
         <div class="row" ng-controller="googleMapsController as gM">
-
             <div class="col-xs-6">
                 <a  href="#mapsFull" > <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-resize-full"></span></button></a>
-
                 <div id="map"></div>  <!--map-->
-
             </div>
-
             <div class="col-xs-6">
                 <a  ng-click="gM.init()" href="#panoFull"><button type="button" class="btn btn-default" ng-click="gM.init()"><span class="glyphicon glyphicon-resize-full"></span></button></a>
-
                 <div id="pano"></div> <!--pano-->
             </div>
-
         </div>
-
     </div>
 
 <!--small main-->

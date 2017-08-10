@@ -469,12 +469,40 @@ div#savedColumn button{
     margin-right: 1%;
 }
 
+div#zillow-loading-gif-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    z-index: 30;
+}
+
+span#no-results {
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+}
+
+img#zillow-loading-gif {
+    position: absolute;
+    border: 6px solid black;
+    width: 10%;
+    z-index: 30;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 div#zillowRow {
     background-color: white !important;
     height: 50%;
+    position: relative;
 }
 
-.rightSide{
+.rightSide {
     background-color: #D1DEE1;
 }
 

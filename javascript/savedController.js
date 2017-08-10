@@ -5,8 +5,6 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     self.newTitle = null;
     self.newComments = null;
     self.savedBool = false;
-
-
     //TODO, if it's the demo account, only overwrite the model, not the database.
 
     self.updateCommentsInDB = function(comments, index){
@@ -33,7 +31,6 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.remove = function(index, event){
-        console.log('remove event', event);
       apiService.removeApartment(loginRegisterService.userId, index);
     };
 
@@ -49,12 +46,10 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
       return apiService.savedBool;
     };
 
-
     self.returnSavedApartments = function(){
         if($scope.aboutBool){
             return apiService.savedApartments;
         }
-        //console.log(apiService.savedApartments);
     };
 
     //self.getSavedApartments = function() {
@@ -70,8 +65,6 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     //    {title: 'Laguna Condo', comments: 'hello governer!', searchQuery: {street: '234 Cliff Dr', city: 'Laguna Beach', state: 'CA'}},
     //    {title: 'Monarch Coast', comments: 'hello governer!', searchQuery: {street: '32400 Crown Valley Pkwy', city: 'Dana point', state: 'CA'}}
     //];
-
-
 
     self.returnTitle = function(i){
         if(self.titleChange === null){
@@ -107,12 +100,9 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
         urlCreationService.zillowIDUrl(street, city, state).then(function(response){//get url
             apiService.zillowGetZPID_XML(response).then(function(response){
                 //below converts xml string to object, we have the xml string
-
                 var xmlObject = $.parseXML(response.data.data);
-
                 //below coverts xml to json
                 var newResponse = xmlToJsonService.xmlToJson(xmlObject);
-
                 var id = getIdFromZillowService.zillowGetIdFromResponse(newResponse);
                 console.log('ZPID' , id);
                 //get this FAR!
@@ -121,17 +111,16 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
                     //self.noResultsBool = true;
                     apiService.imgArray = [];
                     apiService.facts = null;
-                    apiService.noResultsBool = true;
+
                     return;
                 }
 
                 //console.log(id);
                 apiService.zillowGetPropInfo(id).then(function(response){
-                    apiService.noResultsBool = false;
                     $scope.imgArray = response;
                 });
             });
+
         });
     };
-
 });

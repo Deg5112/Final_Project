@@ -190,26 +190,17 @@ header('Access-Control-Allow-Methods: GET, POST');
             <h2 class="text-center">Saved Locations</h2>
 
             <div class="row sC" ng-controller="savedController as sC">
-
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-12 col-md-pull-2" id="savedColumn">
-
                     <div id="savedApartments" >
                         <div id='savedNothing' ng-show="sC.returnSavedBool()"><h4>You have nothing saved! Search for listings, and if there's a match, apartmentShark will automatically saved the apartment</h4></div>
-
                         <div ng-hide="sC.returnSavedBool()" class="panel-group" id="accordion">
                             <p>{{sC.serverErrorMessage}}</p>
-
                             <div  class="panel panel-default animateIn" ng-repeat="i in sC.returnSavedApartments()" > <!--panel 1-->
-
                                 <a data-toggle="collapse" data-parent="#accordion" href="{{'#collapse' + (+$index +1)}}" ng-click="sC.switchView($index, $event); mC.switchApartmentSelectedBool();"><div class="panel-heading" ng-init="panelBool=true;">
-
                                     <div class="row" ng-show="panelBool"> <!--init row with title and change/remove button-->
-
                                         <div class="col-xs-6">
                                             <h4 ng-show='panelBool' class="panel-title">{{sC.returnTitle($index)}}</h4>
                                         </div>
-
-
                                             <button class="btn btn-danger pull-right " ng-click="sC.remove($index, $event)">Delete</button>
                                             <button  ng-click="panelBool = !panelBool" type="button" class="btn btn-info pull-right">change title</button>
                                     </div>

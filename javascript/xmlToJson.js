@@ -1,6 +1,11 @@
 app.service('xmlToJsonService', function($q){
     var self = this;
     self.xmlToJson = function(xml) {
+
+        if (xml == null) {
+            $('#no-results').show();
+            $('#zillow-loading-gif').hide();
+        }
         // Create the return object
         var obj = {};
 

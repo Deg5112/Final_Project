@@ -248,6 +248,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 <!--right section  ngview for big screen-->
     <div class="col-xs-8 rightSide" ng-hide="windowWidth<1092 && mC.homeBool">
+<!--        <div id="gif">-->
+<!--            <img src="http://www.projefe.com/en/projefe/urun/loading.gif">-->
+<!--        </div>-->
         <div class="noApartmentSelectedModal" ng-hide="apartmentSelectedBool">
             <p>Please select an apartment to view info</p>
         </div>

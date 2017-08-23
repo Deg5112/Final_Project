@@ -77,6 +77,9 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
     };
 
     self.switchView = function(index, event){
+        var $gif = $('#gif')
+        $gif.show();
+
         console.log('has calss', $(event.target).hasClass('btn-danger'));
         console.log('switch view event target',event.target);
         if($(event.target).hasClass('btn-danger')) {
@@ -118,6 +121,7 @@ app.controller('savedController', function($scope, apiService, urlCreationServic
                 //console.log(id);
                 apiService.zillowGetPropInfo(id).then(function(response){
                     $scope.imgArray = response;
+                    $gif.hide();
                 });
             });
 

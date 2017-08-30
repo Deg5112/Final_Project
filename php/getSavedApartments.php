@@ -5,10 +5,12 @@ header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
 //ob_start();
 
-$userId = $_POST['userId'];
+$userId = mysqli_real_escape_string($conn, $_POST['userId']);
 
 $apartmentsQuery = "SELECT * FROM `apartments` WHERE user_id = $userId";
 $result = mysqli_query($conn, $apartmentsQuery);
+
+$responseArray = [];
 if (mysqli_num_rows($result)>0) {
     while ($row = mysqli_fetch_assoc($result)) {
         $apartments[] = $row;

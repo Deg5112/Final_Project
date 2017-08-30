@@ -2,8 +2,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
-$userId = $_POST['userId'];
-$rowId = $_POST['rowId'];
+$userId = mysqli_real_escape_string($conn, $_POST['userId']);
+$rowId = mysqli_real_escape_string($conn, $_POST['rowId']);
 
 $removeQuery = "DELETE FROM `apartments` WHERE id = $rowId";
 $removeResult = mysqli_query($conn, $removeQuery);

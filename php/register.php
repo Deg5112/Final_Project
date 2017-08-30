@@ -3,14 +3,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
 
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 
-//echo '<pre>';
-//echo $username.' '.$email.'  '.$password;
-//echo '</pre>';
-//
 $checkIfUsernameExist = "SELECT `username` FROM `users` WHERE `username` = '$username'";
 $checkIfEmailExist = "SELECT `email` FROM `users` WHERE `email` = '$email'";
 $insertQuery = "INSERT INTO `users`(`username`, `password`, `email`) VALUES ('$username', '$password', '$email')";

@@ -2,9 +2,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
-$rowId = $_POST['rowId'];
-$comments = $_POST['comments'];
-
+$rowId = mysqli_real_escape_string($conn, $_POST['rowId']);
+$comments = mysqli_real_escape_string($conn, $_POST['comments']);
 
 $updateCommentsQuery = "UPDATE `apartments` SET `comments`= '$comments' WHERE id=$rowId";
 $commentResult = mysqli_query($conn, $updateCommentsQuery);

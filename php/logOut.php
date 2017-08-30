@@ -2,7 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 require('connect.php');
-$token = $_POST['token'];
+$token = mysqli_real_escape_string($conn, $_POST['token']);
 $logOutQuery = "DELETE FROM `auth_token` WHERE token = '$token'";
 
 $result = mysqli_query($conn, $logOutQuery);

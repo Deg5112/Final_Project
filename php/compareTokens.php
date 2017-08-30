@@ -3,7 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 
 require('connect.php');
-$curToken = $_POST['token']; //token from client
+$curToken = mysqli_real_escape_string($conn, $_POST['token']); //token from client
 
 $tokenQuery = "SELECT * FROM `auth_token` WHERE `token` = '$curToken'";
 $tokenResult = mysqli_query($conn, $tokenQuery); //result here would be an object

@@ -1,7 +1,2 @@
-The final project of LearningFuze Bootcamp is supposed to a be a project that encompassess everything from front to backend skills, as well as an application that is ever-evolving and something that solved a problem. I call this app, apartmentShark;
-
-For me, I was going through an apartment hunt at the time, and found it quite painful that I had to go to 4-5 different websites to compare apartments, locations, statistics, and could never remember where I left off on my hunt. So I created an app that stores gives you a side by side by side by side comparison of an apartments features, pictures, location, and street view, and lets you save apartments you want to remember to check back up on, or show friends or perhaps a significant other. 
-
-A challenge I had was not being able to send zillow javascript ajax request, which I had to figure out how to do in PHP with cURL request. Another challenge is Zillow and other sites don't let you use their search feature for apartments, but let you pull data once you have already found the address. In the future, I'll be looking forward to adding a chrome extension, so you can add apartments to the app without even having the app open. Also, i'll be looking at a google calendar integration so you can submit calendar appointments from the app directly, to help remember which apartments you have showings for, and sync up your notes with what will be on your google calendar.
-
-This was done entirely in AngularJS, and I'm excited to get deeper into angular as I move forward  with this project
+Apartment App to save addresses and quickly cycle between potential listings and leave notes about them. It's basically an apartment diary
+Written in Javascript(w/ Angular.js) PHP, and Mysql

@@ -15,10 +15,7 @@ app.service('getIdFromZillowService', function($q){
             }
 
             if( Array.isArray(result) ) {
-                for(var i = 0; i < result.length; i++){
-                    zpid = result[i]['zpid']['#text'];
-                    return zpid;
-                }
+              return result[0]['zpid'];
             }
         }else{
             zpid = null;

@@ -232,7 +232,7 @@ app.service('apiService', function($http, xmlToJsonService){
 
                 for(var i = 0; i < imageArray.length; i++){
                     $listIndicator = $('<li>').attr('data-target', '#myCarousel').attr('data-slide-to', i);
-                    var src = imageArray[i]['#text'];
+                    var src = imageArray[i];
                     //$scope.srcArray.push(src);
                     var imgObj = {};
                     //$img = $('<img>')  .attr('src', src).css({width: '100%', height: '100%'});

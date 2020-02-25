@@ -253,9 +253,9 @@ app.service('apiService', function($http, xmlToJsonService){
             var factsObject = newResponse['UpdatedPropertyDetails:updatedPropertyDetails']['response']['editedFacts'];
             delete factsObject.useCode;
             self.facts = factsObject;
-                return;
+            return;
 
-            });
-        };
+        });
+      };
 });
 

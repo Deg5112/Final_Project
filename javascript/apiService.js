@@ -213,7 +213,7 @@ app.service('apiService', function($http, xmlToJsonService){
         var $div = null;
         var $img = null;
         var $listIndicator = null;
-        var url = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1fy14xfmebv_6sext&zpid=" + zpid;
+        var url = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm?zws-id=X1-ZWz1f1y483y2ob_3l8b3" + zpid;
         var urlToSend = $.param( {url: url} );
         return $http({
             url: "/php/zillowGetPropInfo.php",

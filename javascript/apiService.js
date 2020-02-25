@@ -26,7 +26,7 @@ app.service('apiService', function($http, xmlToJsonService){
 
     self.apiUpdateCommentsInDB = function(comments, index){
         var rowId = self.savedApartments[index].rowId;
-        console.log(comments, index, rowId);
+
         var data = 'comments='+comments+'&rowId='+rowId;
         $http({
             url: "/php/updateComments.php",
@@ -45,8 +45,7 @@ app.service('apiService', function($http, xmlToJsonService){
     };
 
     self.removeApartment = function(userId, index){
-        console.log('user id',userId);
-        if(userId!==0){
+        if(userId !== 0){
             var rowId = self.savedApartments[index].rowId;
 
             var data = 'userId='+userId+'&rowId='+rowId;
@@ -84,14 +83,10 @@ app.service('apiService', function($http, xmlToJsonService){
         });
     };
 
-
-
     self.updateApartmentInDb = function(street, city, state, userId){
-            console.log('USER ID' , userId);
-
             if(userId !== 0){
-                console.log('zero hit!');
                 var data = 'street='+street+'&city='+city+'&state='+state+'&userId='+userId;
+
                 $http({
                     url: "/php/addApartment.php",
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -113,7 +108,8 @@ app.service('apiService', function($http, xmlToJsonService){
                 }, function(response){
 
                 });
-            }else{
+            }
+            else{
                 var apartment = {
                     title: street,
                     comments: null,
@@ -121,8 +117,6 @@ app.service('apiService', function($http, xmlToJsonService){
                 };
                 self.savedApartments.unshift(apartment);
             }
-
-
         };
 
         //sends request to server to fetch saved apartments
@@ -166,9 +160,6 @@ app.service('apiService', function($http, xmlToJsonService){
                  self.serverErrorMessage = response.error[0] + ' server error please try again';
              });
         };
-
-
-
 
         self.googleMapsApiCall = function(url) {
             $http({

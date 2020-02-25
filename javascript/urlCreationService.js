@@ -47,7 +47,7 @@ app.service('urlCreationService', function($q){
 
         finalStreetNumber = finalStreetNumber + state;
 
-        var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + finalStreetNumber + "&key=AIzaSyC2Ja3mHIQR8bURXOHCXLpAg58PN39LhpI";
+        var url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + finalStreetNumber + "&key=AIzaSyCw2V4UgzW-dgs_QlZQEezbLaHlAswx1o0";
 
         defer.resolve(url);
         return defer.promise;

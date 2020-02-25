@@ -15,7 +15,7 @@ app.service('xmlToJsonService', function($q){
             var nodeName = item.nodeName;
 
             if (typeof (obj[nodeName]) == "undefined") {
-              obj[nodeName] = xml2json(item);
+              obj[nodeName] = self.xmlToJson(item);
             } else {
               if (typeof (obj[nodeName].push) == "undefined") {
                 var old = obj[nodeName];
@@ -23,7 +23,7 @@ app.service('xmlToJsonService', function($q){
                 obj[nodeName] = [];
                 obj[nodeName].push(old);
               }
-              obj[nodeName].push(xml2json(item));
+              obj[nodeName].push(self.xmlToJson(item));
             }
           }
         } else {
